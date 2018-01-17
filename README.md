@@ -1,4 +1,6 @@
-OSC's OOD Configuration
+# OSC's OOD Configuration
+
+[![Build Status](https://travis-ci.org/OSC/osc-ood-config.svg?branch=master)](https://travis-ci.org/OSC/osc-ood-config)
 
 The app configuration files used for the following OSC Open OnDemand
 deployments:

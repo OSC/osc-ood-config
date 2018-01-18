@@ -7,6 +7,6 @@
 The app configuration files used for the following OSC Open OnDemand
 deployments:
 
-- OSC OnDemand (ondemand.osc.edu)
-- AweSim (apps.awesim.org)
-- OOD Demo (ood.osc.edu)
+- OSC OnDemand (https://ondemand.osc.edu)
+- AweSim (https://apps.awesim.org)
+- OOD Demo (https://ood.osc.edu)

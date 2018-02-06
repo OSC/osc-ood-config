@@ -13,9 +13,7 @@ OOD_DASHBOARD_TITLE="AweSim Apps"
 OOD_NAVBAR_TYPE=default
 
 OOD_DASHBOARD_HEADER_IMG_LOGO="/public/logo.png"
-OOD_DASHBOARD_DOCS_URL="https://github.com/AweSim-OSC/documentation/wiki/Users"
 OOD_DASHBOARD_PASSWD_URL="https://my.osc.edu"
-OOD_DASHBOARD_DEV_DOCS_URL="https://github.com/AweSim-OSC/documentation/wiki/Developers"
 
 OOD_APP_DEVELOPMENT=0
 OOD_APP_SHARING=1

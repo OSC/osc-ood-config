@@ -2,5 +2,5 @@ name: Basic Star-CCM+ Serial Job - Owens
 host: owens
 script: pbs_script.sh
 notes: |
-  A Basic Star-CCM+ Serial Job for the OSC Oakley Cluster
+  A Basic Star-CCM+ Serial Job for the OSC Owens Cluster
   https://www.osc.edu/supercomputing/software/star_ccm

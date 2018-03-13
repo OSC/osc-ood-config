@@ -1,4 +1,4 @@
 name: (default) Simple Sequential Job
-host: oakley
+host: owens
 script: sequential_job.sh
 notes: A very basic template for a sequential job

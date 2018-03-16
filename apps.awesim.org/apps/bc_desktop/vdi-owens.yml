@@ -14,7 +14,7 @@ description: |
   - running visualization software
 cluster: "quick"
 attributes:
-  desktop: "mate"
+  desktop: "xfce"
   bc_num_slots: 1
   bc_num_hours:
     value: 8

@@ -2,7 +2,7 @@
 title: "Owens Desktop"
 cluster: "owens"
 attributes:
-  desktop: "mate"
+  desktop: "xfce"
   bc_queue: null
   bc_account:
     help: "You can leave this blank if **not** in multiple projects."

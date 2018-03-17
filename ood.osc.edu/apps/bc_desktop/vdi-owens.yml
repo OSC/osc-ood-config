@@ -14,7 +14,19 @@ description: |
   - running visualization software
 cluster: "quick"
 attributes:
-  desktop: "xfce"
+  desktop:
+    widget: select
+    label: "Desktop environment"
+    options:
+      - ["Xfce", "xfce"]
+      - ["Mate", "mate"]
+    help: |
+      This will launch either the [Xfce] or [Mate] desktop environment on the
+      [Owens cluster].
+
+      [Xfce]: https://xfce.org/
+      [Mate]: https://mate-desktop.org/
+      [Owens cluster]: https://www.osc.edu/resources/technical_support/supercomputers/owens
   bc_num_slots: 1
   bc_num_hours:
     value: 8

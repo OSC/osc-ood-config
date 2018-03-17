@@ -2,7 +2,19 @@
 title: "Owens Desktop"
 cluster: "owens"
 attributes:
-  desktop: "xfce"
+  desktop:
+    widget: select
+    label: "Desktop environment"
+    options:
+      - ["Xfce", "xfce"]
+      - ["Mate", "mate"]
+    help: |
+      This will launch either the [Xfce] or [Mate] desktop environment on the
+      [Owens cluster].
+
+      [Xfce]: https://xfce.org/
+      [Mate]: https://mate-desktop.org/
+      [Owens cluster]: https://www.osc.edu/resources/technical_support/supercomputers/owens
   bc_queue: null
   bc_account:
     help: "You can leave this blank if **not** in multiple projects."

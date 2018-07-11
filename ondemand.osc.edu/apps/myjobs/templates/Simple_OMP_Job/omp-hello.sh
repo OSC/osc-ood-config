@@ -11,6 +11,6 @@
 cp $PBS_O_WORKDIR/* $TMPDIR
 cd $TMPDIR
 export OMP_NUM_THREADS=28
-icc -O2 -openmp omp-hello.c -o omp-hello
+icc -O2 -qopenmp omp-hello.c -o omp-hello
 ./omp-hello > my_results
 cp my_results $PBS_O_WORKDIR

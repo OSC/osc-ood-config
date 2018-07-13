@@ -1,22 +1,57 @@
-#PBS -N 6pti
-#PBS -l nodes=1:ppn=28
-#PBS -l walltime=0:20:00
-
-# AMBER Example Batch Script for the Basic Tutorial in the Amber manual
-# 	Additional details at: https://www.osc.edu/supercomputing/software/amber
-
-module load amber
-# Use TMPDIR for best performance.
-cd $TMPDIR
+# AMBER 16 Example Batch Script for Owens
+#
+#PBS -N jac9999cuda.owens
+#PBS -j oe
+#PBS -m ae
+#PBS -M srb@osc.edu
+#PBS -l walltime=0:10:00
+#PBS -l nodes=1:ppn=1:gpus=1
+#PBS -S /bin/csh
+set echo
+# emit verbose details on the job's queuing.
+qstat -f $PBS_JOBID
+module load amber/16
+module load cuda/8.0.44
+module list
+echo "AMBERHOME=$AMBERHOME"
+#
 # PBS_O_WORKDIR refers to the directory from which the job was submitted.
-cp -p $PBS_O_WORKDIR/6pti.prmtop .
-cp -p $PBS_O_WORKDIR/6pti.prmcrd .
-# Running minimization for BPTI
-cat << eof > min.in
-# 200 steps of minimization, generalized Born solvent model
-&cntrl
-maxcyc=200, imin=1, cut=12.0, igb=1, ntb=0, ntpr=10,
-/
-eof
-sander -i min.in -o 6pti.min1.out -p 6pti.prmtop -c 6pti.prmcrd -r 6pti.min1.xyz
-cp -p min.in 6pti.min1.out 6pti.min1.xyz $PBS_O_WORKDIR
+echo "PBS_O_WORKDIR=$PBS_O_WORKDIR"
+cd $TMPDIR
+#
+# The file names below may need to be changed
+set MDIN=mdin9999
+set MDOUT=mdout9999
+set MDINFO=mdinfo
+set PRMTOP=prmtop
+set INPCRD=inpcrd.equil
+set REFC=refc
+set MDCRD=mdcrd
+set MDVEL=mdvel
+set MDEN=mden
+set RESTRT=restrt
+cp -p /users/appl/srb/workshops/compchem/amber/$MDIN .
+cp -p /users/appl/srb/workshops/compchem/amber/$PRMTOP .
+cp -p /users/appl/srb/workshops/compchem/amber/$INPCRD .
+cp -p /users/appl/srb/workshops/compchem/amber/$REFC .
+cp -p /users/appl/srb/workshops/compchem/amber/$RESTRT .
+cp -p /users/appl/srb/workshops/compchem/amber/$MDOUT .
+cp -p /users/appl/srb/workshops/compchem/amber/$MDINFO .
+cp -p /users/appl/srb/workshops/compchem/amber/$MDCRD .
+cp -p /users/appl/srb/workshops/compchem/amber/$MDVEL .
+cp -p /users/appl/srb/workshops/compchem/amber/$MDEN .
+#
+# pmemd.cuda uses this variable to select an available gpu;
+# this is not necessary on Owens which has only 1 gpu per node
+#setenv CUDA_VISIBLE_DEVICES `cat $PBS_GPUFILE|sed 's/.*gpu//'|paste -s -d,`
+#
+# These commands report the status of the GPUs; this is sometimes useful
+# for detecting if other batch jobs are using the GPUs properly.
+nvidia-smi
+/usr/local/cuda/5.0.35/1_Utilities/deviceQuery/deviceQuery | grep -i 'device[ 0-9]*[:(]'
+#
+# Some jobs may require the -O option on the Amber command lines below
+pmemd.cuda -i $MDIN -o $MDOUT -inf $MDINFO -p $PRMTOP -c $INPCRD -ref $REFC -x $MDCRD -v $MDVEL -e $MDEN -r $RESTRT
+ls -al
+cp -p $MDOUT $MDINFO $MDCRD $MDVEL $MDEN $RESTRT $PBS_O_WORKDIR
+cat $MDOUT

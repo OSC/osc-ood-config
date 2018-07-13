@@ -1,5 +1,5 @@
 #PBS -N serial_fluent
-#PBS -l walltime=5:00:00 
+#PBS -l walltime=5:00:00
 #PBS -l nodes=1:ppn=1
 #PBS -l software=fluent+1
 #PBS -j oe
@@ -19,13 +19,13 @@ cd $PBS_O_WORKDIR
 #
 # Copy files to $TMPDIR and move there to execute the program
 #
-cp test_input_file.cas test_input_file.dat run.input $TMPDIR
+cp inlet.cas.gz inlet.dat.gz run.input $TMPDIR
 cd $TMPDIR
 #
 # Run fluent
-fluent 3d -g < run.input  
+fluent 3d -g < run.input
 #
 # Where the file 'run.input' contains the commands you would normally
 # type in at the Fluent command prompt.
 # Finally, copy files back to your home directory
-cp *   $PBS_O_WORKDIR  
+cp *   $PBS_O_WORKDIR

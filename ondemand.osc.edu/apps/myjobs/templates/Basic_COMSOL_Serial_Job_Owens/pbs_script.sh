@@ -5,7 +5,7 @@
 #PBS -l software=comsolscript
 
 #   A Basic COMSOL Serial Job for the OSC Owens Cluster
-#   https://www.osc.edu/supercomputing/software/comsol
+#   https://www.osc.edu/resources/available_software/software_list/comsol
 
 #
 # The following lines set up the COMSOL environment

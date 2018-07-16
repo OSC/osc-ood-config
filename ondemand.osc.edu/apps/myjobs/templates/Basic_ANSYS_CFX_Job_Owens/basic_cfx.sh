@@ -7,7 +7,7 @@
 
 # A basic CFX Job
 # Further details at:
-#	https://www.osc.edu/supercomputing/software/cfx
+#	https://www.osc.edu/resources/available_software/software_list/ansys/cfx
 
 #Set up CFX environment.
 module load fluent

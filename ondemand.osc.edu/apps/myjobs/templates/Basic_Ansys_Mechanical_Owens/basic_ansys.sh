@@ -6,10 +6,10 @@
 
 # A basic Ansys Mechanical Job
 # Further details at:
-#	https://www.osc.edu/documentation/software_list/ansys_mechanical
+#	https://www.osc.edu/resources/available_software/software_list/ansys/ansys_mechanical
 
 cd $TMPDIR
-cp $PBS_O_WORKDIR/ansys.in .    
+cp $PBS_O_WORKDIR/ansys.in .
 module load ansys
 ansys < ansys.in
 cp * $PBS_O_WORKDIR

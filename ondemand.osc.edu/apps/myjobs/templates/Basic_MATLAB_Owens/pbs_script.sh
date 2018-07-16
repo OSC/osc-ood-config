@@ -4,7 +4,7 @@
 #PBS -j oe
 
 #  A Basic Parallel MATLAB Job for the OSC Owens Cluster
-#  https://www.osc.edu/supercomputing/software/matlab
+#  https://www.osc.edu/resources/available_software/software_list/matlab
 
 module load matlab
 matlab -singleCompThread -nodisplay -nodesktop < hello.m

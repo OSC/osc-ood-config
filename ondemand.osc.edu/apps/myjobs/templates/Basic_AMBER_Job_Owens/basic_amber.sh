@@ -7,6 +7,10 @@
 #PBS -l walltime=0:10:00
 #PBS -l nodes=1:ppn=1:gpus=1
 #PBS -S /bin/csh
+
+# AMBER Example Batch Script for the Basic Tutorial in the Amber manual
+# 	Additional details at: https://www.osc.edu/resources/available_software/software_list/amber
+
 set echo
 # emit verbose details on the job's queuing.
 qstat -f $PBS_JOBID

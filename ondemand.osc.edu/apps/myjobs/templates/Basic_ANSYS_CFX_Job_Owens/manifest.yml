@@ -3,4 +3,4 @@ host: owens
 script: basic_cfx.sh
 notes: |
   A Basic CFX Job for the OSC Owens Cluster
-  https://www.osc.edu/supercomputing/software/cfx
+  https://www.osc.edu/resources/available_software/software_list/ansys/cfx

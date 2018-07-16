@@ -4,6 +4,11 @@
 #PBS -j oe
 #PBS -l software=fluent+1%ansyspar+52
 #PBS -S /bin/bash
+
+# A basic FLUENT Parallel Job
+# Further details at:
+#	https://www.osc.edu/resources/available_software/software_list/ansys/fluent
+
 set echo on
 hostname
 #

@@ -2,10 +2,10 @@
 #PBS -l nodes=2:ppn=12
 #PBS -l walltime=6:00:00
 #PBS -j oe
-#PBS -S /bin/bash 
+#PBS -S /bin/bash
 
 #   A Basic OpenFOAM Parallel Job for the OSC Oakley Cluster
-#   https://www.osc.edu/supercomputing/software/openfoam
+#   https://www.osc.edu/resources/available_software/software_list/openfoam
 
 # Initialize OpenFOAM on Oakley Cluster
 # This only works if you are using default modules
@@ -17,6 +17,6 @@ blockMesh
 #Decompose the mesh for parallel run
 decomposePar
 #Run the solver
-mpiexec simpleFoam -parallel 
+mpiexec simpleFoam -parallel
 #Reconstruct the parallel results
 reconstructPar

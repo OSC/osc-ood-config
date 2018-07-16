@@ -3,4 +3,4 @@ host: owens
 script: fluent.sh
 notes: |
   A Basic Fluent Parallel Job for the OSC Owens Cluster
-  https://www.osc.edu/supercomputing/software/fluent
+  https://www.osc.edu/resources/available_software/software_list/ansys/fluent

@@ -6,7 +6,7 @@
 
 # A basic FLUENT Serial Job
 # Further details available at:
-# 	https://www.osc.edu/supercomputing/software/fluent
+# 	https://www.osc.edu/resources/available_software/software_list/ansys/fluent
 
 #
 # The following lines set up the FLUENT environment

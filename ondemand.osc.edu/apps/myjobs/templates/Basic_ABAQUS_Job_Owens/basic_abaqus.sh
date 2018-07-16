@@ -6,7 +6,7 @@
 #
 # The following lines set up the ABAQUS environment
 # Further Details at
-#	https://www.osc.edu/supercomputing/software/abaqus
+#	https://www.osc.edu/resources/available_software/software_list/abaqus
 #
 module load abaqu
 #

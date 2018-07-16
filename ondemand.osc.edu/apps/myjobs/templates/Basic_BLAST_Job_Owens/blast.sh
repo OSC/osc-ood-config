@@ -5,7 +5,7 @@
 #PBS -j oe
 
 # A Basic BLAST Job for the OSC Owens Cluster
-# https://www.osc.edu/supercomputing/software/blast
+# https://www.osc.edu/resources/available_software/software_list/blast
 
 module load blast
 set -x

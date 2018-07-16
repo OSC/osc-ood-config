@@ -13,10 +13,10 @@ export MV2_ENABLE_AFFINITY=0
 
 cd $PBS_O_WORKDIR
 
-pbsdcp hybridprogram $TMPDIR
+pbsdcp hello.c $TMPDIR
 
 cd $TMPDIR
 
-mpiexec -ppn 1 hybridprogram
+mpiexec -ppn 1 hello.c
 
 pbsdcp -g 'results*' $PBS_O_WORKDIR

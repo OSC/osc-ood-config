@@ -2,3 +2,4 @@ name: Simple Abaqus Job
 host: owens
 script: abaqus_job.sh
 notes: A Simple Abaqus Job
+    https://www.osc.edu/resources/available_software/software_list/abaqus

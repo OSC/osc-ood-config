@@ -1,5 +1,5 @@
-name: Sample QChem Job
+name: Sample Q-Chem Job
 host: owens
 script: sample.sh
 notes: This is a sample script for running a basic Q-Chem job. Replace 'sample' with the actual name of your input file.
-   https://www.osc.edu/resources/available_software/software_list/abaqus
+   https://www.osc.edu/resources/available_software/software_list/q_chem

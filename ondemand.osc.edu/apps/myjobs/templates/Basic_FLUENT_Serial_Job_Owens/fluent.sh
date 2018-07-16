@@ -19,11 +19,11 @@ cd $PBS_O_WORKDIR
 #
 # Copy files to $TMPDIR and move there to execute the program
 #
-cp inlet.cas.gz inlet.dat.gz run.input $TMPDIR
+cp room.cas room.dat room.txt $TMPDIR
 cd $TMPDIR
 #
 # Run fluent
-fluent 3d -g < run.input
+fluent 3d -g < room.txt
 #
 # Where the file 'run.input' contains the commands you would normally
 # type in at the Fluent command prompt.

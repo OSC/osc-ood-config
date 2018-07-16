@@ -2,7 +2,7 @@
 #PBS -l walltime=1:00:00
 #PBS -l nodes=2:ppn=28
 #PBS -j oe
-#PBS -W x=GRES:fluent+1%ansyspar+52
+#PBS -l software=fluent+1%ansyspar+52
 #PBS -S /bin/bash
 set echo on
 hostname
@@ -25,4 +25,4 @@ export ncpus=`cat pnodes | wc -l`
 
 #
 #   Run fluent
-fluent 3d -t$ncpus -pinfiniband.ofed -cnf=pnodes -g < fluent_driven.jou.gz
+fluent 3d -t$ncpus -pinfiniband.ofed -cnf=pnodes -g < fluent_driven.jou

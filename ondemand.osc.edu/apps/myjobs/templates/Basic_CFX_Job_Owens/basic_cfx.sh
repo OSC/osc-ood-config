@@ -16,11 +16,11 @@ module load fluent
 cd $PBS_O_WORKDIR
 
 #Copy CFX files like .def to $TMPDIR and move there to execute the program
-cp test.def $TMPDIR/
+cp MultiphaseMixer.def $TMPDIR/
 cd $TMPDIR
 
 #Run CFX in serial with test.def as input file
-cfx5solve -batch -def test.def
+cfx5solve -batch -def MultiphaseMixer.def
 
 #Finally, copy files back to your home directory
 cp  * $PBS_O_WORKDIR

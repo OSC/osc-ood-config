@@ -13,6 +13,7 @@ module swap intel gnu
 
 cd $PBS_O_WORKDIR
 
+cp /users/appl/srb/workshops/openmp/a.out .
 pbsdcp a.out $TMPDIR
 
 cd $TMPDIR

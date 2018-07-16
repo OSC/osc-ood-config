@@ -15,12 +15,12 @@ module load comsol
 # Move to the directory where the job was submitted
 #
 cd $PBS_O_WORKDIR
-cp *.m $TMPDIR
+cp Laplace.mph $TMPDIR
 cd $TMPDIR
 #
 # Run COMSOL
 #
-comsol batch mycomsol
+comsol batch -inputfile Laplace.mph
 #
 # Now, copy data (or move) back once the simulation has completed
 #

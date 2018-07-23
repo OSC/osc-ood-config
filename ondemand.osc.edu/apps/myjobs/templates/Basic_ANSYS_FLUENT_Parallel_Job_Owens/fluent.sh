@@ -2,7 +2,7 @@
 #PBS -l walltime=1:00:00
 #PBS -l nodes=2:ppn=28
 #PBS -j oe
-#PBS -l software=fluent+1%ansyspar+52
+#PBS -l software=ansys+1%ansyspar+52
 #PBS -S /bin/bash
 
 # A basic FLUENT Parallel Job
@@ -14,7 +14,7 @@ hostname
 #
 # The following lines set up the FLUENT environment
 #
-module load fluent
+module load ansys
 
 #
 # Move to the directory where the job was submitted from and

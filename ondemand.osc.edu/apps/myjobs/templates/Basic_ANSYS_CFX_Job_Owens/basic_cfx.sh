@@ -1,6 +1,6 @@
 #PBS -N serialjob_cfx
 #PBS -l walltime=1:00:00
-#PBS -l software=fluent+1
+#PBS -l software=ansys+1
 #PBS -l nodes=1:ppn=1
 #PBS -j oe
 #PBS -S /bin/bash
@@ -10,7 +10,7 @@
 #	https://www.osc.edu/resources/available_software/software_list/ansys/cfx
 
 #Set up CFX environment.
-module load fluent
+module load ansys
 
 #'cd' directly to your working directory
 cd $PBS_O_WORKDIR

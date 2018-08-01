@@ -1,5 +1,5 @@
 #PBS -N my_job
-#PBS -l walltime=20:00:00
+#PBS -l walltime=00:10:00
 #PBS -l nodes=4:ppn=28
 #PBS -j oe
 
@@ -13,10 +13,9 @@ export MV2_ENABLE_AFFINITY=0
 
 cd $PBS_O_WORKDIR
 
-pbsdcp hello.c $TMPDIR
+cp hello.c $TMPDIR
 
 cd $TMPDIR
-
-mpiexec -ppn 1 hello.c
-
-pbsdcp -g 'results*' $PBS_O_WORKDIR
+mpicc -O2 -qopenmp hello.c -o hello
+./hello > my_results
+cp my_results $PBS_O_WORKDIR

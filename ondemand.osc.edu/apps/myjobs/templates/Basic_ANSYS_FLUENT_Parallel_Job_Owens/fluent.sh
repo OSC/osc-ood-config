@@ -30,4 +30,4 @@ export ncpus=`cat pnodes | wc -l`
 
 #
 #   Run fluent
-fluent 3d -t$ncpus -pinfiniband.ofed -cnf=pnodes -g < room.txt
+fluent 3d -t$ncpus -pinfiniband.ofed -cnf=pnodes -g -i < room.txt

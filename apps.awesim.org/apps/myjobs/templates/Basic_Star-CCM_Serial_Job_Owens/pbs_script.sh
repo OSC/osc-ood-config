@@ -1,19 +1,19 @@
-#PBS -N star-ccm_test  
-#PBS -l walltime=10:00:00  
-#PBS -l nodes=1:ppn=1  
+#PBS -N star-ccm_test
+#PBS -l walltime=10:00:00
+#PBS -l nodes=1:ppn=1
 #PBS -l software=starccm+1
 #PBS -j oe
 #PBS -S /bin/bash
 
 #   A Basic Star-CCM+ Serial Job for the OSC Owens Cluster
-#   https://www.osc.edu/supercomputing/software/star_ccm
+#   https://www.osc.edu/resources/available_software/software_list/star_ccm
 
-cd $TMPDIR  
+cd $TMPDIR
 
-cp $PBS_O_WORKDIR/starccm.sim . 
+cp $PBS_O_WORKDIR/starccm.sim .
 
-module load starccm  
+module load starccm
 
-starccm+ -batch starccm.sim >&output.txt  
+starccm+ -batch starccm.sim >&output.txt
 
 cp output.txt $PBS_O_WORKDIR

@@ -1,12 +1,12 @@
-#PBS -N starccm_test 
-#PBS -l walltime=3:00:00 
+#PBS -N starccm_test
+#PBS -l walltime=3:00:00
 #PBS -l nodes=2:ppn=28
 #PBS -W x=GRES:starccm+1%starccmpar+56
 #PBS -j oe
 #PBS -S /bin/bash
 
 #   A Basic Star-CCM+ Parallel Job for the OSC Owens Cluster
-#   https://www.osc.edu/supercomputing/software/star_ccm
+#   https://www.osc.edu/resources/available_software/software_list/star_ccm
 
 cd $PBS_0_WORKDIR
 

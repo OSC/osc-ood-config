@@ -1,4 +1,0 @@
-name: Simple Abaqus Job
-host: owens
-script: abaqus_job.sh
-notes: A Simple Abaqus Job

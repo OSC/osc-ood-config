@@ -4,7 +4,7 @@
 #PBS -l software=appname
 
 #   A Basic Octave Job for the OSC Oakley Cluster
-#   https://www.osc.edu/supercomputing/software/octave
+#   https://www.osc.edu/resources/available_software/software_list/octave
 
 module load octave
 

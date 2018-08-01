@@ -4,7 +4,7 @@
 #PBS -j oe
 
 #   A Basic MATLAB Job for the OSC Oakley Cluster
-#   https://www.osc.edu/supercomputing/software/matlab
+#   https://www.osc.edu/resources/available_software/software_list/matlab
 
 module load matlab
 matlab -nodisplay -nodesktop < hello.m

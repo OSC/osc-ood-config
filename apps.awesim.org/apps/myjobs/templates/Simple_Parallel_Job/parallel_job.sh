@@ -1,5 +1,5 @@
-#PBS -N my_job
-#PBS -l walltime=10:00:00
+#PBS -N myscript
+#PBS -l walltime=00:10:00
 #PBS -l nodes=4:ppn=28
 #PBS -j oe
 
@@ -8,15 +8,11 @@
 # module command. The module swap is necessary on Owens when running MPI programs built with a
 # compiler other than Intel.
 #   https://www.osc.edu/supercomputing/batch-processing-at-osc/job-scripts
+module load openmpi
 
-module swap intel gnu
-
-cd $PBS_O_WORKDIR
-
-pbsdcp a.out $TMPDIR
-
+cp $PBS_O_WORKDIR/* $TMPDIR
 cd $TMPDIR
-
-mpiexec a.out
-
-pbsdcp -g 'results*' $PBS_O_WORKDIR
+export OMP_NUM_THREADS=28
+mpicc -O2 myscript.c -o myscript
+./myscript > my_results
+cp my_results $PBS_O_WORKDIR

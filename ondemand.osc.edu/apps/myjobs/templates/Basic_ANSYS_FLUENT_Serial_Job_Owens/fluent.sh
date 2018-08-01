@@ -19,11 +19,11 @@ cd $PBS_O_WORKDIR
 #
 # Copy files to $TMPDIR and move there to execute the program
 #
-cp room.cas room.dat room.txt $TMPDIR
+cp /users/oscgen/xwang/Fluent/Demo_tmi_fluent/test.* run.input $TMPDIR
 cd $TMPDIR
 #
 # Run fluent
-fluent 3d -g < room.txt
+fluent 3d -g < run.input
 #
 # Where the file 'run.input' contains the commands you would normally
 # type in at the Fluent command prompt.

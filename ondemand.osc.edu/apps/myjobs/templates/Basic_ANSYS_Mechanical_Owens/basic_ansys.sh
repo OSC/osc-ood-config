@@ -1,5 +1,5 @@
 #PBS -N ansys_test
-#PBS -l walltime=30:00:00
+#PBS -l walltime=00:10:00
 #PBS -l nodes=1:ppn=1
 #PBS -l software=ansys+1
 #PBS -j oe

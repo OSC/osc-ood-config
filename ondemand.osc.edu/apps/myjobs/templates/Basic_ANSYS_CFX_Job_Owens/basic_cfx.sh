@@ -12,15 +12,13 @@
 #Set up CFX environment.
 module load ansys
 
-#'cd' directly to your working directory
-cd $PBS_O_WORKDIR
-
 #Copy CFX files like .def to $TMPDIR and move there to execute the program
-cp MultiphaseMixer.def $TMPDIR/
 cd $TMPDIR
+cp /users/oscgen/xwang/CFX/test.def  .
+
 
 #Run CFX in serial with test.def as input file
-cfx5solve -batch -def MultiphaseMixer.def
+cfx5solve -batch -def test.def 
 
 #Finally, copy files back to your home directory
 cp  * $PBS_O_WORKDIR

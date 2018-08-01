@@ -1,4 +1,4 @@
-#PBS -N 6pti
+#PBS -N ondemand/sys/myjobs/basic_amber
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=0:20:00
 

@@ -2,4 +2,4 @@ name: Simple Parallel Job
 host: owens
 script: parallel_job.sh
 notes: >
-        Here is an example of an MPI job that uses 4 nodes with 28 cores each, running one process per core (112 processes total). This assumes a.out was built with the gnu compiler in order to illustrate the module command. The module swap is necessary on Owens when running MPI programs built with a compiler other than Intel.
+        Here is an example of an MPI job that uses 4 nodes with 28 cores each, running one process per core (112 processes total).

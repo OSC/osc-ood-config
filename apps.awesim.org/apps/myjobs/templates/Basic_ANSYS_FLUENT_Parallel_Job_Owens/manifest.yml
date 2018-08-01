@@ -1,6 +1,6 @@
-name: Basic Fluent Parallel Job - Owens
+name: Basic ANSYS Fluent Parallel Job - Owens
 host: owens
 script: fluent.sh
 notes: |
-  A Basic Fluent Parallel Job for the OSC Owens Cluster
+  A Basic ANSYS Fluent Parallel Job for the OSC Owens Cluster
   https://www.osc.edu/resources/available_software/software_list/ansys/fluent

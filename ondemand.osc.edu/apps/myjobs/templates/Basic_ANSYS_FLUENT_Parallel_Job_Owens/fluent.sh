@@ -1,4 +1,4 @@
-#PBS -N parallel_fluent
+#PBS -N ondemand/sys/myjobs/basic_ansys_fluent_parallel
 #PBS -l walltime=00:10:00
 #PBS -l nodes=2:ppn=28
 #PBS -j oe

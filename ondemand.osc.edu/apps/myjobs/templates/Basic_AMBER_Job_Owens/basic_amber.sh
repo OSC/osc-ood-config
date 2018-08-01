@@ -1,4 +1,4 @@
-#PBS -N jac1000
+#PBS -N ondemand/sys/myjobs/basic_amber
 #PBS -j oe
 #PBS -l walltime=0:10:00
 #PBS -l nodes=2:ppn=12

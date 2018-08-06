@@ -6,6 +6,14 @@
 #   A Basic MATLAB Job for the OSC Oakley Cluster
 #   https://www.osc.edu/resources/available_software/software_list/matlab
 
+# load MATLAB module
 module load matlab
+
+# transfer MATLAB script file to TMPDIR
+cd $PBS_O_WORKDIR
+cp hello.m $TMPDIR
+cd $TMPDIR
+
+# run MATLAB script
 matlab -nodisplay -nodesktop < hello.m
 # end of example file

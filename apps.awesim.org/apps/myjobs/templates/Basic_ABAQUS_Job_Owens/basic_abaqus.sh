@@ -4,9 +4,10 @@
 #PBS -l software=abaqus+5
 #PBS -j oe
 #
+# A Basic Abaqus Job for the OSC Owens Cluster
+# https://www.osc.edu/resources/available_software/software_list/abaqus
+#
 # The following lines set up the ABAQUS environment
-# Further Details at
-#	https://www.osc.edu/resources/available_software/software_list/abaqus
 #
 module load abaqus
 #

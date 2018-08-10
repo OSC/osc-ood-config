@@ -1,4 +1,4 @@
-#PBS -N sample_qchem_job
+#PBS -N ondemand/sys/myjobs/basic_qchem
 #PBS -l walltime=0:59:00
 #PBS -S /bin/csh
 #PBS -j oe

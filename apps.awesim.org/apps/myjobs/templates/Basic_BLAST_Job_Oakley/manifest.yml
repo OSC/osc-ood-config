@@ -3,4 +3,4 @@ host: oakley
 script: blast.sh
 notes: |
   A Basic BLAST Job for the OSC Oakley Cluster
-  https://www.osc.edu/supercomputing/software/blast
+  https://www.osc.edu/resources/available_software/software_list/blast

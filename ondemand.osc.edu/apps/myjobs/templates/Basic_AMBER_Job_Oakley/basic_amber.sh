@@ -1,9 +1,9 @@
-#PBS -N 6pti
+#PBS -N ondemand/sys/myjobs/basic_amber
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=0:20:00
 
 # AMBER Example Batch Script for the Basic Tutorial in the Amber manual
-# 	Additional details at: https://www.osc.edu/supercomputing/software/amber
+# 	Additional details at: https://www.osc.edu/resources/available_software/software_list/amber
 
 module load amber
 # Use TMPDIR for best performance.

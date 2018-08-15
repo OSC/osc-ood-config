@@ -1,11 +1,11 @@
-#PBS -N serial_OpenFOAM 
-#PBS -l nodes=1:ppn=1 
-#PBS -l walltime=24:00:00 
-#PBS -j oe 
-#PBS -S /bin/bash 
+#PBS -N serial_OpenFOAM
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=24:00:00
+#PBS -j oe
+#PBS -S /bin/bash
 
 #  A Basic OpenFOAM Serial Job for the OSC Oakley Cluster
-#  https://www.osc.edu/supercomputing/software/openfoam
+#  https://www.osc.edu/resources/available_software/software_list/openfoam
 
 # Initialize OpenFOAM on Oakley Cluster
 # This only works if you are using default modules

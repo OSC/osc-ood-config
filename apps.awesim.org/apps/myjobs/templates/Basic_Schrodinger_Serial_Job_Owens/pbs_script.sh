@@ -19,9 +19,12 @@ module load schrodinger
 cd $PBS_O_WORKDIR
 pbsdcp -rp /users/PZS0002/azhu/schrodinger/tutorial/* $TMPDIR
 cd $TMPDIR
+# host=`cat $PBS_NODEFILE|head -1`
+# nproc=`cat $PBS_NODEFILE|wc -l`
 #
 # Run schrodinger
 #
+# glide -WAIT -HOST ${host}:${nproc} receptor_glide.in
 $SCHRODINGER/run xglide_mga.py inputfile.inp
 ls -l
 #

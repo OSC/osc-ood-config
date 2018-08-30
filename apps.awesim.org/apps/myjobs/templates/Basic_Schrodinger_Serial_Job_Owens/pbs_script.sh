@@ -15,16 +15,14 @@ qstat -f $PBS_JOBID
 module load schrodinger
 #
 # Move to the directory where the job was submitted
+# More information about pbsdcp: https://www.osc.edu/~troy/pbstools/man/pbsdcp
 #
 cd $PBS_O_WORKDIR
-pbsdcp -rp /users/PZS0002/azhu/schrodinger/tutorial/* $TMPDIR
+pbsdcp -p * $TMPDIR
 cd $TMPDIR
-# host=`cat $PBS_NODEFILE|head -1`
-# nproc=`cat $PBS_NODEFILE|wc -l`
 #
-# Run schrodinger
+# Run schrodinger, Schrodinger scripts source: https://www.bi.cs.titech.ac.jp/mga_glide/
 #
-# glide -WAIT -HOST ${host}:${nproc} receptor_glide.in
 $SCHRODINGER/run xglide_mga.py inputfile.inp
 ls -l
 #

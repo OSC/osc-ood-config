@@ -17,7 +17,7 @@ module load comsol
 #
 cd ${PBS_O_WORKDIR}
 echo "--- Copy Input Files to TMPDIR and Change Disk to TMPDIR"
-cp Laplace.mph $TMPDIR
+cp /usr/local/comsol/comsol52a/demo/api/beammodel/BeamModel.mph $TMPDIR
 cd $TMPDIR
 np=28
 echo "--- Running on ${np} processes (cores) on the following nodes:"
@@ -26,7 +26,7 @@ cat $PBS_NODEFILE | uniq > hostfile
 # Run COMSOL
 #
 echo "--- COMSOL run"
-comsol -nn 2 -np ${np} batch -f hostfile -mpirsh ssh -inputfile Laplace.mph -outputfile output.mph
+comsol -nn 2 -np ${np} batch -f hostfile -mpirsh ssh -inputfile BeamModel.mph -outputfile output.mph
 #
 # Now, copy data (or move) back once the simulation has completed
 #

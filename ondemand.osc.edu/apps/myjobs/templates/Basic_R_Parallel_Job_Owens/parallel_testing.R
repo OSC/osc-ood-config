@@ -45,7 +45,7 @@ invisible(stopCluster(cl_onenode))
 detachDoParallel()
  
 # version 3: use foreach (multicore)
-library(doParallel, quiet = TRUE)
+library(doParallel, quiet=TRUE)
  
 cores <- detectCores()
 cl <- makeCluster(cores)

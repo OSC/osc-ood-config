@@ -3,7 +3,6 @@
 #PBS -l walltime=0:10:00
 #PBS -l nodes=1:ppn=28
 qstat -f $PBS_JOBID
-export
 
 #   A Basic Python Serial Job for the OSC Owens Cluster
 #   https://www.osc.edu/resources/available_software/software_list/python

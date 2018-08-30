@@ -10,8 +10,8 @@
 #
 # The following lines set up the R environment
 #
-ml openmpi/1.10
-ml R/3.3.1
+module load openmpi/1.10
+module load R/3.3.1
 
 #
 # Move to the directory where the job was submitted

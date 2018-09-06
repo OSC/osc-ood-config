@@ -6,7 +6,7 @@
 #   https://www.osc.edu/resources/available_software/software_list/octave
 
 # load Octave module
-module load octave
+module load intel/16.0.8 octave/4.0.3
 
 # copy Octave script to TMPDIR
 cd $PBS_O_WORKDIR

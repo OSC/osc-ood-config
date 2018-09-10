@@ -10,7 +10,7 @@
 set echo
 # emit verbose details on the job's queuing.
 qstat -f $PBS_JOBID
-module load amber/16
+module load intel/17.0.7  mvapich2/2.3 amber/18
 echo "AMBERHOME=$AMBERHOME"
 #
 # PBS_O_WORKDIR refers to the directory from which the job was submitted.

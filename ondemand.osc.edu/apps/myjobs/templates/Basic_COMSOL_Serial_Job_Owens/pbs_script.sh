@@ -15,12 +15,12 @@ module load comsol
 # Move to the directory where the job was submitted
 #
 cd $PBS_O_WORKDIR
-cp Laplace.mph $TMPDIR
+cp /usr/local/comsol/comsol52a/demo/api/beammodel/BeamModel.mph $TMPDIR
 cd $TMPDIR
 #
 # Run COMSOL
 #
-comsol batch -inputfile Laplace.mph
+comsol batch -inputfile BeamModel.mph
 #
 # Now, copy data (or move) back once the simulation has completed
 #

@@ -22,25 +22,22 @@ attributes:
     widget: select
     label: "Node type"
     help: |
-      - **any** - (*12 cores*) Chooses anyone of the available Pitzer nodes.
+      - **any** - (*40 cores*) Chooses anyone of the available Pitzer nodes.
         This reduces the wait time as you have no requirements.
-      - **vis** - (*12 cores*) This node includes an NVIDIA Tesla M2070 GPU
+      - **vis** - (*40 cores*) This node includes an NVIDIA Tesla V100 GPU
         with an X server running in the background. This allows for Hardware
         Rendering with the GPU typically needed for 3D visualization using
-        VirtualGL. There are currently only 128 of these nodes on Pitzer.
-      - **gpu** -  (*12 cores*) This node includes an NVIDIA Tesla M2070 GPU
-        allowing for CUDA computations. There are currently only 128 of these
+        VirtualGL. There are currently only 32 of these nodes on Pitzer.
+      - **gpu** - (*40 cores*) This node includes an NVIDIA Tesla V100 GPU
+        allowing for CUDA computations. There are currently only 32 of these
         nodes on Pitzer. These nodes don't start an X server, so visualization
         with hardware rendering is not possible.
-      - **bigmem** - (*12 cores*) This Pitzer node comes with 192GB of
-        available RAM. There are only 8 of these nodes on Pitzer.
-      - **hugemem** - (*32 cores*) This Pitzer node has 1TB of available RAM as
-        well as 32 cores. There is only 1 of these nodes on Pitzer. A
+      - **hugemem** - (*80 cores*) This Pitzer node has 3TB of available RAM as
+        well as 80 cores. There are only 4 of these nodes on Pitzer. A
         reservation may be required to use this node.
     options:
-      - ["any", ":ppn=12"]
-      - ["vis", ":ppn=12:vis:gpus=1"]
-      - ["gpu", ":ppn=12:gpus=1"]
-      - ["bigmem", ":ppn=12:bigmem"]
-      - ["hugemem", ":ppn=32:hugemem"]
+      - ["any", ":ppn=40"]
+      - ["vis", ":ppn=40:vis:gpus=1"]
+      - ["gpu", ":ppn=40:gpus=1"]
+      - ["hugemem", ":ppn=80:hugemem"]
 submit: submit/pbs.yml.erb

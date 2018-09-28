@@ -12,7 +12,7 @@ description: |
   - submitting jobs
   - compiling code
   - running visualization software
-cluster: "quick"
+cluster: "quick_pitzer"
 attributes:
   desktop:
     widget: select

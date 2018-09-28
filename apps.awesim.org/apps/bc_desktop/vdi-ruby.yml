@@ -12,7 +12,7 @@ description: |
   - submitting jobs
   - compiling code
   - running visualization software
-cluster: "quick"
+cluster: "quick_ruby"
 attributes:
   desktop: "gnome"
   bc_num_slots: 1

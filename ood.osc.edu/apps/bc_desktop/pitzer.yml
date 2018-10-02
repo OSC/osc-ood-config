@@ -24,11 +24,11 @@ attributes:
     help: |
       - **any** - (*40 cores*) Chooses anyone of the available Pitzer nodes.
         This reduces the wait time as you have no requirements.
-      - **vis** - (*40 cores*) This node includes an NVIDIA Tesla V100 GPU
-        with an X server running in the background. This allows for Hardware
-        Rendering with the GPU typically needed for 3D visualization using
-        VirtualGL. There are currently only 32 of these nodes on Pitzer.
-      - **gpu** - (*40 cores*) This node includes an NVIDIA Tesla V100 GPU
+      - **vis** - (*40 cores*) This requests a gpu node as described below,
+        with the addition that it starts an X server running in the background.
+        This allows for Hardware Rendering with the GPU typically needed for
+        3D visualization using VirtualGL.
+      - **gpu** - (*40 cores*) This node includes two NVIDIA Tesla V100 GPUs
         allowing for CUDA computations. There are currently only 32 of these
         nodes on Pitzer. These nodes don't start an X server, so visualization
         with hardware rendering is not possible.

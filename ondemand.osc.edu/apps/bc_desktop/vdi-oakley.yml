@@ -1,6 +1,8 @@
 ---
 title: "Oakley VDI"
 description: |
+  <div class="alert alert-warning"><strong>WARNING: Oakley is due to be retired before the end of the year. Please prepare to transition your work to one of our other clusters. If you need assistence contact <a href="mailto:oschelp@osc.edu">oschelp@osc.edu</a>.</strong>
+  </div>
   This app will launch an interactive desktop on a **shared node** that we have
   termed a Virtual Desktop Interface (VDI). This is analogous to an interactive
   login node as you will be sharing it with multiple users and you *should* be

@@ -1,5 +1,11 @@
 ---
 title: "Oakley Desktop"
+description: |
+  <div class="alert alert-warning"><strong>WARNING: Oakley is due to be retired before the end of the year. Please prepare to transition your work to one of our other clusters. If you need assistence contact <a href="mailto:oschelp@osc.edu">oschelp@osc.edu</a>.</strong>
+  </div>
+  This app will launch an interactive desktop on one or more compute nodes. You
+  will have full access to the resources these nodes provide. This is analogous
+  to an interctive batch job.
 cluster: "oakley"
 attributes:
   desktop: "gnome"

@@ -1,0 +1,6 @@
+name: Basic AMBER Job - Owens
+host: owens
+script: basic_amber.sh
+notes: |
+  A Basic Amber Job for the OSC Owens Cluster
+  https://www.osc.edu/resources/available_software/software_list/amber

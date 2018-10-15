@@ -1,0 +1,6 @@
+name: Basic Q-chem Job - Owens
+host: owens
+script: sample.sh
+notes: |
+  A Basic Q-Chem Job for the OSC Owens Cluster
+  https://www.osc.edu/resources/available_software/software_list/q_chem

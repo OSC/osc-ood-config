@@ -1,0 +1,4 @@
+name: MPI Hello World
+host: owens
+script: mpi-hello.sh
+notes: Hello MPI World in C

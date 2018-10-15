@@ -11,4 +11,4 @@ end
 # uncomment if you want to revert to the old menu
 # NavConfig.categories = ["Files", "Jobs", "Clusters", "Desktops", "Desktop Apps"]
 
-NavConfig.categories_whitelist=true
+NavConfig.categories_whitelist=true if NavConfig.respond_to?(:categories_whitelist=)

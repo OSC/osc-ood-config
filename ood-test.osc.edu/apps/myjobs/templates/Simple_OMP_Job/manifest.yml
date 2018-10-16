@@ -1,0 +1,7 @@
+name: Hello OpenMP World in C
+host: owens
+script: omp-hello.sh
+notes: >
+        Hello OpenMP World prints the number of threads and the current thread id.
+        This example uses 1 node with 28 cores, which is suitable for Owens. A similar job on Oakley would use 12 cores; the OMP_NUM_THREADS environment variable would also be set to 8. A program must be written to take advantage of multithreading for this to work.
+

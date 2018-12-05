@@ -14,6 +14,4 @@ end
 Configuration.app_development_enabled = UsrRouter.base_path.directory?
 Configuration.app_sharing_facls_enabled = true
 
-# uncomment if you want to revert to the old menu
-# NavConfig.categories = ["Files", "Jobs", "Clusters", "Desktops", "Desktop Apps"]
-# NavConfig.categories_whitelist=true
+NavConfig.categories_whitelist=true

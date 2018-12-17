@@ -3,8 +3,7 @@
 #PBS -l nodes=1:ppn=28
 #PBS -j oe
 
-# This example uses 1 node with 28 cores, which is suitable for Oakley. A similar job on Oakley would use 12 cores;
-# the OMP_NUM_THREADS environment variable would also be set to 12. A program must be written to take advantage
+# This example uses 1 node with 28 cores, which is suitable for Owens. A program must be written to take advantage
 # of multithreading for this to work.
 #   https://www.osc.edu/supercomputing/batch-processing-at-osc/job-scripts
 

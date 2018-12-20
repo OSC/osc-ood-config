@@ -1,3 +1,4 @@
 OOD_APP_DEVELOPMENT=1
 OOD_DASHBOARD_DEV_DOCS_URL="https://osc.github.io/ood-documentation/master/app-development.html"
 OOD_DEV_SSH_HOST="localhost"
+OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json:/users/reporting/storage/quota/gpfs.project_quota.json:/users/reporting/storage/quota/gpfs.scratch_quota.json

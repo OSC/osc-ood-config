@@ -1,4 +1,4 @@
-name: Basic Q-chem Job - Owens
+name: Basic Q-Chem Job - Owens
 host: owens
 script: sample.sh
 notes: |

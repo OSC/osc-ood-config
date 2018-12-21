@@ -1,10 +1,10 @@
 #PBS -N ondemand/sys/myjobs/basic_lammps_parallel
 #PBS -j oe
 #PBS -l walltime=1:00:00
-#PBS -l nodes=2:ppn=28
+#PBS -l nodes=2:ppn=40
 #PBS -S /bin/bash
 
-#  A Basic LAMMPS Parallel Job for the OSC Owens cluster
+#  A Basic LAMMPS Parallel Job for the OSC Pitzer cluster
 # https://www.osc.edu/resources/available_software/software_list/lammps
 
 # emit verbose details on the job's queuing.
@@ -14,7 +14,7 @@ qstat -f $PBS_JOBID
 #
 module load lammps
 module list
-
+export OMP_NUM_THREADS=80 # this must match nodes * ppn
 #
 # Move to the directory where the job was submitted
 #

@@ -1,0 +1,6 @@
+name: Basic GROMACS Parallel Job - Pitzer
+host: pitzer
+script: pbs_script.sh
+notes: |
+  A Basic GROMACS Parallel Job for the OSC Pitzer Cluster
+  https://www.osc.edu/resources/available_software/software_list/gromacs

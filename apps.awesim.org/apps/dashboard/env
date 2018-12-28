@@ -20,5 +20,3 @@ OOD_DASHBOARD_DEV_DOCS_URL="https://github.com/AweSim-OSC/documentation/wiki/Dev
 OOD_APP_CATALOG_URL="https://www.awesim.org/en/products/"
 OOD_APP_SHARING=1
 OOD_DEV_SSH_HOST="apps-test.awesim.org"
-
-OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json:/users/reporting/storage/quota/gpfs.project_quota.json:/users/reporting/storage/quota/gpfs.scratch_quota.json

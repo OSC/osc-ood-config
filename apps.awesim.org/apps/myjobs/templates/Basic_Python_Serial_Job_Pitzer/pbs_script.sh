@@ -4,7 +4,7 @@
 #PBS -l nodes=1:ppn=1
 qstat -f $PBS_JOBID
 
-#   A Basic Python Serial Job for the OSC Owens cluster
+#   A Basic Python Serial Job for the OSC Pitzer cluster
 #   https://www.osc.edu/resources/available_software/software_list/python
 
 #

@@ -11,7 +11,7 @@
 # The following lines set up the R environment
 #
 module load intel/18.0.3
-module load openmpi
+module load openmpi/1.10.7
 module load R/3.5.2
 
 #

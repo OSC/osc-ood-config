@@ -4,7 +4,7 @@
 #PBS -S /bin/bash
 #PBS -j oe
 
-# A Basic BLAST Job for the OSC Owens Cluster
+# A Basic BLAST Job for the OSC Pitzer Cluster
 # https://www.osc.edu/resources/available_software/software_list/blast
 
 #

@@ -1,4 +1,4 @@
-#PBS -l nodes=1:ppn=1
+#PBS -l nodes=1:ppn=40
 #PBS -l walltime=1:10:00
 #PBS -N ondemand/sys/myjobs/basic_blast
 #PBS -S /bin/bash

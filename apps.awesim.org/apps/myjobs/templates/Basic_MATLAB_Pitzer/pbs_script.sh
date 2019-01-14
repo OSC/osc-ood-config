@@ -1,6 +1,6 @@
 #PBS -N ondemand/sys/myjobs/basic_matlab
 #PBS -l walltime=00:10:00
-#PBS -l nodes=1:ppn=28
+#PBS -l nodes=1:ppn=40
 #PBS -j oe
 
 

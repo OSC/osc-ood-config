@@ -1,5 +1,5 @@
 #PBS -l nodes=1:ppn=1
-#PBS -l walltime=10:00
+#PBS -l walltime=1:10:00
 #PBS -N ondemand/sys/myjobs/basic_blast
 #PBS -S /bin/bash
 #PBS -j oe
@@ -11,6 +11,7 @@
 # The following lines set up the Blast environment
 #
 module load blast
+module load blast-database
 set -x
 #
 # Move to the directory where the job was submitted
@@ -23,7 +24,7 @@ cd $TMPDIR
 #
 # Run Blast
 #
-/usr/bin/time blastn -db nt -query 100.fasta -out test.out
+/usr/bin/time tblastn -db nt -query 100.fasta -out test.out
 #
 # Now, copy data (or move) back once the simulation has completed
 #

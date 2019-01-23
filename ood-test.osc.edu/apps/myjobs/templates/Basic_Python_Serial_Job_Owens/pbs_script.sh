@@ -1,10 +1,10 @@
 #PBS -N ondemand/sys/myjobs/basic_python_serial
 #PBS -j oe
 #PBS -l walltime=0:10:00
-#PBS -l nodes=1:ppn=28
+#PBS -l nodes=1:ppn=1
 qstat -f $PBS_JOBID
 
-#   A Basic Python Serial Job for the OSC Owens Cluster
+#   A Basic Python Serial Job for the OSC Owens cluster
 #   https://www.osc.edu/resources/available_software/software_list/python
 
 #

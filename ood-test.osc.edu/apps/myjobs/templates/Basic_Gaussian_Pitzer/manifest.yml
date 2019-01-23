@@ -1,0 +1,6 @@
+name: Basic Gaussian Job - Pitzer
+host: pitzer
+script: pbs_script.sh
+notes: |
+  A Basic Gaussian Job for the OSC Pitzer Cluster
+  https://www.osc.edu/resources/available_software/software_list/gaussian

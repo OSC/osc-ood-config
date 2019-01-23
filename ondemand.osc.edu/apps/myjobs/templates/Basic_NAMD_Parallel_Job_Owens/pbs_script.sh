@@ -11,6 +11,8 @@
 #
 # The following lines set up the NAMD environment
 #
+module load intel/16.0.8  
+module load intelmpi/5.1.3
 module load namd/2.12
 #
 # Move to the directory where the job was submitted

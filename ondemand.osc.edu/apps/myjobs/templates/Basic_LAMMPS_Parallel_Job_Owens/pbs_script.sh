@@ -14,7 +14,7 @@ qstat -f $PBS_JOBID
 #
 module load lammps
 module list
-export OMP_NUM_THREADS=24
+export OMP_NUM_THREADS=56
 export MV2_ENABLE_AFFINITY=0
 #
 # Move to the directory where the job was submitted

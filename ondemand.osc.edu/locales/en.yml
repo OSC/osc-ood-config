@@ -1,0 +1,8 @@
+en:
+  dashboard:
+    welcome_html: |
+      <p class="lead">OnDemand provides an integrated, single access point for all of your HPC resources.</p>
+      <div class="row"><div class="col-md-6"><div class="alert alert-info">
+      <strong>OSC has a job opening on the Open OnDemand team!</strong>
+      <p>Full details are available here: <a href="https://www.oh-tech.org/employment#ohio-supercomputer-center">https://www.oh-tech.org/employment#ohio-supercomputer-center</a></p>
+      </div></div></div>

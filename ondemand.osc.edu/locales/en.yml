@@ -1,6 +1,7 @@
 en:
   dashboard:
     welcome_html: |
+      %{logo_img_tag}
       <p class="lead">OnDemand provides an integrated, single access point for all of your HPC resources.</p>
       <div class="row"><div class="col-md-6"><div class="alert alert-info">
       <strong>OSC has a job opening on the Open OnDemand team!</strong>

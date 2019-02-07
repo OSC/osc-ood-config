@@ -39,7 +39,9 @@ attributes:
         reservation may be required to use this node.
     options:
       - ["any", ":ppn=40"]
-      - ["vis", ":ppn=40:vis:gpus=1"]
-      - ["gpu", ":ppn=40:gpus=1"]
+      - ["vis (1/2 gpus with X server)", ":ppn=40:vis:gpus=1"]
+      - ["vis (2/2 gpus with X server)", ":ppn=40:vis:gpus=2"]
+      - ["gpu (1/2 gpus)", ":ppn=40:gpus=1"]
+      - ["gpu (2/2 gpus)", ":ppn=40:gpus=2"]
       - ["hugemem", ":ppn=80:hugemem"]
 submit: submit/pbs.yml.erb

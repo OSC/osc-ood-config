@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l walltime=2:10:00
+#PBS -l walltime=00:30:00
 #PBS -l nodes=2:ppn=28
 #PBS -j oe
 #PBS -N ondemand/sys/myjobs/basic_r_parallel

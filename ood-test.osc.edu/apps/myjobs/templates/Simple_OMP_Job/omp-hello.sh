@@ -1,5 +1,5 @@
 #PBS -N ondemand/sys/myjobs/basic_omp
-#PBS -l walltime=1:00:00
+#PBS -l walltime=00:10:00
 #PBS -l nodes=1:ppn=28
 #PBS -j oe
 

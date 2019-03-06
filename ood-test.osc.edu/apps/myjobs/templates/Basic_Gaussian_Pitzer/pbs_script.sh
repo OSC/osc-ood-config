@@ -1,5 +1,5 @@
 #PBS -N ondemand/sys/myjobs/basic_gaussian
-#PBS -l walltime=1:00:00
+#PBS -l walltime=00:30:00
 #PBS -l nodes=1:ppn=40
 #PBS -j oe 
 #PBS -S /bin/csh

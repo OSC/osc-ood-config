@@ -1,5 +1,5 @@
 #PBS -N ondemand/sys/myjobs/basic_cuda_serial
-#PBS -l walltime=01:00:00
+#PBS -l walltime=00:10:00
 #PBS -l nodes=1:ppn=1:gpus=1
 #PBS -j oe
 

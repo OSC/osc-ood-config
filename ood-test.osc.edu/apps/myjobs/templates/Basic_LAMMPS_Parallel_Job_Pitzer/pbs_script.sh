@@ -1,6 +1,6 @@
 #PBS -N ondemand/sys/myjobs/basic_lammps_parallel
 #PBS -j oe
-#PBS -l walltime=1:00:00
+#PBS -l walltime=00:30:00
 #PBS -l nodes=2:ppn=40
 #PBS -S /bin/bash
 

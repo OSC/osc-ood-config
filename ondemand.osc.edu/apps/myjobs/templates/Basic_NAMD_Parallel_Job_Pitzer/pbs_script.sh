@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N ondemand/sys/myjobs/basic_namd_parallel
 #PBS -l nodes=2:ppn=40
-#PBS -l walltime=0:12:00
+#PBS -l walltime=00:12:00
 #PBS -S /bin/bash
 #PBS -j oe
 

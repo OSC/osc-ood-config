@@ -1,5 +1,5 @@
 #PBS -N ondemand/sys/myjobs/basic_comsol_serial
-#PBS -l walltime=1:00:00
+#PBS -l walltime=00:30:00
 #PBS -l nodes=1:ppn=1
 #PBS -j oe
 #PBS -l software=comsolscript

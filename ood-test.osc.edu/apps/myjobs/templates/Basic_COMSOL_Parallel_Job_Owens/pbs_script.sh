@@ -1,4 +1,4 @@
-#PBS -l walltime=01:00:00
+#PBS -l walltime=0:30:00
 #PBS -l nodes=2:ppn=28
 #PBS -N ondemand/sys/myjobs/basic_comsol_parallel
 #PBS -j oe

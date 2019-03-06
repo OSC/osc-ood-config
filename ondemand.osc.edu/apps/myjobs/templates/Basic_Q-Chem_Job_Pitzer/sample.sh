@@ -1,5 +1,5 @@
 #PBS -N ondemand/sys/myjobs/basic_qchem
-#PBS -l walltime=0:59:00
+#PBS -l walltime=00:30:00
 #PBS -S /bin/csh
 #PBS -j oe
 #PBS -l nodes=2:ppn=40

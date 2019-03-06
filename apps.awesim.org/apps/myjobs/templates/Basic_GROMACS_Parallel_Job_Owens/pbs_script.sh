@@ -5,7 +5,7 @@
 
 #PBS -N ondemand/sys/myjobs/basic_gromacs_parallel
 #PBS -j oe
-#PBS -l walltime=2:10:00
+#PBS -l walltime=00:30:00
 #PBS -l nodes=1:ppn=28
 #PBS -S /bin/bash
 

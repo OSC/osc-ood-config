@@ -1,5 +1,5 @@
 #PBS -N ondemand/sys/myjobs/basic_starccm_parallel
-#PBS -l walltime=3:00:00
+#PBS -l walltime=00:30:00
 #PBS -l nodes=2:ppn=28
 #PBS -l software=starccm+1%starccmpar+56
 #PBS -j oe

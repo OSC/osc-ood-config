@@ -1,6 +1,6 @@
 #PBS -N ondemand/sys/myjobs/basic_schrodinger_serial
 #PBS -j oe
-#PBS -l walltime=0:10:00
+#PBS -l walltime=00:10:00
 #PBS -l nodes=1:ppn=28
 #PBS -l software=glide+1
 #PBS -S /bin/sh

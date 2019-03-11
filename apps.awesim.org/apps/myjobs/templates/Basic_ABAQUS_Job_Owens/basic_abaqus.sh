@@ -1,5 +1,5 @@
 #PBS -N ondemand/sys/myjobs/basic_abaqus
-#PBS -l walltime=1:00:00
+#PBS -l walltime=00:45:00
 #PBS -l nodes=1:ppn=1
 #PBS -l software=abaqus+5
 #PBS -j oe

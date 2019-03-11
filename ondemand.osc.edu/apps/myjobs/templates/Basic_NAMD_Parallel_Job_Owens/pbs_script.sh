@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N ondemand/sys/myjobs/basic_namd_parallel
 #PBS -l nodes=2:ppn=28
-#PBS -l walltime=0:12:00
+#PBS -l walltime=00:12:00
 #PBS -S /bin/bash
 #PBS -j oe
 
@@ -11,6 +11,8 @@
 #
 # The following lines set up the NAMD environment
 #
+module load intel/16.0.8  
+module load intelmpi/5.1.3
 module load namd/2.12
 #
 # Move to the directory where the job was submitted

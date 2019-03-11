@@ -2,5 +2,5 @@ name: Basic LAMMPS Parallel Job - Owens
 host: owens
 script: pbs_script.sh
 notes: |
-  A Basic LAMMPS Parallel Job for the OSC Owens Cluster
+  A Basic LAMMPS Parallel Job for the OSC Owens cluster
   https://www.osc.edu/resources/available_software/software_list/lammps

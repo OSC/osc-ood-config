@@ -1,0 +1,6 @@
+name: Basic AMBER Job - Pitzer
+host: pitzer
+script: basic_amber.sh
+notes: |
+  A Basic Amber Job for the OSC Pitzer Cluster
+  https://www.osc.edu/resources/available_software/software_list/amber

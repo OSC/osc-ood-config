@@ -1,3 +1,5 @@
 vendor/bundle
 .bundle
 Gemfile.lock
+# SSHFS
+._*

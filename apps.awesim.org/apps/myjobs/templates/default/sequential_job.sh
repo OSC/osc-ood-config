@@ -11,7 +11,7 @@ cd $TMPDIR
 #
 # Run script
 #
-./myscript.sh > my_results
+sh myscript.sh > my_results
 #
 # Now, copy data (or move) back once the simulation has completed
 #

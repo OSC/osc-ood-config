@@ -3,8 +3,3 @@ en:
     welcome_html: |
       %{logo_img_tag}
       <p class="lead">OnDemand provides an integrated, single access point for all of your HPC resources.</p>
-      <div class="row"><div class="col-md-6"><div class="alert alert-info">
-      <strong>OSC Needs Your Help!</strong>
-      <p>We are conducting a survey of our users to learn more about how you use our clusters and what services you would like to see in the future. If you would like to have a say on the future direction of high performance research computing in Ohio, here is your chance!</p>
-      <p>It takes just 2 minutes to complete! You can access it here: <a target="_blank" href="https://osu.az1.qualtrics.com/jfe/form/SV_3Qtinb35JuPqrZP">https://osu.az1.qualtrics.com/jfe/form/SV_3Qtinb35JuPqrZP</a></p>
-      </div></div></div>

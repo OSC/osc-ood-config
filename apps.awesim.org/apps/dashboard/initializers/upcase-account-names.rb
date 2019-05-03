@@ -1,5 +1,5 @@
 class OodCore::Job::Script
   def accounting_id
-    @accounting_id.to_s.upcase
+    @accounting_id.upcase if @accounting_id
   end
 end

@@ -13,6 +13,8 @@ class Workflow
   end
 
   def task_count_ok?
+    return true if (job_array_request.nil? || job_array_request.empty?)
+
     OodCore::Job::ArrayIds.new(job_array_request).ids.size <= Workflow::MAX_JOB_ARRAY_TASKS
   end
 end

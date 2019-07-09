@@ -1,17 +1,13 @@
 ---
 title: "Owens VDI"
 description: |
-  This app will launch an interactive desktop on a **shared node** that we have
-  termed a Virtual Desktop Interface (VDI). This is analogous to an interactive
-  login node as you will be sharing it with multiple users and you *should* be
-  provisioned a desktop nearly immediately.
+  This app will launch an interactive desktop with one core which could be shared. It
+  is small environment for general-purpose tasks like sandboxing, prototyping,
+  viewing results and editing files.
 
-  This is meant for lightweight tasks (similar to a login node) such as:
-
-  - accessing & viewing files
-  - submitting jobs
-  - compiling code
-  - running visualization software
+  If you need dedicated resources for compute or memory intensive workloads use the 
+  [Owens Desktop](/pun/sys/dashboard/batch_connect/sys/bc_desktop/owens/session_contexts/new) 
+  app where you will have full access to them.
 cluster: "quick"
 attributes:
   desktop:

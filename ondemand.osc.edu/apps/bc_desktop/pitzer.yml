@@ -7,7 +7,7 @@ description: |
   you will have full access to all the resources on that compute node(s).
   
   If you do not need all these resources, use the 
-  [Pitzer-VDI](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi-pitzer/session_contexts/new)
+  [Pitzer VDI](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi-pitzer/session_contexts/new)
   app instead which is much more lightweight for general-purpose use cases.
 attributes:
   desktop:

@@ -2,8 +2,9 @@
 title: "Ruby VDI"
 description: |
   This app will launch an interactive desktop with one core which could be shared. It
-  is small environment for general-purpose tasks like sandboxing, prototyping,
-  viewing results and editing files.
+  is a small environment for lightweight tasks (similar to a login node) such as accessing
+  & viewing files, submitting jobs, compiling code, and running visualization software.
+  You should be provisioned a desktop nearly immediately.
 
   If you need dedicated resources for compute or memory intensive workloads use the 
   [Ruby Desktop](/pun/sys/dashboard/batch_connect/sys/bc_desktop/ruby/session_contexts/new) 

@@ -1,6 +1,14 @@
 ---
 title: "Ruby Desktop"
 cluster: "ruby"
+description: |
+  This app will launch an interactive desktop on one or more compute nodes. It is
+  a large environment for when you need a lot of compute and/or memory resources because 
+  you will have full access to all the resources on that compute node(s).
+  
+  If you do not need all these resources, use the 
+  [Ruby VDI](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi-ruby/session_contexts/new)
+  app instead which is much more lightweight for general-purpose use cases.
 attributes:
   desktop: "gnome"
   bc_queue: null

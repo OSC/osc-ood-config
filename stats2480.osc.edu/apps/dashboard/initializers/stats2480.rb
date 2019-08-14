@@ -7,6 +7,6 @@ NavConfig.categories_whitelist = true
 require 'application_controller'
 class ApplicationController
     def usr_apps
-      @usr_apps ||= SysRouter.apps.select{|app| app.name == 'bc_example_rstudio'}
+      @usr_apps ||= SysRouter.apps.select{|app| app.name == 'bc_osc_rstudio_server'}
     end
 end

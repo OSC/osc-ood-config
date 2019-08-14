@@ -1,8 +1,13 @@
 ---
 cluster: "owens"
 form:
-  - version: "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server"  # Assuming newest R available is the preference
-  - bc_account: PAS1579
-  - bc_num_hours. # The user's only choice
-  - node_type: 'any'
-  - num_cores: 1
+  - version
+  - bc_account
+  - bc_num_hours
+  - node_type
+  - num_cores
+attributes:
+  num_cores: 1
+  bc_account: "PAS1579"
+  node_type: "any"
+  version: "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server"

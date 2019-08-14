@@ -1,0 +1,16 @@
+MOTD_FORMAT="osc"
+MOTD_PATH="/etc/motd"
+
+OOD_DASHBOARD_LOGO="/public/logo.png"
+OOD_DASHBOARD_SUPPORT_URL="https://www.osc.edu/contact/supercomputing_support"
+OOD_DASHBOARD_SUPPORT_EMAIL="oschelp@osc.edu"
+
+ENABLE_NATIVE_VNC=1
+DISABLE_SAFARI_BASIC_AUTH_WARNING=1
+OOD_DASHBOARD_TITLE="OSC OnDemand: Stats2480"
+
+OOD_APP_SHARING=1
+OOD_DASHBOARD_DOCS_URL="https://www.osc.edu/ondemand"
+OOD_DASHBOARD_PASSWD_URL="https://my.osc.edu"
+
+OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json:/users/reporting/storage/quota/gpfs.project_quota.json:/users/reporting/storage/quota/gpfs.scratch_quota.json

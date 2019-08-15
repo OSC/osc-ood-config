@@ -21,9 +21,7 @@
 
 en:
   dashboard:
-    welcome_html: |
-      <p class="lead">Custom HTML can go here...</p>
-
+    welcome_html: ''  # Empty for the time being, HTML messages can go here if desired.
     shared_apps_title: "Shared Apps"
     sharing_catalog_title: "App Catalog"
     sharing_support_msg_html: ''

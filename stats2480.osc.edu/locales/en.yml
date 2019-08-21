@@ -26,9 +26,9 @@ en:
       <div class="card">
         <div class="card-body">
           <ul>
-              <li><a href="https://carmen.osc.edu">Carmen</a></li>
-              <li><a href="https://whitlockschluter.zoology.ubc.ca/">Course textbook: <em>The Analysis of Biological Data</em></a></li>
-              <li><a href="https://www.asc.ohio-state.edu/kubatko.2/courses/stat2480/">Course website</a></li>
+              <li><a href="https://carmen.osu.edu" target="_blank">Carmen</a></li>
+              <li><a href="https://whitlockschluter.zoology.ubc.ca/" target="_blank">Course textbook: <em>The Analysis of Biological Data</em></a></li>
+              <li><a href="https://www.asc.ohio-state.edu/kubatko.2/courses/stat2480/" target="_blank">Course website</a></li>
           </ul>
         </div>
       </div>

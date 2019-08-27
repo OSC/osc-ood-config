@@ -12,7 +12,7 @@ PASSWD_FILE_PATH="$(pwd)/vnc.passwd"
 notify_by_email () {
     # Change if you prefer be emailed somewhere else
     EMAIL_ADDRESS="$USER@osc.edu"
-    echo "Successfully started VNC server on $1:$2 using password: $3" | mail -s "VNC session ready" "$EMAIL_ADDRESS"
+    echo "Successfully started VNC server on $1$2 using password: $3" | mail -s "VNC session ready" "$EMAIL_ADDRESS"
 }
 
 # Create a random password for VNC use
@@ -45,8 +45,7 @@ start_vnc_session () {
       vncserver -list | awk '/^:/{system("kill -0 "$2" 2>/dev/null || vncserver -kill "$1)}'
 
       # Attempt to start VNC server
-      VNC_OUT=$(vncserver -log "vnc.log" -rfbauth "$PASSWD_FILE_PATH" -nohttpd -noxstartup -geometry 1152x720 -idletimeout 0  2>&1)
-      sleep 1
+      VNC_OUT=$(vncserver -log "$(pwd)/vnc.log" -rfbauth "$PASSWD_FILE_PATH" -nohttpd -noxstartup -geometry 1152x720 -idletimeout 0  2>&1)
       VNC_PID=$(pgrep -s 0 Xvnc) # the script above will daemonize the Xvnc process
 
       # Sometimes Xvnc hangs if it fails to find working display, we
@@ -87,29 +86,28 @@ wait_for_pid_to_end () {
 main () {
     # Optionally perform work before starting the VNC session
 
-    #
     PASSWD="$(set_vnc_passwd)"
     # Set host of current machine
     PID_PORT=$(start_vnc_session)
     PID_TO_WAIT_ON=$(echo "$PID_PORT" | cut -d ':' -f 1)
-    DISPLAY=$(echo "$PID_PORT" | cut -d ':' -f 2)
+    DISPLAY=":$(echo "$PID_PORT" | cut -d ':' -f 2)"
     # Some VNC viewers may prefer to know the port instead of the display
     PORT=$(echo "$PID_PORT" | cut -d ':' -f 3)
+
+    export DISPLAY
 
     # Send yourself an email when the VNC session starts with the hostname, DISPLAY, and VNC password
     notify_by_email "$(hostname)" "$DISPLAY" "$PASSWD"
 
-    # Start a graphical program here
-    # e.g.
-    # module load stata
-    # xstata-mp
-    # PID_TO_WAIT_ON=$(pgrep -u$USER xstata-mp)
-    
     # To be able to resize windows etc you will need a window manager
-    # The one that will take the least resources is probably Flux box
+    # The one that will take the least resources away from your other work is probably Flux box
     # An example of Flux box being used may be found here:
     # https://github.com/OSC/bc_osc_abaqus/blob/d67d5b81cff0de609957d378f0f56b5da4973bb1/template/script.sh.erb#L21-L28
-    echo 'Replace this echo with something useful.'
+
+    # Start a graphical program here
+    # e.g.
+    # xeyes &
+    # PID_TO_WAIT_ON= $(pgrep -u$USER xeyes)"
 
     wait_for_pid_to_end "$PID_TO_WAIT_ON"
 

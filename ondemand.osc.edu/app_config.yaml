@@ -1,238 +1,234 @@
+# Put custom logic in the front matter
+<%-
+user_file_system_locations = [].tap do |paths|
+  # add project space directories
+  projects = User.new.groups.map(&:name).grep(/^P./)
+  paths.concat projects.map { |p| Pathname.new("/fs/project/#{p}")  }
+
+  # add scratch space directories
+  paths << Pathname.new("/fs/scratch/#{User.new.name}")
+  paths.concat projects.map { |p| Pathname.new("/fs/scratch/#{p}")  }
+end
+-%>
 ---
-## APP_TOKEN
-# Purpose: ???
-# Type: String
-# Default:
-APP_TOKEN: null
-## BC_APP_TOKEN
-# Purpose: ???
-# Type: String
-# Default:
-BC_APP_TOKEN: null
-## BC_RENDER_FORMAT
-# Purpose: ???
-# Type: String
-# Default:
-BC_RENDER_FORMAT: null
-## DEFAULT_SSHHOST
+## default_ssh_host
 # Purpose: Used by the Shell application to provide a default if the URL does
 # not contain a hostname
 #
-#   connects to DEFAULT_SSHHOST
+#   connects to default_ssh_host
 #     https://example.com/pun/sys/shell/ssh/
 #   connects to sshhost.example.com
 #     https://example.com/pun/sys/shell/ssh/sshhost.example.com
 #   
 # Type: String or null
+# Replaces: DEFAULT_SSHHOST
 # Default: none
-DEFAULT_SSHHOST: owens.osc.edu
-## DISABLE_SAFARI_BASIC_AUTH_WARNING
+default_ssh_host: owens.osc.edu
+## disable_safari_basic_auth_warning
 # Purpose: Show a warning about using Safari, OnDemand, and Apache Basic Auth
 # Type: Boolean
+# Replaces: DISABLE_SAFARI_BASIC_AUTH_WARNING
 # Default: true
-DISABLE_SAFARI_BASIC_AUTH_WARNING: true
-## ENABLE_NATIVE_VNC
+disable_safari_basic_auth_warning: true
+## enable_native_vnc
 # Purpose: Show a panel in the Dashboard session connect view with instructions
 # on how to connect using tools other than the web browser
 # Type: Boolean
+# Replaces: ENABLE_NATIVE_VNC
 # Default: false
-ENABLE_NATIVE_VNC: true
-## FILE_UPLOAD_MAX
+enable_native_vnc: true
+## file_upload_max
 # Purpose: Limit the maximum size of files uploaded through the Files app
 # Type: Integer
+# Replaces: FILE_UPLOAD_MAX
 # Default: 10485760000 (10GB)
-FILE_UPLOAD_MAX: 10485760000
-## MOTD_FORMAT
-# Purpose: Describes the file format of the MOTD file; used to pick the rendering method
-# Type: String | null
-# Supported Values:
-#   - markdown
-#   - osc
-#   - rss
-#   - txt
-# Default: txt
-MOTD_FORMAT: osc
-## MOTD_PATH
-# Purpose: The path to the MOTD file to be displayed
-#   When the value is null the block is not displayed
-# Type: String | null
-# Default: null
-MOTD_PATH: /etc/motd
-## MOTD_TITLE
-# !!Deprecated!!: Use dashboard.motd_title in the locale file instead
-# Purpose: The title for the MOTD block
-# Type: String | null
-# Default: null
-MOTD_TITLE: null
-## ONDEMAND_VERSION
-# Purpose: ???
-# Type: String
-# Default:
-ONDEMAND_VERSION: null
-## OOD_ANNOUNCEMENT_PATH
+file_upload_max: 10485760000
+motd:
+  ## motd.format
+  # Purpose: Describes the file format of the MOTD file; used to pick the rendering method
+  # Type: String | null
+  # Supported Values:
+  #   - markdown
+  #   - osc
+  #   - rss
+  #   - txt
+  # Replaces: MOTD_FORMAT
+  # Default: txt
+  format: osc
+  ## motd.uri
+  # Purpose: The path to the MOTD file to be displayed
+  #   When the value is null the block is not displayed
+  # Replaces: MOTD_PATH
+  # Type: String | null
+  # Default: null
+  uri: file:///etc/motd
+  ## motd.title
+  # !!Deprecated!!: Use dashboard.motd_title in the locale file instead
+  # Purpose: The title for the MOTD block
+  # Type: String | null
+  # Replaces: MOTD_TITLE
+  # Default: null
+  title: null
+## announcement_path
 # Purpose: The file system path to the announcements
 # Note: Could be an array; we support usage of an announcements.d we could pull from multiple paths
-# Type: String
-# Default:
-OOD_ANNOUNCEMENT_PATH: null
-## OOD_APP_CATALOG_URL
+# Type: String | Sequence<String>
+# Replaces: OOD_ANNOUNCEMENT_PATH
+# Default: null
+announcement_path: null
+## app_catalog_url
 # Purpose: The link to the external application catalog page
 # Type: String | null
+# Replaces: OOD_APP_CATALOG_URL
 # Default: null
-OOD_APP_CATALOG_URL: null
-## OOD_APP_CONFIG_ROOT
+app_catalog_url: null
+## app_config_root
 # Purpose: The file system path to the default configuration files for specific apps
 # Note: 
 # Type: String | null
+# Replaces: OOD_APP_CONFIG_ROOT
 # Default:
-OOD_APP_CONFIG_ROOT: null
-## OOD_APP_DEVELOPMENT
+app_config_root: null
+## app_development
 # Purpose: Flag whether the developer view should be shown in the Dashboard
 # Note: Considers whether the development app directory exists in the configured path, or is a symlink; see also OOD_DEV_APPS_ROOT
 # Type: Boolean | null
+# Replaces: OOD_APP_DEVELOPMENT
 # Default: false
-OOD_APP_DEVELOPMENT: null
-## OOD_APP_SHARING
+app_development: null
+## APP_SHARING
 # Purpose: Flag whether the app sharing controls should be shown in the Dashboard
 # Type: Boolean | null
+# Replaces: OOD_APP_SHARING
 # Default: false
-OOD_APP_SHARING: false
-## OOD_BC_APP_CONFIG_ROOT
+app_sharing: false
+## BC_APP_CONFIG_ROOT
 # Purpose: The file system path to the default configuration files for Batch Connect applications
 # Type: String | null
+# Replaces: OOD_BC_APP_CONFIG_ROOT
 # Default: /etc/ood/config/apps
-OOD_BC_APP_CONFIG_ROOT: null
-## OOD_BRAND_BG_COLOR
+bc_app_config_root: null
+## brand_bg_color
 # Purpose: Color for the navbar's background (CSS colors)
 # Type: String | null
+# Replaces: OOD_BRAND_BG_COLOR
 # Default: #53565a (Grey)
-OOD_BRAND_BG_COLOR: '#6CACE4'
-## OOD_BRAND_LINK_ACTIVE_BG_COLOR
+brand_bg_color: '#6CACE4'
+## brand_link_active_bg_color
 # Purpose: Color for the navbar links' background when clicked (CSS colors)
 # Type: String | null
+# Replaces: OOD_BRAND_LINK_ACTIVE_BG_COLOR
 # Default: #3b3d3f (Darker grey)
-OOD_BRAND_LINK_ACTIVE_BG_COLOR: '#375C84'
-## OOD_DASHBOARD_2FA_URL
-# Purpose: ???
-# TODO: What is the purpose of this? If a user can see this link then they have already authenticated. If they need help with auth, then they won't be able to see this link. ???
-# Type: String | null
-# Default: null
-OOD_DASHBOARD_2FA_URL: null
-## OOD_DASHBOARD_DEV_DOCS_URL
-# Purpose: An external link to documentation on developing applications for OnDemand
-# Type: String | null
-# Default: https://go.osu.edu/ood-app-dev
-OOD_DASHBOARD_DEV_DOCS_URL: null
-## OOD_DASHBOARD_DOCS_URL
-# Purpose: An external link to documentation for OnDemand users
-# Type: String | null
-# Default: null
-OOD_DASHBOARD_DOCS_URL: https://www.osc.edu/ondemand
-## OOD_DASHBOARD_PASSWD_URL
-# Purpose: An external link to your site's password changing service
-# Type: String | null
-# Default: null
-OOD_DASHBOARD_PASSWD_URL: https://my.osc.edu
-## OOD_DASHBOARD_SUPPORT_URL
-# Purpose: An external link to your site's user support
-# Type: String | null
-# Default: null
-OOD_DASHBOARD_SUPPORT_URL: https://www.osc.edu/contact/supercomputing_support
-## OOD_DASHBOARD_HEADER_IMG_LOGO
+brand_link_active_bg_color: '#375C84'
+## dashboard_header_img_logo
 # Purpose: ???
 # Type: String | null
-# Default:
-OOD_DASHBOARD_HEADER_IMG_LOGO: null
-## OOD_DASHBOARD_LOGO
+# Replaces: OOD_DASHBOARD_HEADER_IMG_LOGO
+# Default: null
+dashboard_header_img_logo: null
+## dashboard_logo
 # Purpose: A link to an image to use in the Dashboard's header
 # Replaces: DISABLE_DASHBOARD_LOGO
+# Replaces: OOD_DASHBOARD_LOGO
 # Example: /public/logo.png
 # Type: String | null
 # Default: null
-OOD_DASHBOARD_LOGO: /public/logo.png
-## OOD_DASHBOARD_SUPPORT_EMAIL
+dashboard_logo: /public/logo.png
+## dashboard_support_email
 # Purpose: The email address for your site's user support staff
 # Type: String | null
+# Replaces: OOD_DASHBOARD_SUPPORT_EMAIL
 # Default:
-OOD_DASHBOARD_SUPPORT_EMAIL: oschelp@osc.edu
-## OOD_DASHBOARD_TITLE
+dashboard_support_email: oschelp@osc.edu
+## dashboard_title
 # Purpose: The title for your OnDemand instance; displayed on the Dashboard
 # Type: String | null
+# Replaces: OOD_DASHBOARD_TITLE
 # Default: Open OnDemand
-OOD_DASHBOARD_TITLE: OSC OnDemand
-## OOD_DATAROOT
-# TODO: revisit this
-# Purpose: ???
-# Type: String | null
-# Default:
-OOD_DATAROOT: null
-## OOD_DEV_APPS_ROOT
+dashboard_title: OSC OnDemand
+## dev_apps_root
 # Purpose: Contains the path to the user-specific development directory
 # TODO: What sets this? Do we ever want to override it? Is it always user-specific?
 # Type: String | null
+# Replaces: OOD_DEV_APPS_ROOT
 # Default: /dev/null
-OOD_DEV_APPS_ROOT: null
-## OOD_DEV_SSH_HOST
+dev_apps_root: null
+## dev_ssh_host
 # Purpose: A web node, serving OnDemand, where developers can SSH to perform development work.
 # Type: String | null
-# Default:
-OOD_DEV_SSH_HOST: ondemand-test.osc.edu
-## OOD_FILE_EDITOR
-# Purpose: A web-servable path to an alternative file editor application
-# Type: String | null
-# Default: /pun/sys/file-editor/edit
-OOD_FILE_EDITOR: null
-## OOD_LOAD_EXTERNAL_BC_CONFIG
+# Replaces: OOD_DEV_SSH_HOST
+# Default: null
+dev_ssh_host: ondemand-test.osc.edu
+## user_file_system_locations
+# Purpose: A list of file system locations that the user has access to
+# Type: Sequence<String> | null
+# Replaces: Custom Rails initializer
+# Default: null
+user_file_system_locations: &user_file_system_locations_ref
+  <% user_file_system_locations.each do |location| %>
+  - <%= location %>
+  <% end %>
+## links
+# Purpose: Define the OnDemand menu
+# Replaces:
+#   - DASHBOARD_2FA_URL
+#   - DASHBOARD_DEV_DOCS_URL
+#   - DASHBOARD_DOCS_URL
+#   - OOD_DASHBOARD_PASSWD_URL
+#   - OOD_DASHBOARD_SUPPORT_URL
+links:
+  Files: null
+  Jobs:
+    - XDMoD: { icon: "https://url/to/xdmod/.png", url: "https://xdmod.osc.edu/" }
+  Clusters: null
+  Interactive Apps: null
+  Help:
+    - Contact Support: { icon: "question-circle", url: "https://www.osc.edu/contact/supercomputing_support" }
+    - Online Documentation: { icon: "info-circle", url: "https://www.osc.edu/ondemand" }
+    - Change HPC Password: { icon: "key", url: "https://my.osc.edu/" }
+## load_external_bc_config
 # Purpose: Flags whether to load external configuration for Batch Connect apps; impacts sub apps
 # TODO: Help me understand sub apps
 # Type: Boolean | null
+# Replaces: OOD_LOAD_EXTERNAL_BC_CONFIG
 # Default: true
-OOD_LOAD_EXTERNAL_BC_CONFIG: false
-## OOD_LOAD_EXTERNAL_CONFIG
+load_external_bc_config: false
+## load_external_config
 # Purpose: Flags whether to load external configuration; includes initializers, and custom views
 # Type: Boolean | null
+# Replaces: OOD_LOAD_EXTERNAL_CONFIG
 # Default: true
-OOD_LOAD_EXTERNAL_CONFIG: false
-## OOD_LOCALE
+load_external_config: false
+## locale
 # Purpose: Sets the locale/translation to use
 # Type: String | null
+# Replaces: OOD_LOCALE
 # Default: en
-OOD_LOCALE: null
-## OOD_LOCALES_ROOT
+locale: null
+## locales_root
 # Purpose: File system path where localizations are stored
 # Type: String | null
+# Replaces: OOD_LOCALES_ROOT
 # Default: /etc/ood/config/locales
-OOD_LOCALES_ROOT: null
-## OOD_NAVBAR_TYPE
+locales_root: null
+## navbar_type
 # Purpose: The Boostrap navbar specialization
 # Type: String | null
+# Replaces: OOD_NAVBAR_TYPE
 # Default: inverse
-OOD_NAVBAR_TYPE: null
-## OOD_PORTAL
-# Purpose: ???
-# Type: String | null
-# Default:
-OOD_PORTAL: null
-## OOD_QUOTA_PATH
-# Purpose: The list of files used to specify the user's file system usage
+navbar_type: null
+## quota_path
+# Purpose: The file or list of files used to specify the user's file system usage
 # Type: Sequence<String> | null
+# Replaces: OOD_QUOTA_PATH
 # Default: null
-OOD_QUOTA_PATH:
+quota_path:
   - /users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json
   - /users/reporting/storage/quota/gpfs.project_quota.json
   - /users/reporting/storage/quota/gpfs.scratch_quota.json
-## OOD_SHELL
-# Purpose: A path to the shell app with an optional host to connect to
-# Type: String | null
-# Default: /pun/sys/shell/ssh/default (where default is DEFAULT_SSHHOST)
-OOD_SHELL: null
-## OOD_SHELL_URL
-# Purpose: A web-servable path to an alternative terminal emulator
-# Type: String | null
-# Default: /pun/sys/shell
-OOD_SHELL_URL: null
-## OOD_SSH_HOSTS
-# Purpose: ???
+## SSH_HOSTS
+# Purpose: Declares SSH hosts for apps
+#   Used by the Files app
 # Type: Sequence<Mapping<>> | null
 # Example:
 # - ssh_host: owens.osc.edu
@@ -241,21 +237,24 @@ OOD_SHELL_URL: null
 #   host_name: Ruby
 # - ssh_host: pitzer.osc.edu
 #   host_name: Pitzer
+# Replaces: OOD_SSH_HOSTS
 # Default: null
-OOD_SSH_HOSTS: null
-## POLL_DELAY
-# TODO: What units are we using? What does this do?
-# Purpose: ???
+ssh_hosts: null
+## poll_delay
+# Purpose: The Dashboard app's polling interval (milliseconds) used when checking for active Batch Connect sessions
 # Type: Integer | null
-# Default:
-POLL_DELAY: null
-## SHOW_ALL_APPS_LINK
+# Replaces: POLL_DELAY
+# Default: 10000ms
+poll_delay: null
+## show_all_apps_link
 # Purpose: Flags whether to show the all apps page in the Dashboard
 # Type: Boolean
+# Replaces: SHOW_ALL_APPS_LINK
 # Default: false
-SHOW_ALL_APPS_LINK: true
-## WHITELIST_PATH
-# Purpose: A list of path roots that users are restricted to accessing using the files app
+show_all_apps_link: true
+## whitelist_path
+# Purpose: A list of path roots that users are restricted to accessing using the Files app
 # Type: Sequence<String> | null
+# Replaces: WHITELIST_PATH
 # Default: null
-WHITELIST_PATH: null
+whitelist_path: null

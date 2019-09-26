@@ -11,6 +11,39 @@ user_file_system_locations = [].tap do |paths|
 end
 -%>
 ---
+branding:
+  ## branding.bg_color
+  # Purpose: Color for the navbar's background (CSS colors)
+  # Type: String | null
+  # Replaces: OOD_BRAND_BG_COLOR
+  # Default: #53565a (Grey)
+  bg_color: '#6CACE4'
+  ## branding.link_active_bg_color
+  # Purpose: Color for the navbar links' background when clicked (CSS colors)
+  # Type: String | null
+  # Replaces: OOD_BRAND_LINK_ACTIVE_BG_COLOR
+  # Default: #3b3d3f (Darker grey)
+  link_active_bg_color: '#375C84'
+  ## branding.dashboard_header_logo
+  # Purpose: Specify a logo to display in the header
+  # Type: String | null
+  # Replaces: OOD_DASHBOARD_HEADER_IMG_LOGO
+  # Default: null
+  dashboard_header_logo: null
+  ## branding.dashboard_logo
+  # Purpose: A link to an image to use in the Dashboard's header
+  # Replaces: DISABLE_DASHBOARD_LOGO
+  # Replaces: OOD_DASHBOARD_LOGO
+  # Example: /public/logo.png
+  # Type: String | null
+  # Default: null
+  dashboard_logo: /public/logo.png
+  ## branding.dashboard_title
+  # Purpose: The title for your OnDemand instance; displayed on the Dashboard
+  # Type: String | null
+  # Replaces: OOD_DASHBOARD_TITLE
+  # Default: Open OnDemand
+  dashboard_title: OSC OnDemand
 ## default_ssh_host
 # Purpose: Used by the Shell application to provide a default if the URL does
 # not contain a hostname
@@ -108,44 +141,12 @@ app_sharing: false
 # Replaces: OOD_BC_APP_CONFIG_ROOT
 # Default: /etc/ood/config/apps
 bc_app_config_root: null
-## brand_bg_color
-# Purpose: Color for the navbar's background (CSS colors)
-# Type: String | null
-# Replaces: OOD_BRAND_BG_COLOR
-# Default: #53565a (Grey)
-brand_bg_color: '#6CACE4'
-## brand_link_active_bg_color
-# Purpose: Color for the navbar links' background when clicked (CSS colors)
-# Type: String | null
-# Replaces: OOD_BRAND_LINK_ACTIVE_BG_COLOR
-# Default: #3b3d3f (Darker grey)
-brand_link_active_bg_color: '#375C84'
-## dashboard_header_img_logo
-# Purpose: ???
-# Type: String | null
-# Replaces: OOD_DASHBOARD_HEADER_IMG_LOGO
-# Default: null
-dashboard_header_img_logo: null
-## dashboard_logo
-# Purpose: A link to an image to use in the Dashboard's header
-# Replaces: DISABLE_DASHBOARD_LOGO
-# Replaces: OOD_DASHBOARD_LOGO
-# Example: /public/logo.png
-# Type: String | null
-# Default: null
-dashboard_logo: /public/logo.png
 ## dashboard_support_email
 # Purpose: The email address for your site's user support staff
 # Type: String | null
 # Replaces: OOD_DASHBOARD_SUPPORT_EMAIL
 # Default:
 dashboard_support_email: oschelp@osc.edu
-## dashboard_title
-# Purpose: The title for your OnDemand instance; displayed on the Dashboard
-# Type: String | null
-# Replaces: OOD_DASHBOARD_TITLE
-# Default: Open OnDemand
-dashboard_title: OSC OnDemand
 ## dev_apps_root
 # Purpose: Contains the path to the user-specific development directory
 # TODO: What sets this? Do we ever want to override it? Is it always user-specific?

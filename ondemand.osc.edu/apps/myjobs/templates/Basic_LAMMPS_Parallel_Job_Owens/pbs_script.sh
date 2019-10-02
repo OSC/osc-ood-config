@@ -14,7 +14,7 @@ qstat -f $PBS_JOBID
 #
 module load lammps
 module list
-export OMP_NUM_THREADS=56
+export OMP_NUM_THREADS=28
 export MV2_ENABLE_AFFINITY=0
 #
 # Move to the directory where the job was submitted
@@ -26,7 +26,7 @@ cd $TMPDIR
 #
 # Run LAMMPS
 #
-lammps < in.crack
+mpiexec -np 2 $LAMMPS_HOME/bin/lmp_$LAMMPS_TARGET -in in.crack
 #
 # Now, copy data (or move) back once the simulation has completed
 #

@@ -25,11 +25,31 @@ en:
       <h2 class="apps-section-header-blue">Useful links</h2>
       <div class="card">
         <div class="card-body">
-          <ul>
-              <li><a href="https://carmen.osu.edu" target="_blank">Carmen</a></li>
-              <li><a href="https://whitlockschluter.zoology.ubc.ca/" target="_blank">Course textbook: <em>The Analysis of Biological Data</em></a></li>
-              <li><a href="https://www.asc.ohio-state.edu/kubatko.2/courses/stat2480/" target="_blank">Course website</a></li>
-          </ul>
+          <section>
+            <h4>General Links</h4>
+            <ul>
+                <li><a href="https://carmen.osu.edu" target="_blank">Carmen</a></li>
+            </ul>
+          </section>
+          <section>
+            <h4>STAT 2480</h4>
+            <ul>
+                <li><a href="https://whitlockschluter.zoology.ubc.ca/" target="_blank">Course textbook: <em>The Analysis of Biological Data</em></a></li>
+                <li><a href="https://www.asc.ohio-state.edu/kubatko.2/courses/stat2480/" target="_blank">Course website</a></li>
+            </ul>
+          </section>
+          <section>
+            <h4>STAT 3202</h4>
+            <ul>
+                <li>TODO</li>
+            </ul>
+          </section>
+          <section>
+            <h4>STAT 5730</h4>
+            <ul>
+                <li>TODO</li>
+            </ul>
+          </section>
         </div>
       </div>
       <h2 class="apps-section-header-blue">Interactive Apps</h2>
@@ -38,7 +58,7 @@ en:
           <a class="thumbnail app" href="/pun/sys/dashboard/batch_connect/sys/bc_osc_rstudio_server/form/session_contexts/new">
             <div class="center-block" style="text-align: center">
               <img class="app-icon" src="/pun/sys/dashboard/apps/icon/bc_osc_rstudio_server" alt="Bc osc rstudio server">
-              <p>RStudio Server: Stats 2480</p>
+              <p>RStudio Server: Stats</p>
             </div>
           </a>
        </div>

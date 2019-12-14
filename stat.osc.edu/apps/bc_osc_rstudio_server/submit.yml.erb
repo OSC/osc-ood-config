@@ -1,0 +1,10 @@
+---
+batch_connect:
+  template: "basic"
+script:
+  <%- if project.present? -%>
+  accounting_id: <%= project %>
+  <%- end -%>
+  native:
+    resources:
+      nodes: "1:ppn=1"

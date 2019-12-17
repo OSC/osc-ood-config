@@ -1,0 +1,34 @@
+<%-
+
+groups = OodSupport::Process.groups.map(&:name)
+classes = {
+  "STAT 2480" => "PAS1641",
+  "STAT 3202" => "PAS1644",
+  "STAT 5730" => "PAS1642",
+}.select { |k,v| groups.include?(v) }
+
+-%>
+---
+cluster: "owens"
+form:
+  - version
+  - bc_num_hours
+  - node_type
+  - num_cores
+  - project
+  - include_tutorials
+attributes:
+  num_cores: 1
+  <% unless classes.empty? %>
+  project:
+    widget: "select"
+    help: "For given class, an associated OSC project will be charged for this session."
+    options:
+      <%- classes.each do |class_name, account| -%>
+      - [ "<%= class_name %> (<%= account %>)", "<%= account %>" ]
+      <%- end -%>
+  <% end %>
+  node_type: "any"
+  version: "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server"
+  include_tutorials: "0"
+submit: submit.yml.erb

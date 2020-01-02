@@ -41,13 +41,14 @@ en:
           <section>
             <h4>STAT 3202</h4>
             <ul>
-                <li>TODO</li>
+                <li>Course textbook: Mathematical Statistics with Applications, 7th edition, by Wackerly, Mendenhall, and Scheaffer</li>
             </ul>
           </section>
           <section>
             <h4>STAT 5730</h4>
             <ul>
-                <li>TODO</li>
+                <li><a href="https://r4ds.had.co.nz/" target="_blank">Course textbook: R for Data Science, by Wickham and Grolemund</a></li>
+                <li><a href="https://osu.instructure.com/courses/72932" target="_blank">Course website</a></li>
             </ul>
           </section>
         </div>

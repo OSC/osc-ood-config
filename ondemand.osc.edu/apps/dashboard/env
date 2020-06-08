@@ -20,7 +20,7 @@ SHOW_ALL_APPS_LINK=1
 OOD_DEV_SSH_HOST="ondemand-test.osc.edu"
 
 # enable quota feature
-OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json:/users/reporting/storage/quota/gpfs.project_quota.json:/users/reporting/storage/quota/gpfs.scratch_quota.json
+OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json:/users/reporting/storage/quota/gpfs.project_quota.json:/users/reporting/storage/quota/gpfs.scratch_quota.json:/users/reporting/storage/quota/gpfs.ess_quota.json
 
 # enable balance feature
 OOD_BALANCE_PATH=/users/reporting/oscus/negbal-warning-production.json

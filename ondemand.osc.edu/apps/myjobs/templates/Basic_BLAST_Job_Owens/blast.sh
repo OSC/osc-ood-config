@@ -1,31 +1,38 @@
-#PBS -l nodes=1:ppn=1
-#PBS -l walltime=00:45:00
-#PBS -N ondemand/sys/myjobs/basic_blast
-#PBS -S /bin/bash
-#PBS -j oe
+#!/bin/bash
+#PBS -N "rfm_blast_tblast_example_job"
+#PBS -o rfm_blast_tblast_example_job.out
+#PBS -e rfm_blast_tblast_example_job.err
+#PBS -l walltime=0:10:0
+#PBS -A PZS0710
+#PBS -l nodes=1:ppn=28
+#PBS -q debug
 
-# A Basic BLAST Job for the OSC Owens Cluster
-# https://www.osc.edu/resources/available_software/software_list/blast
-
-#
-# The following lines set up the Blast environment
-#
-module load blast
-module load blast-database
-set -x
-#
-# Move to the directory where the job was submitted
-#
 cd $PBS_O_WORKDIR
-mkdir $PBS_JOBID
+module load blast-database/2018-08
+module load blast
+
+
+# Check module environment
+module list
+echo MODULEPATH=$MODULEPATH 1>&2
+
+ 
+#
+# Copy input data to the fast file system
+#
 cp 100.fasta $TMPDIR
 cd $TMPDIR
 
 #
-# Run Blast
+# Run tblastn with 16 threads
+# compares a protein query sequence against a nucleotide sequence database
+# dynamically translated in all six reading frames (both strands).
 #
-/usr/bin/time tblastn -db nt -query 100.fasta -out test.out
+tblastn -db nt -query 100.fasta -num_threads 16 -out 100_tblastn.out
+
 #
 # Now, copy data (or move) back once the simulation has completed
 #
-cp test.out $PBS_O_WORKDIR/$PBS_JOBID
+cp 100_tblastn.out $PBS_O_WORKDIR/
+
+

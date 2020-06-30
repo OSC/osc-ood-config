@@ -3,7 +3,4 @@ en:
     welcome_html: |
       %{logo_img_tag}
       <p class="lead">OnDemand provides an integrated, single access point for all of your HPC resources.</p>
-    balance_message: "%{unit} balance has an estimated %{value} days remaining"
-    balance_additional_message: ''
-    balance_reload_message_html: "If your project is on-going ask your PI about requesting an additional allocation."
     nav_help_custom: Manage Federated Identity

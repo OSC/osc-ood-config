@@ -12,6 +12,7 @@
     "STAT 5730"     => "PAS1642",
     "ANTHRO 9982"   => "PAS1723",
     "TDAI Workshop" => "PAS1732",
+    "OSC Workshop"  => "PZS0687",
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
@@ -22,6 +23,7 @@
     "STAT 5730"     => "#{old_modules} class/STAT5730",
     "ANTHRO 9982"   => "#{new_modules} class/ANTHROP9982",
     "TDAI Workshop" => "#{new_modules} class/TDAI",
+    "OSC Workshop"  => "#{new_modules} class/OSCWORKSHOP"
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>
@@ -38,6 +40,9 @@ form:
 attributes:
   num_cores: 1
   node_type: "any"
+  <%- if  classes.empty? -%>
+  version: "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive"
+  <%- else -%>
   version:
     widget: "select"
     label: "Class Materials"
@@ -46,6 +51,7 @@ attributes:
       - [ "<%= class_name %>", "<%= class_modules %>" ]
     <%- end -%>
     required: true
+  <%- end -%>
   include_tutorials: "0"
   staff:
     widget: "check_box"

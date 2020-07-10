@@ -7,6 +7,7 @@ const account_lookup = {
   "STAT5730":      "PAS1642",
   "ANTHROP9982":   "PAS1723",
   "TDAI":          "PAS1732",
+  "OSCWORKSHOP":   "PZS0687",
 }
 
 var staff = false;

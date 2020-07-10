@@ -1,11 +1,28 @@
 <%-
 
-groups = OodSupport::Process.groups.map(&:name)
-classes = {
-  "STAT 2480" => "PAS1641",
-  "STAT 3202" => "PAS1644",
-  "STAT 5730" => "PAS1642",
-}.select { |k,v| groups.include?(v) }
+  groups = OodSupport::Process.groups.map(&:name)
+  staff = groups.include?('oscall')
+
+  new_modules = "app_rstudio_server/3.6.3 project/classes"
+  old_modules = "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive project/classes"
+
+  group_lookup = {
+    "STAT 2480"     => "PAS1641",
+    "STAT 3202"     => "PAS1644",
+    "STAT 5730"     => "PAS1642",
+    "ANTHRO 9982"   => "PAS1723",
+    "TDAI Workshop" => "PAS1732",
+  }.select { |k,v| groups.include?(v) }
+
+  # only include options if you're in that project
+  # or cheat for staff
+  classes = {
+    "STAT 2480"     => "#{old_modules} class/STAT2480",
+    "STAT 3202"     => "#{old_modules} class/STAT3202",
+    "STAT 5730"     => "#{old_modules} class/STAT5730",
+    "ANTHRO 9982"   => "#{new_modules} class/ANTHROP9982",
+    "TDAI Workshop" => "#{new_modules} class/TDAI",
+  }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>
 ---
@@ -17,18 +34,20 @@ form:
   - num_cores
   - project
   - include_tutorials
+  - staff
 attributes:
   num_cores: 1
-  <% unless classes.empty? %>
-  project:
-    widget: "select"
-    help: "For given class, an associated OSC project will be charged for this session."
-    options:
-      <%- classes.each do |class_name, account| -%>
-      - [ "<%= class_name %> (<%= account %>)", "<%= account %>" ]
-      <%- end -%>
-  <% end %>
   node_type: "any"
-  version: "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive"
+  version:
+    widget: "select"
+    label: "Class Materials"
+    options:
+    <%- classes.each do |class_name, class_modules| -%>
+      - [ "<%= class_name %>", "<%= class_modules %>" ]
+    <%- end -%>
+    required: true
   include_tutorials: "0"
+  staff:
+    widget: "check_box"
+    value: <%= staff ? "1" : "0" %>
 submit: submit.yml.erb

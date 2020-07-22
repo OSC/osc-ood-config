@@ -1,2 +1,3 @@
 DEFAULT_SSHHOST=owens.osc.edu
 OOD_DEFAULT_SSHHOST=owens.osc.edu
+OOD_SSHHOST_ALLOWLIST=ondemand-test.osc.edu

@@ -7,23 +7,25 @@
   old_modules = "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive project/classes"
 
   group_lookup = {
-    "STAT 2480"     => "PAS1641",
-    "STAT 3202"     => "PAS1644",
-    "STAT 5730"     => "PAS1642",
-    "ANTHRO 9982"   => "PAS1723",
-    "TDAI Workshop" => "PAS1732",
-    "OSC Workshop"  => "PZS0687",
+    "STAT 2480"            => "PAS1641",
+    "STAT 3202"            => "PAS1644",
+    "STAT 5730"            => "PAS1642",
+    "ANTHRO 9982"          => "PAS1723",
+    "TDAI Workshop"        => "PAS1732",
+    "OSC Workshop"         => "PZS0687",
+    "OSC RNA-Seq Workshop" => "PZS1010",
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
   # or cheat for staff
   classes = {
-    "STAT 2480"     => "#{old_modules} class/STAT2480",
-    "STAT 3202"     => "#{old_modules} class/STAT3202",
-    "STAT 5730"     => "#{old_modules} class/STAT5730",
-    "ANTHRO 9982"   => "#{new_modules} class/ANTHROP9982",
-    "TDAI Workshop" => "#{new_modules} class/TDAI",
-    "OSC Workshop"  => "#{new_modules} class/OSCWORKSHOP"
+    "STAT 2480"            => "#{old_modules} class/STAT2480",
+    "STAT 3202"            => "#{old_modules} class/STAT3202",
+    "STAT 5730"            => "#{old_modules} class/STAT5730",
+    "ANTHRO 9982"          => "#{new_modules} class/ANTHROP9982",
+    "TDAI Workshop"        => "#{new_modules} class/TDAI",
+    "OSC Workshop"         => "#{new_modules} class/OSCWORKSHOP",
+    "OSC RNA-Seq Workshop" => "#{new_modules} class/OSCRNASEQ"
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

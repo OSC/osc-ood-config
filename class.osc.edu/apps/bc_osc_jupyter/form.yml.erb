@@ -1,0 +1,45 @@
+<%- 
+
+  groups = OodSupport::Process.groups.map(&:name)
+  staff = groups.include?('oscall')
+
+  base_modules = "project/classes"
+
+  group_lookup = {
+    "BIOCHEM 5721"     => "PAS1745",
+  }.select { |k,v| groups.include?(v) }
+
+  classes = {
+    "BIOCHEM 5721"     => "#{base_modules} class/BIOCHEM5721",
+  }.select { |k,v| group_lookup.has_key?(k) || staff }
+
+-%>
+---
+cluster: "owens"
+form:
+  - jupyterlab_switch
+  - version
+  - bc_num_hours
+  - project
+  - node_type
+attributes:
+  node_type: "any"
+  jupyterlab_switch: 1
+  <%- if classes.empty? -%>
+  version: "app_jupyter/2.1.4"
+  <%- else -%>
+  version:
+    widget: "select"
+    label: "Class Materials"
+    options:
+    <%- classes.each do |class_name, class_modules| -%>
+      - [ "<%= class_name %>", "<%= class_modules %>" ]
+    <%- end -%>
+    required: true
+    html_options:
+      data-custom: 
+        "with spaces": "value"
+  <%- end -%>
+  staff:
+    widget: "check_box"
+    checked_value: <%= staff ? "1" : "0" %>

@@ -6,6 +6,7 @@ OOD_DASHBOARD_SUPPORT_URL="https://www.osc.edu/contact/client_support_request"
 OOD_DASHBOARD_SUPPORT_EMAIL="oschelp@osc.edu"
 
 ENABLE_NATIVE_VNC=1
+OOD_NATIVE_VNC_LOGIN_HOST=owens.osc.edu
 DISABLE_SAFARI_BASIC_AUTH_WARNING=1
 OOD_DASHBOARD_TITLE="OSC OnDemand"
 

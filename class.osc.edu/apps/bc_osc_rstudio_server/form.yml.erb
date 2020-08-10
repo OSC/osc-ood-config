@@ -40,7 +40,13 @@ form:
   - include_tutorials
   - staff
 attributes:
-  num_cores: 1
+  num_cores:
+    widget: "number_field"
+    label: "Number of cores"
+    value: 1
+    min: 0
+    max: 28
+    step: 1
   node_type: "any"
   <%- if  classes.empty? -%>
   version: "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive"

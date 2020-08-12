@@ -2,7 +2,7 @@
 
 
 const account_lookup = {
-  "STAT2480":      "PAS1641",
+  "STAT2480":      "PAS1758",
   "STAT3202":      "PAS1644",
   "STAT5730":      "PAS1642",
   "ANTHROP9982":   "PAS1723",
@@ -21,6 +21,7 @@ function set_version_change_hander() {
 
   version_select.change(function(event){
     change_project(event);
+    show_cores(event);
   });
 }
 
@@ -38,22 +39,41 @@ function change_project(event){
     var found = RegExp(cls).test(event.target.value);
 
     if(found){
-      const project = $('#batch_connect_session_context_project')
-      project.val(account_lookup[cls])
+      const project = $('#batch_connect_session_context_project');
+      project.val(account_lookup[cls]);
     }
   }
+}
 
+function show_cores(event){
+  if(staff) {
+    return;
+  }
+
+  const show = /ANTHROP9982/.test(event.target.value);
+  toggle_visibility_of_form_group('#batch_connect_session_context_num_cores', show);
+
+  // default to 1 core
+  if(!show){
+    const cores = $('#batch_connect_session_context_num_cores');
+    cores.val("1");
+  }
 }
 
 /**
- * Toggle the visibilty of a form group
+ * Toggle the visibility of a form group
  *
  * @param      {string}    form_id  The form identifier
  * @param      {boolean}   show     Whether to show or hide
  */
-function toggle_visibilty_of_form_group(form_id, show) {
+function toggle_visibility_of_form_group(form_id, show) {
   let form_element = $(form_id);
   let parent = form_element;
+
+  // kick out if you can't find the element
+  if(parent.size() <= 0){
+    return;
+  }
 
   while (
     (! parent[0].classList.contains('form-group')) &&
@@ -85,32 +105,12 @@ function set_staff() {
   }
 }
 
-/**
- * Initialize the project element
- */
-function init_project() {
-  if(staff) {
-    return;
-  }
-
-  const version = $("#batch_connect_session_context_version");
-  const project = $("#batch_connect_session_context_version");
-
-  for(var cls in account_lookup){
-    var found = RegExp(cls).test(version.val());
-
-    if(found){
-      const project = $('#batch_connect_session_context_project')
-      project.val(account_lookup[cls])
-    }
-  }
-
-}
-
-
 set_staff();
 
 set_version_change_hander();
-init_project();
-toggle_visibilty_of_form_group('#batch_connect_session_context_project', staff);
-toggle_visibilty_of_form_group('#batch_connect_session_context_staff', false);
+toggle_visibility_of_form_group('#batch_connect_session_context_project', staff);
+toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
+
+// Fake some events to initialize things
+change_project({ target: document.querySelector('#batch_connect_session_context_version') });
+show_cores({ target: document.querySelector('#batch_connect_session_context_version') });

@@ -3,7 +3,7 @@
   groups = OodSupport::Process.groups.map(&:name)
   staff = groups.include?('oscall')
 
-  new_modules = "app_rstudio_server/3.6.3 project/classes"
+  new_modules = "project/classes"
   old_modules = "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive project/classes"
 
   group_lookup = {
@@ -19,7 +19,7 @@
   # only include options if you're in that project
   # or cheat for staff
   classes = {
-    "STAT 2480"            => "#{old_modules} class/STAT2480",
+    "STAT 2480"            => "#{new_modules} class/STAT2480",
     "STAT 3202"            => "#{old_modules} class/STAT3202",
     "STAT 5730"            => "#{old_modules} class/STAT5730",
     "ANTHRO 9982"          => "#{new_modules} class/ANTHROP9982",

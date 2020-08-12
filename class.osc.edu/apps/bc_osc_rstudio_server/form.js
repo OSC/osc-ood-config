@@ -2,7 +2,7 @@
 
 
 const account_lookup = {
-  "STAT2480":      "PAS1641",
+  "STAT2480":      "PAS1758",
   "STAT3202":      "PAS1644",
   "STAT5730":      "PAS1642",
   "ANTHROP9982":   "PAS1723",

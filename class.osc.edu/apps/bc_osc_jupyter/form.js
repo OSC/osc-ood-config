@@ -3,6 +3,7 @@
 
 const account_lookup = {
   "BIOCHEM5721":   "PAS1745",
+  "PHYSICS6820":   "PAS1759"
 }
 
 var staff = false;
@@ -15,6 +16,7 @@ function set_version_change_handler() {
 
   version_select.change(function(event){
     change_project(event);
+    show_cores(event);
   });
 }
 
@@ -36,7 +38,27 @@ function change_project(event){
       project.val(account_lookup[cls])
     }
   }
+}
 
+/**
+ * Show the cores element if the event changes the project to
+ * allowed projects.
+ *
+ * @param  {Object} event The change event
+ */
+function show_cores(event){
+  if(staff) {
+    return;
+  }
+
+  const show = /PHYSICS6820/.test(event.target.value);
+  toggle_visibility_of_form_group('#batch_connect_session_context_num_cores', show);
+
+  // default to 1 core
+  if(!show){
+    const cores = $('#batch_connect_session_context_num_cores');
+    cores.val("1");
+  }
 }
 
 /**
@@ -92,3 +114,4 @@ toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
 
 // Fake some events to initialize things
 change_project({ target: document.querySelector('#batch_connect_session_context_version') });
+show_cores({ target: document.querySelector('#batch_connect_session_context_version') });

@@ -10,7 +10,7 @@ var staff = false;
 /**
  * Add a change listener to the version select
  */
-function set_version_change_hander() {
+function set_version_change_handler() {
   const version_select = $("#batch_connect_session_context_version");
 
   version_select.change(function(event){
@@ -84,32 +84,11 @@ function set_staff() {
   }
 }
 
-/**
- * Initialize the project element
- */
-function init_project() {
-  if(staff) {
-    return;
-  }
-
-  const version = $("#batch_connect_session_context_version");
-  const project = $("#batch_connect_session_context_version");
-
-  for(var cls in account_lookup){
-    var found = RegExp(cls).test(version.val());
-
-    if(found){
-      const project = $('#batch_connect_session_context_project')
-      project.val(account_lookup[cls])
-    }
-  }
-
-}
-
-
 set_staff();
 
-set_version_change_hander();
-init_project();
+set_version_change_handler();
 toggle_visibility_of_form_group('#batch_connect_session_context_project', staff);
 toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
+
+// Fake some events to initialize things
+change_project({ target: document.querySelector('#batch_connect_session_context_version') });

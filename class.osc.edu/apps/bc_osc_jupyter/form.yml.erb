@@ -7,10 +7,12 @@
 
   group_lookup = {
     "BIOCHEM 5721"     => "PAS1745",
+    "PHYSICS6820"      => "PAS1759"
   }.select { |k,v| groups.include?(v) }
 
   classes = {
     "BIOCHEM 5721"     => "#{base_modules} class/BIOCHEM5721",
+    "PHYSICS 6820"     => "#{base_modules} class/PHYSICS6820"
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>
@@ -28,8 +30,14 @@ form:
 attributes:
   node_type: "any"
   jupyterlab_switch: 0
-  num_cores: 1
   classroom: 1
+  num_cores:
+    widget: "number_field"
+    label: "Number of cores"
+    value: 1
+    min: 0
+    max: 28
+    step: 1
   <%- if classes.empty? -%>
   version: "app_jupyter/2.1.4"
   <%- else -%>

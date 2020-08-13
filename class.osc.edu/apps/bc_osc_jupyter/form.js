@@ -3,6 +3,7 @@
 
 const account_lookup = {
   "BIOCHEM5721":   "PAS1745",
+  "PHYSICS6820":   "PAS1759"
 }
 
 var staff = false;
@@ -10,11 +11,12 @@ var staff = false;
 /**
  * Add a change listener to the version select
  */
-function set_version_change_hander() {
+function set_version_change_handler() {
   const version_select = $("#batch_connect_session_context_version");
 
   version_select.change(function(event){
     change_project(event);
+    show_cores(event);
   });
 }
 
@@ -36,18 +38,43 @@ function change_project(event){
       project.val(account_lookup[cls])
     }
   }
-
 }
 
 /**
- * Toggle the visibilty of a form group
+ * Show the cores element if the event changes the project to
+ * allowed projects.
+ *
+ * @param  {Object} event The change event
+ */
+function show_cores(event){
+  if(staff) {
+    return;
+  }
+
+  const show = /PHYSICS6820/.test(event.target.value);
+  toggle_visibility_of_form_group('#batch_connect_session_context_num_cores', show);
+
+  // default to 1 core
+  if(!show){
+    const cores = $('#batch_connect_session_context_num_cores');
+    cores.val("1");
+  }
+}
+
+/**
+ * Toggle the visibility of a form group
  *
  * @param      {string}    form_id  The form identifier
  * @param      {boolean}   show     Whether to show or hide
  */
-function toggle_visibilty_of_form_group(form_id, show) {
+function toggle_visibility_of_form_group(form_id, show) {
   let form_element = $(form_id);
   let parent = form_element;
+
+  // kick out if you can't find the element
+  if(parent.size() <= 0){
+    return;
+  }
 
   while (
     (! parent[0].classList.contains('form-group')) &&
@@ -79,32 +106,12 @@ function set_staff() {
   }
 }
 
-/**
- * Initialize the project element
- */
-function init_project() {
-  if(staff) {
-    return;
-  }
-
-  const version = $("#batch_connect_session_context_version");
-  const project = $("#batch_connect_session_context_version");
-
-  for(var cls in account_lookup){
-    var found = RegExp(cls).test(version.val());
-
-    if(found){
-      const project = $('#batch_connect_session_context_project')
-      project.val(account_lookup[cls])
-    }
-  }
-
-}
-
-
 set_staff();
 
-set_version_change_hander();
-init_project();
-toggle_visibilty_of_form_group('#batch_connect_session_context_project', staff);
-toggle_visibilty_of_form_group('#batch_connect_session_context_staff', false);
+set_version_change_handler();
+toggle_visibility_of_form_group('#batch_connect_session_context_project', staff);
+toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
+
+// Fake some events to initialize things
+change_project({ target: document.querySelector('#batch_connect_session_context_version') });
+show_cores({ target: document.querySelector('#batch_connect_session_context_version') });

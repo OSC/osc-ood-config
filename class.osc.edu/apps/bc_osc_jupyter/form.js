@@ -40,14 +40,19 @@ function change_project(event){
 }
 
 /**
- * Toggle the visibilty of a form group
+ * Toggle the visibility of a form group
  *
  * @param      {string}    form_id  The form identifier
  * @param      {boolean}   show     Whether to show or hide
  */
-function toggle_visibilty_of_form_group(form_id, show) {
+function toggle_visibility_of_form_group(form_id, show) {
   let form_element = $(form_id);
   let parent = form_element;
+
+  // kick out if you can't find the element
+  if(parent.size() <= 0){
+    return;
+  }
 
   while (
     (! parent[0].classList.contains('form-group')) &&
@@ -106,5 +111,5 @@ set_staff();
 
 set_version_change_hander();
 init_project();
-toggle_visibilty_of_form_group('#batch_connect_session_context_project', staff);
-toggle_visibilty_of_form_group('#batch_connect_session_context_staff', false);
+toggle_visibility_of_form_group('#batch_connect_session_context_project', staff);
+toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);

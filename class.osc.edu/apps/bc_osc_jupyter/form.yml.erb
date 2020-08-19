@@ -7,20 +7,22 @@
 
   group_lookup = {
     "BIOCHEM 5721"     => "PAS1745",
-    "PHYSICS 6820"     => "PAS1759"
+    "PHYSICS 6820"     => "PAS1759",
+    "OSC JUPYTER"      => "oscall" #not really required, but kept to avoid confusion
   }.select { |k,v| groups.include?(v) }
 
   classes = {
     "BIOCHEM 5721"     => "#{base_modules} class/BIOCHEM5721",
-    "PHYSICS 6820"     => "#{base_modules} class/PHYSICS6820"
+    "PHYSICS 6820"     => "#{base_modules} class/PHYSICS6820",
+    "OSC Jupyter"      => "#{base_modules} class/OSCJUPYTER"
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>
 ---
 cluster: "owens"
 form:
-  - jupyterlab_switch
   - version
+  - jupyterlab_switch
   - bc_num_hours
   - project
   - node_type
@@ -29,8 +31,10 @@ form:
   - classroom
 attributes:
   node_type: "any"
-  jupyterlab_switch: 0
   classroom: 1
+  jupyterlab_switch:
+    widget: "check_box"
+    label: "Use JupyterLab instead of Jupyter Notebook?"
   num_cores:
     widget: "number_field"
     label: "Number of cores"

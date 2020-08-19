@@ -21,8 +21,8 @@
 ---
 cluster: "owens"
 form:
-  - jupyterlab_switch
   - version
+  - jupyterlab_switch
   - bc_num_hours
   - project
   - node_type
@@ -31,8 +31,10 @@ form:
   - classroom
 attributes:
   node_type: "any"
-  jupyterlab_switch: 0
   classroom: 1
+  jupyterlab_switch:
+    widget: "check_box"
+    label: "Use JupyterLab instead of Jupyter Notebook?"
   num_cores:
     widget: "number_field"
     label: "Number of cores"

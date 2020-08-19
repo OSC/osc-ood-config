@@ -26,7 +26,11 @@ class ShellTest < Minitest::Test
     # Compare files
     app_files.combination(2) do |a_files, b_files|
       a_files.zip(b_files) do |a, b|
-        assert FileUtils.cmp(a, b), "Shell App files differ:\n  #{a}\n  #{b}"
+        unless File.basename(a) == 'env' && File.basename(b) == 'env'
+          assert FileUtils.cmp(a, b), "Shell App files differ:\n  #{a}\n  #{b}"
+        else
+          # FIXME: add a test case for env files
+        end
       end
     end
   end

@@ -14,6 +14,7 @@
     "TDAI Workshop"        => "PAS1732",
     "OSC Workshop"         => "PZS0687",
     "OSC RNA-Seq Workshop" => "PZS1010",
+    "PUBHLTH 5015"         => "PAS1754",
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
@@ -25,7 +26,8 @@
     "ANTHRO 9982"          => "#{new_modules} class/ANTHROP9982",
     "TDAI Workshop"        => "#{new_modules} class/TDAI",
     "OSC Workshop"         => "#{new_modules} class/OSCWORKSHOP",
-    "OSC RNA-Seq Workshop" => "#{new_modules} class/OSCRNASEQ"
+    "OSC RNA-Seq Workshop" => "#{new_modules} class/OSCRNASEQ",
+    "PUBHLTH 5015"         => "#{new_modules} class/PUBHLTH5015",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

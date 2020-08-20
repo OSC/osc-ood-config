@@ -9,6 +9,7 @@ const account_lookup = {
   "TDAI":          "PAS1732",
   "OSCWORKSHOP":   "PZS0687",
   "OSCRNASEQ":     "PZS1010",
+  "PUBHLTH5015":   "PAS1754",
 }
 
 var staff = false;

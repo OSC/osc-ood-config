@@ -1,0 +1,57 @@
+---
+title: "Pitzer-exp Desktop"
+cluster: "pitzer-exp"
+description: |
+  This app will launch an interactive desktop on one or more compute nodes. It is
+  a large environment for when you need a lot of compute and/or memory resources because 
+  you will have full access to all the resources on that compute node(s).
+  
+  If you do not need all these resources, use the 
+  [Pitzer VDI](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi-pitzer/session_contexts/new)
+  app instead which is much more lightweight for general-purpose use cases.
+attributes:
+  desktop:
+    widget: select
+    label: "Desktop environment"
+    options:
+      - ["Xfce", "xfce"]
+      - ["Mate", "mate"]
+    help: |
+      This will launch either the [Xfce] or [Mate] desktop environment on the
+      [Pitzer cluster].
+
+      [Xfce]: https://xfce.org/
+      [Mate]: https://mate-desktop.org/
+      [Pitzer cluster]: https://www.osc.edu/resources/technical_support/supercomputers/pitzer
+  bc_queue: null
+  bc_account:
+    help: "You can leave this blank if **not** in multiple projects."
+  node_type:
+    widget: select
+    label: "Node type"
+    help: |
+      - **any** - (*48 cores*) Chooses anyone of the available Pitzer Expansion nodes.
+        This reduces the wait time as you have no requirements. Standard Pitzer
+        nodes have 192GB of memory.
+      - **vis** - (*48 cores*) This requests a gpu node as described below,
+        with the addition that it starts an X server running in the background.
+        This allows for Hardware Rendering with the GPU typically needed for
+        3D visualization using VirtualGL.
+      - **gpu** - (*48 cores*) This node includes two NVIDIA Volta V100 GPUs
+        allowing for CUDA computations. This node has 384GB of memory.
+        There are currently 42 of these nodes on Pitzer.
+        These nodes don't start an X server, so visualization with hardware
+        rendering is not possible.
+      - **densegpu** - (*48 cores*) This Pitzer Expanson node is similar to gpu
+        but has 768GB of memory and 48 cores per node. It also includes four 
+        NVIDIA Volta V100 GPUs for CUDA computations
+      - **largemem** - (*48 cores*) This Pitzer Expansion node has 768GB of memory as
+        well as 48 cores. There are 12 of these nodes on Pitzer Expansion.
+    options:
+      - ["any", ":ppn=48"]
+      - ["vis (1/2 gpus with X server)", ":ppn=48:vis:gpus=1"]
+      - ["vis (2/2 gpus with X server)", ":ppn=48:vis:gpus=2"]
+      - ["gpu (1/2 gpus)", ":ppn=48:gpus=1"]
+      - ["gpu (2/2 gpus)", ":ppn=48:gpus=2"]
+      - ["largemem", ":ppn=48:largemem"]
+submit: submit/pbs.yml.erb

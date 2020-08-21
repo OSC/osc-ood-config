@@ -1,0 +1,6 @@
+name: Basic Python Serial Job - Pitzer Expansion
+host: pitzer-exp
+script: pbs_script.sh
+notes: |
+  A Basic Python Serial Job for the OSC Pitzer Expansion cluster
+  https://www.osc.edu/resources/available_software/software_list/python

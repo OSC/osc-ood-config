@@ -54,4 +54,4 @@ attributes:
       - ["gpu (1/2 gpus)", ":ppn=48:gpus=1"]
       - ["gpu (2/2 gpus)", ":ppn=48:gpus=2"]
       - ["largemem", ":ppn=48:largemem"]
-submit: submit/pbs.yml.erb
+submit: submit/slurm.yml.erb

@@ -19,4 +19,4 @@ module load R/3.5.2
 #
 cd $SLURM_SUBMIT_DIR
 # parallel R: submit job with one MPI master
-srun R --slave < parallel_testing.R
+mpirun -np 1 R --slave < parallel_testing.R

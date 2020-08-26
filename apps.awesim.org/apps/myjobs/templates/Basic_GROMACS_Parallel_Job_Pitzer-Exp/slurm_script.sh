@@ -1,7 +1,3 @@
-# Pitzer example batch script for GROMACS 2018 using the non MPI, non GPU mdrun;
-# thus nodes must be 1 and only OpenMP based parallelism is used.
-# GROMACS Tutorial of Lysozyme step 8 production MD :
-# http://www.bevanlab.biochem.vt.edu/Pages/Personal/justin/gmx-tutorials/lysozyme/index.html
 #!/bin/bash
 #SBATCH -J ondemand/sys/myjobs/basic_gromacs_parallel
 #SBATCH --time=00:30:00

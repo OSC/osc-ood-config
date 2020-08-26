@@ -10,7 +10,8 @@ const account_lookup = {
   "OSCWORKSHOP":   "PZS0687",
   "OSCRNASEQ":     "PZS1010",
   "PUBHLTH5015":   "PAS1754",
-  "BANA7025":      "PES0835",
+  "BANA7025_UC":   "PES0835",
+  "RWORKSHOP_UC":  "PES0836",
 }
 
 var staff = false;

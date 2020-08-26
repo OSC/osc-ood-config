@@ -15,6 +15,7 @@
     "OSC Workshop"         => "PZS0687",
     "OSC RNA-Seq Workshop" => "PZS1010",
     "PUBHLTH 5015"         => "PAS1754",
+    "BANA 7025"            => "PES0835",
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
@@ -28,6 +29,7 @@
     "OSC Workshop"         => "#{new_modules} class/OSCWORKSHOP",
     "OSC RNA-Seq Workshop" => "#{new_modules} class/OSCRNASEQ",
     "PUBHLTH 5015"         => "#{new_modules} class/PUBHLTH5015",
+    "BANA 7025"            => "#{new_modules} class/BANA7025",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

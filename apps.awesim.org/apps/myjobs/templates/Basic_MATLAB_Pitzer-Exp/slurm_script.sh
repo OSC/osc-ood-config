@@ -1,7 +1,8 @@
-#PBS -N ondemand/sys/myjobs/basic_matlab
-#PBS -l walltime=00:10:00
-#PBS -l nodes=1:ppn=40
-#PBS -j oe
+#!/bin/bash
+#SBATCH -J ondemand/sys/myjobs/basic_matlab
+#SBATCH --time=00:10:00
+#SBATCH --nodes=1
+#SBATCH --exclusive
 
 
 #  A Basic MATLAB Job for the OSC Pitzer Cluster
@@ -14,7 +15,7 @@ module load matlab
 #
 # Transfer MATLAB script file to TMPDIR
 #
-cd $PBS_O_WORKDIR
+cd $SLURM_SUBMIT_DIR
 cp hello.m $TMPDIR
 cd $TMPDIR
 #

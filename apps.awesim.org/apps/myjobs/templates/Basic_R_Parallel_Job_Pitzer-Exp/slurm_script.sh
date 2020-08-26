@@ -1,8 +1,8 @@
 #!/bin/bash
-#PBS -l walltime=00:30:00
-#PBS -l nodes=2:ppn=40
-#PBS -j oe
-#PBS -N ondemand/sys/myjobs/basic_r_parallel
+#SBATCH --time=00:30:00
+#SBATCH --nodes=2
+#SBATCH --exclusive
+#SBATCH -J ondemand/sys/myjobs/basic_r_parallel
 
 #  A Basic R Parallel Job for the OSC Pitzer Cluster
 #  https://www.osc.edu/resources/available_software/software_list/r
@@ -17,6 +17,6 @@ module load R/3.5.2
 #
 # Move to the directory where the job was submitted
 #
-cd $PBS_O_WORKDIR
+cd $SLURM_SUBMIT_DIR
 # parallel R: submit job with one MPI master
-mpirun -np 1 R --slave < parallel_testing.R
+srun R --slave < parallel_testing.R

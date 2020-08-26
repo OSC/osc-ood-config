@@ -1,13 +1,13 @@
-#PBS -N ondemand/sys/myjobs/basic_gaussian
-#PBS -l walltime=00:30:00
-#PBS -l nodes=1:ppn=40
-#PBS -j oe 
-#PBS -S /bin/csh
+#!/bin/csh
+#SBATCH -J ondemand/sys/myjobs/basic_gaussian
+#SBATCH --time=00:30:00
+#SBATCH --nodes=1
+#SBATCH --exclusive
 
 # A Basic Gaussian Job for the OSC Pitzer Cluster
 #   https://www.osc.edu/resources/available_software/software_list/gaussian
 
-# PBS_O_WORKDIR refers to the directory from which the job was submitted.
+# SLURM_SUBMIT_DIR refers to the directory from which the job was submitted.
 
 #
 # The following lines set up the Gaussian environment
@@ -26,4 +26,4 @@ ls -al
 #
 # Now, copy data (or move) back once the simulation has completed
 #
-cp -p glucose.log glucose.chk $PBS_O_WORKDIR
+cp -p glucose.log glucose.chk $SLURM_SUBMIT_DIR

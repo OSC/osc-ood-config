@@ -1,7 +1,9 @@
-#PBS -N ondemand/sys/myjobs/basic_cuda_serial
-#PBS -l walltime=00:10:00
-#PBS -l nodes=1:ppn=1:gpus=1
-#PBS -j oe
+#SBATCH -J ondemand/sys/myjobs/basic_cuda_serial
+#SBATCH --time=00:10:00
+#SBATCH --nodes=1
+#SBATCH --exclusive
+#SBATCH --gpus=1
+
 
 #   A Basic CUDA Serial Job for the OSC Pitzer Cluster
 #   https://www.osc.edu/resources/available_software/software_list/cuda
@@ -13,7 +15,7 @@ module load cuda
 #
 # Move to the directory where the job was submitted
 #
-cd $PBS_O_WORKDIR
+cd $SLURM_SUBMIT_DIR
 cp hello.cu  $TMPDIR
 cd $TMPDIR
 #
@@ -27,4 +29,4 @@ nvcc -o hello hello.cu
 #
 # Now, copy data (or move) back once the simulation has completed
 #
-cp * $PBS_O_WORKDIR
+cp * $SLURM_SUBMIT_DIR

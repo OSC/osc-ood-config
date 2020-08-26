@@ -1,8 +1,9 @@
-#PBS -N ondemand/sys/myjobs/basic_python_serial
-#PBS -j oe
-#PBS -l walltime=0:10:00
-#PBS -l nodes=1:ppn=1
-qstat -f $PBS_JOBID
+#!/bin/bash
+#SBATCH -J ondemand/sys/myjobs/basic_python_serial
+#SBATCH --exclusive
+#SBATCH --time=0:10:00
+#SBATCH --nodes=1
+scontrol show job $SLURM_JOBID
 
 #   A Basic Python Serial Job for the OSC Pitzer cluster
 #   https://www.osc.edu/resources/available_software/software_list/python
@@ -14,7 +15,7 @@ module load python
 #
 # Move to the directory where the job was submitted from
 # You could also 'cd' directly to your working directory
-cd $PBS_O_WORKDIR
+cd $SLURM_SUBMIT_DIR
 #
 # Run Python
 #

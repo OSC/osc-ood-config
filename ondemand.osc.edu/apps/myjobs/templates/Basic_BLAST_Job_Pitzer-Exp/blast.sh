@@ -1,8 +1,8 @@
-#PBS -l nodes=1:ppn=40
-#PBS -l walltime=00:45:00
-#PBS -N ondemand/sys/myjobs/basic_blast
-#PBS -S /bin/bash
-#PBS -j oe
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --exclusive
+#SBATCH --time=00:45:00
+#SBATCH -J ondemand/sys/myjobs/basic_blast
 
 # A Basic BLAST Job for the OSC Pitzer Cluster
 # https://www.osc.edu/resources/available_software/software_list/blast
@@ -16,8 +16,8 @@ set -x
 #
 # Move to the directory where the job was submitted
 #
-cd $PBS_O_WORKDIR
-mkdir $PBS_JOBID
+cd $SLURM_SUBMIT_DIR
+mkdir $SLURM_JOBID
 cp 100.fasta $TMPDIR
 cd $TMPDIR
 
@@ -28,4 +28,4 @@ cd $TMPDIR
 #
 # Now, copy data (or move) back once the simulation has completed
 #
-cp test.out $PBS_O_WORKDIR/$PBS_JOBID
+cp test.out $SLURM_SUBMIT_DIR/$SLURM_JOBID

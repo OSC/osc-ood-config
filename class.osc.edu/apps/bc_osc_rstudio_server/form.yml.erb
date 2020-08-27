@@ -50,7 +50,7 @@ attributes:
     widget: "number_field"
     label: "Number of cores"
     value: 1
-    min: 0
+    min: 1
     max: 28
     step: 1
   node_type: "any"
@@ -62,7 +62,7 @@ attributes:
     label: "Class Materials"
     options:
     <%- classes.each do |class_name, class_modules| -%>
-      - [ "<%= class_name %>", "<%= class_modules %>" ]
+      - [ "<%= class_name %>", "<%= class_modules %>", data-option-for-owens: true ]
     <%- end -%>
     required: true
   <%- end -%>

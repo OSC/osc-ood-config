@@ -1,6 +1,4 @@
 <%-
-  # pitzer-exp not added bc there's no need for it. it's a torque
-  # quick-cluster lookup map
   quick_cluster_lookup = {
     "quick"         => "owens",
     "quick_pitzer"  => "pitzer",
@@ -10,12 +8,5 @@
 ---
 script:
   native:
-    <%- unless cluster == 'pitzer-exp' %>
     resources:
       nodes: "<%= bc_num_slots %><%= node_type %>:<%= quick_cluster_lookup[cluster] %>"
-    <%- else %>
-    - "--nodes"
-    - "1"
-    - "--ntasks-per-node"
-    - "<%= bc_num_slots %>"
-    <%- end %>

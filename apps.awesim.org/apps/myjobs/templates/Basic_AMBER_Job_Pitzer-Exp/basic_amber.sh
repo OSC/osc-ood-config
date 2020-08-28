@@ -26,7 +26,7 @@ cp -p /users/appl/srb/workshops/compchem/amber/inpcrd.equil .
 # Some jobs may require the -O option on the Amber command lines below
 #mpiexec $AMBERHOME/bin/sander.MPI -i $MDIN -o stdout -inf $MDINFO -p $PRMTOP -c $INPCRD -ref $REFC -x $MDCRD -v $MDVEL -e $MDEN -r $RESTRT
 # Some jobs may use pmemd which consumes less walltime than sander.
-srun --ntasks-per-node=$SLURM_JOB_CPUS_PER_NODE $AMBERHOME/bin/pmemd.MPI -i mdin -o mdout -p prmtop -c inpcrd.equil
+srun $AMBERHOME/bin/pmemd.MPI -i mdin -o mdout -p prmtop -c inpcrd.equil
 ls -al
 cp -p mdout $SLURM_SUBMIT_DIR
 cat mdout

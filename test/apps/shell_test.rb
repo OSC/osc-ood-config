@@ -5,7 +5,7 @@ class ShellTest < Minitest::Test
     @app_roots = [
       ONDEMAND.join("apps", "shell"),
       AWESIM.join("apps", "shell"),
-      DEMO.join("apps", "shell")
+      CLASS.join("apps", "shell")
     ]
   end
 

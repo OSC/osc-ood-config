@@ -5,7 +5,6 @@ class DesktopTest < Minitest::Test
     @app_roots = [
       ONDEMAND.join("apps", "bc_desktop"),
       AWESIM.join("apps", "bc_desktop"),
-      DEMO.join("apps", "bc_desktop")
     ]
   end
 

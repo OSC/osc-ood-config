@@ -1,6 +1,0 @@
-name: Basic Python Serial Job - Pitzer
-host: pitzer
-script: pbs_script.sh
-notes: |
-  A Basic Python Serial Job for the OSC Pitzer cluster
-  https://www.osc.edu/resources/available_software/software_list/python

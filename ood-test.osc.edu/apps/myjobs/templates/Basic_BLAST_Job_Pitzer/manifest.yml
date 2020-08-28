@@ -1,6 +1,0 @@
-name: Basic BLAST Job - Pitzer
-host: pitzer
-script: blast.sh
-notes: |
-  A Basic BLAST Job for the OSC Pitzer Cluster
-  https://www.osc.edu/resources/available_software/software_list/blast

@@ -1,0 +1,50 @@
+---
+  title: "Pitzer Expansion Desktop"
+  cluster: "pitzer-exp"
+  description: |
+    This app will launch an interactive desktop on one or more compute nodes. It is
+    a large environment for when you need a lot of compute and/or memory resources because 
+    you will have full access to all the resources on that compute node(s).
+    
+    If you do not need all these resources, use the 
+    [Pitzer VDI](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi-pitzer/session_contexts/new)
+    app instead which is much more lightweight for general-purpose use cases.
+  attributes:
+    desktop:
+      widget: select
+      label: "Desktop environment"
+      options:
+        - ["Xfce", "xfce"]
+        - ["Mate", "mate"]
+      help: |
+        This will launch either the [Xfce] or [Mate] desktop environment on the
+        Pitzer Expansion cluster.
+  
+        [Xfce]: https://xfce.org/
+        [Mate]: https://mate-desktop.org/
+    bc_queue: null
+    bc_account:
+      help: "You can leave this blank if **not** in multiple projects."
+    node_type:
+      widget: select
+      label: "Node type"
+      help: |
+        - **any** - (*48 cores*) Chooses anyone of the available Pitzer Expansion nodes.
+          This reduces the wait time as you have no requirements. Standard Pitzer
+          Expansion nodes have 192GB of memory.
+        - **gpu** - (*48 cores*) This node includes two NVIDIA Tesla V100 GPUs
+          allowing for CUDA computations. This node has 384GB of memory.
+          There are currently only 42 of these nodes on Pitzer Expansion.
+          These nodes don't start an X server, so visualization with hardware
+          rendering is not possible.  
+        - **densegpu** - (*48 cores*) This node includes four NVIDIA Tesla V100 GPUs
+          allowing for CUDA computations. This node has 768GB of memory.
+          There are currently only 4 of these nodes on Pitzer Expansion.
+          These nodes don't start an X server, so visualization with hardware
+          rendering is not possible.  
+      options:
+        - "any"
+        - "gpu"
+        - "densegpu"
+  submit: submit/slurm.yml.erb
+  

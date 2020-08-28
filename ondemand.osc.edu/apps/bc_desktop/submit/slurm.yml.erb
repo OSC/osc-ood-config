@@ -1,0 +1,22 @@
+<%- 
+  base_slurm_args = ["--nodes", "#{bc_num_slots}", "--ntasks-per-node", "48", "--exclusive"]
+
+  slurm_args = case node_type
+              when "gpu"
+                base_slurm_args += ["--gpus-per-node", "2"]
+              when "densegpu"
+                base_slurm_args += ["--gpus-per-node", "4"]
+              else
+                base_slurm_args
+              end
+-%>
+---
+script:
+  native:
+    <%- slurm_args.each do |arg| %>
+    - "<%= arg %>"
+    <%- end %>
+  job_environment:
+    <%# MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u) %>
+    <%# also with using the relative path, XDG prepends $TMPDIR to this %>
+    XDG_RUNTIME_DIR: "xdg/<%= ENV['USER'] %>"

@@ -1,0 +1,12 @@
+<%-
+  quick_cluster_lookup = {
+    "quick"         => "owens",
+    "quick_pitzer"  => "pitzer",
+    "ruby"          => "ruby"
+  }
+-%>
+---
+script:
+  native:
+    resources:
+      nodes: "<%= bc_num_slots %><%= node_type %>:<%= quick_cluster_lookup[cluster] %>"

@@ -1,5 +1,5 @@
-name: A Simple OpenMP Job Template
+name: Hello OpenMP World in C
 host: pitzer-exp
-script: OMP-job.sh
+script: omp-hello.sh
 notes: |
    A job template for implementing an OpenMP job on Pitzer Expansion.

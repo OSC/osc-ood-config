@@ -18,5 +18,4 @@ script:
     <%- end %>
   job_environment:
     <%# MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u) %>
-    <%# also with using the relative path, XDG prepends $TMPDIR to this %>
-    XDG_RUNTIME_DIR: "xdg/<%= ENV['USER'] %>"
+    XDG_RUNTIME_DIR: "<%= Dir.mktmpdir %>"

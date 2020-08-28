@@ -13,7 +13,7 @@ setenv JOBNAME sample
 #
 module load intel/18.0.4
 module load mvapich2/2.3
-module load qchem/5.1.1
+module load qchem/5.3
 
 # copy the contents to TMPDIR
 cp $SLURM_SUBMIT_DIR/* $TMPDIR

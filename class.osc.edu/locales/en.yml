@@ -22,32 +22,39 @@
 en:
   dashboard:
     welcome_html: |
+      <h1 class="hidden">Classroom Dashboard</h1>
       <h2 class="apps-section-header-blue">Useful links</h2>
       <div class="card">
         <div class="card-body">
           <section>
-            <h4>General Links</h4>
+            <h3>General Links</h3>
             <ul>
                 <li><a href="https://carmen.osu.edu" target="_blank">Carmen</a></li>
             </ul>
           </section>
           <section>
-            <h4>STAT 2480</h4>
+            <h3>STAT 2480</h3>
             <ul>
                 <li><a href="https://whitlockschluter3e.zoology.ubc.ca" target="_blank">Course textbook: <em>The Analysis of Biological Data</em></a></li>
             </ul>
           </section>
           <section>
-            <h4>STAT 3202</h4>
+            <h3>STAT 3202</h3>
             <ul>
                 <li>Course textbook: Mathematical Statistics with Applications, 7th edition, by Wackerly, Mendenhall, and Scheaffer</li>
             </ul>
           </section>
           <section>
-            <h4>STAT 5730</h4>
+            <h3>STAT 5730</h3>
             <ul>
                 <li><a href="https://r4ds.had.co.nz/" target="_blank">Course textbook: R for Data Science, by Wickham and Grolemund</a></li>
                 <li><a href="https://osu.instructure.com/courses/72932" target="_blank">Course website</a></li>
+            </ul>
+          </section>
+          <section>
+            <h3>ANTHROP 9982</h3>
+            <ul>
+                <li><a href="https://osu.instructure.com/courses/85349" target="_blank">Anthropology 9982 Course Website</a></li>
             </ul>
           </section>
         </div>

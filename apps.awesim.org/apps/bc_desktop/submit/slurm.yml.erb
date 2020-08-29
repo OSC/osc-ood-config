@@ -11,11 +11,16 @@
               end
 -%>
 ---
+batch_connect:
+  before_script: |
+    # Export the module function if it exists
+    [[ $(type -t module) == "function"  ]] && export -f module
+
+    # MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u)
+    export XDG_RUNTIME_DIR=$TMPDIR
+
 script:
   native:
     <%- slurm_args.each do |arg| %>
     - "<%= arg %>"
     <%- end %>
-  job_environment:
-    <%# MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u) %>
-    XDG_RUNTIME_DIR: "<%= Dir.mktmpdir %>"

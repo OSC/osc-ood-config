@@ -8,7 +8,8 @@
 #SBATCH --exclusive
 
 # Load the OpenMPI module
-module load openmpi
+module load intel/19.0.5
+module load openmpi/4.0.3-hpcx
 
 #
 # Move to the directory where the job was submitted
@@ -20,9 +21,9 @@ cd $TMPDIR
 #
 # Compile omp-hello.c
 #
-mpicc omp-hello.c -o omp-hello
+mpicc -qopenmp omp-hello.c -o omp-hello
 
 #
 # Run omp-hello
 #
-srun ./omp-hello
+mpiexec ./omp-hello

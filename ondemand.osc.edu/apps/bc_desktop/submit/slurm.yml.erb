@@ -17,7 +17,7 @@ batch_connect:
     [[ $(type -t module) == "function"  ]] && export -f module
 
     # MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u)
-    export XDG_RUNTIME_DIR=$TMPDIR
+    export XDG_RUNTIME_DIR="$TMPDIR/xdg_runtime"
 
 script:
   native:

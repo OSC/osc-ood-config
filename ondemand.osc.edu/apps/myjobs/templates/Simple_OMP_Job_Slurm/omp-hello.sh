@@ -26,4 +26,4 @@ mpicc -qopenmp omp-hello.c -o omp-hello
 #
 # Run omp-hello
 #
-mpiexec ./omp-hello
+mpiexec -n 24 ./omp-hello

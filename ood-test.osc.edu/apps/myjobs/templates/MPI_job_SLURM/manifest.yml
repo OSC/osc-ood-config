@@ -1,5 +1,0 @@
-name: A Simple MPI Job Template
-host: pitzer-exp
-script: MPI-job.sh
-notes: |
-   A job template for implementing an MPI job on Pitzer Expansion.

@@ -9,7 +9,7 @@
 
 # Load the OpenMPI module
 module load intel/19.0.5
-module load openmpi/4.0.3-hpcx
+module load openmpi/4.0.3
 
 #
 # Move to the directory where the job was submitted

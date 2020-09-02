@@ -12,6 +12,7 @@ const account_lookup = {
   "PUBHLTH5015":   "PAS1754",
   "BANA7025_UC":   "PES0835",
   "RWORKSHOP_UC":  "PES0836",
+  "BANA4090_UC":   "PES0834",
 }
 
 var staff = false;

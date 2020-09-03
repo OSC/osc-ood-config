@@ -27,4 +27,4 @@ mpicc -qopenmp omp-hello.c -o omp-hello
 # Run omp-hello
 #
 export OMP_NUM_THREADS=$SLURM_CPUS_ON_NODE
-srun -n 1 ./omp-hello
+srun --export=ALL -n 1 ./omp-hello

@@ -12,18 +12,18 @@
 #
 module load intel/18.0.3  
 module load mvapich2/2.3
-module load namd/2.13b2
+module load namd/2.13
 #
 # Move to the directory where the job was submitted
 #
 cd $SLURM_SUBMIT_DIR
-sbcast -p apoa1.namd *.xplor apoa1.psf apoa1.pdb $TMPDIR
+sbcast -p apoa1.namd $TMPDIR/apoa1.namd
+sbcast -p par_all22_popc.xplor $TMPDIR/par_all22_popc.xplor
+sbcast -p par_all22_prot_lipid.xplor $TMPDIR/par_all22_prot_lipid.xplor
+sbcast -p apoa1.psf $TMPDIR/apoa1.psf
+sbcast -p apoa1.pdb $TMPDIR/apoa1.pdb
 cd $TMPDIR
 #
 # Run NAMD
 #
-run_namd apoa1.namd
-#
-# Now, copy data (or move) back once the simulation has completed
-#
-sgather '*' $SLURM_SUBMIT_DIR
+namd2 apoa1.namd

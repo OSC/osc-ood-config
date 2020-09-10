@@ -11,6 +11,7 @@
 
 #
 # The following lines set up the Gaussian environment
+# User must be a member of GaussC for usage
 #
 module load gaussian
 #
@@ -21,7 +22,7 @@ cp -p /users/appl/srb/workshops/compchem/gaussian/glucose.com .
 #
 # Run Gaussian
 #
-g16 < glucose.com
+g16 glucose.com
 ls -al
 #
 # Now, copy data (or move) back once the simulation has completed

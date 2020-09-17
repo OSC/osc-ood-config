@@ -22,7 +22,7 @@ cp -p /users/appl/srb/workshops/compchem/gaussian/glucose.com .
 #
 # Run Gaussian
 #
-g16 glucose.com
+g16 <glucose.com >glucose.log
 ls -al
 #
 # Now, copy data (or move) back once the simulation has completed

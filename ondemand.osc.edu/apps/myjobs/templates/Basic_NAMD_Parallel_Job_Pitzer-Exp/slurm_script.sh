@@ -10,8 +10,8 @@
 #
 # The following lines set up the NAMD environment
 #
-module load intel/18.0.3  
-module load mvapich2/2.3
+module load intel/19.0.5  
+module load mvapich2/2.3.4
 module load namd/2.13
 #
 # Move to the directory where the job was submitted

@@ -8,6 +8,10 @@ fi
 
 TMPFILE=$(mktemp /tmp/k8-ondemand-bootstrap-${USERNAME}.XXXXXX)
 PASSWD=$(getent passwd $USERNAME)
+if [ "$PASSWD" !~ "^${USERNAME}:"* ]; then
+  echo "level=error msg=\"Unable to perform lookup of user\" user=$USERNAME"
+  exit 1
+fi
 USER_UID=$(echo "$PASSWD" | cut -d':' -f3)
 USER_GID=$(echo "$PASSWD" | cut -d':' -f4)
 

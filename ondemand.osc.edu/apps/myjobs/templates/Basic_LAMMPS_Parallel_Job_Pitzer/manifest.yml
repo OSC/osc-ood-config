@@ -1,6 +1,6 @@
-name: Basic LAMMPS Parallel Job - Pitzer Expansion
-host: pitzer-exp
+name: Basic LAMMPS Parallel Job - Pitzer
+host: pitzer
 script: slurm_script.sh
 notes: |
-  A Basic LAMMPS Parallel Job for the OSC Pitzer Expansion cluster
+  A Basic LAMMPS Parallel Job for the OSC Pitzer cluster
   https://www.osc.edu/resources/available_software/software_list/lammps

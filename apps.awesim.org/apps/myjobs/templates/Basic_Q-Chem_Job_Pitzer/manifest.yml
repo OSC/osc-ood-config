@@ -1,6 +1,6 @@
-name: Basic Q-Chem Job - Pitzer Expansion
-host: pitzer-exp
+name: Basic Q-Chem Job - Pitzer
+host: pitzer
 script: sample.sh
 notes: |
-  A Basic Q-Chem Job for the OSC Pitzer Expansion Cluster
+  A Basic Q-Chem Job for the OSC Pitzer Cluster
   https://www.osc.edu/resources/available_software/software_list/q_chem

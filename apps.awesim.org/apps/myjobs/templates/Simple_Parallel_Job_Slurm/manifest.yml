@@ -1,5 +1,5 @@
 name: Simple Parallel Job
-host: pitzer-exp
+host: pitzer
 script: parallel_job.sh
 notes: |
-   A job template for implementing a simple parallel job on Pitzer Expansion.
+   A job template for implementing a simple parallel job on Pitzer.

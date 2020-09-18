@@ -1,6 +1,6 @@
-name: Basic Python Serial Job - Pitzer Expansion
-host: pitzer-exp
+name: Basic Python Serial Job - Pitzer
+host: pitzer
 script: slurm_script.sh
 notes: |
-  A Basic Python Serial Job for the OSC Pitzer Expansion cluster
+  A Basic Python Serial Job for the OSC Pitzer cluster
   https://www.osc.edu/resources/available_software/software_list/python

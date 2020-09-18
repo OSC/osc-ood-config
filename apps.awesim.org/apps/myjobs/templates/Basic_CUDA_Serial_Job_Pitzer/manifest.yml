@@ -1,6 +1,6 @@
-name: Basic CUDA Serial Job - Pitzer Expansion
-host: pitzer-exp
+name: Basic CUDA Serial Job - Pitzer
+host: pitzer
 script: slurm_script.sh
 notes: |
-  A Basic CUDA Serial Job for the OSC Pitzer Expansion Cluster
+  A Basic CUDA Serial Job for the OSC Pitzer Cluster
   https://www.osc.edu/resources/available_software/software_list/cuda

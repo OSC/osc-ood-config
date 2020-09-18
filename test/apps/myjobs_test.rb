@@ -5,7 +5,6 @@ class MyJobsTest < Minitest::Test
     @templates = [
       ONDEMAND.join("apps", "myjobs", "templates"),
       AWESIM.join("apps", "myjobs", "templates"),
-      DEMO_TEST.join("apps", "myjobs", "templates")
     ]
   end
 

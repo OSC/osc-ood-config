@@ -1,3 +1,0 @@
-DEFAULT_SSHHOST=owens.osc.edu
-OOD_DEFAULT_SSHHOST=owens.osc.edu
-OOD_SSHHOST_ALLOWLIST="r[0-1][0-9][0-9][0-9].ten.osc.edu:o[0-1][0-9][0-9][0-9].ten.osc.edu:p[0-1][0-9][0-9][0-9].ten.osc.edu"

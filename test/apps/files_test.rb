@@ -5,7 +5,7 @@ class FilesTest < Minitest::Test
     @app_roots = [
       ONDEMAND.join("apps", "files"),
       AWESIM.join("apps", "files"),
-      DEMO.join("apps", "files")
+      CLASS.join("apps", "files")
     ]
   end
 

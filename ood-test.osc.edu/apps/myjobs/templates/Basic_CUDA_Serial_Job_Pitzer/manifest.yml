@@ -1,6 +1,0 @@
-name: Basic CUDA Serial Job - Pitzer
-host: pitzer
-script: pbs_script.sh
-notes: |
-  A Basic CUDA Serial Job for the OSC Pitzer Cluster
-  https://www.osc.edu/resources/available_software/software_list/cuda

@@ -1,11 +1,44 @@
+
 <%- 
-  base_slurm_args = ["--nodes", "#{bc_num_slots}", "--ntasks-per-node", "48", "--exclusive"]
+  base_slurm_args = ["--nodes", "#{bc_num_slots}", "--exclusive"]
+
+  def p18_node
+    return [ "--ntasks-per-node", "40", "--constraint", "40core" ]
+  end
+
+  def p20_node
+    return [ "--ntasks-per-node", "48", "--constraint", "48core" ]
+  end
 
   slurm_args = case node_type
-              when "gpu"
+              # 'any' case handled by scheduler, this is just a quick short circuit
+              when "any"
+                base_slurm_args
+
+              when "any-40core"
+                base_slurm_args + p18_node
+              when "any-48core"
+                base_slurm_args + p20_node
+
+              when "gpu-any"
                 base_slurm_args += ["--gpus-per-node", "2"]
+              when "gpu-40core"
+                base_slurm_args + p18_node + ["--gpus-per-node", "2"]
+              when "gpu-48core"
+                base_slurm_args + p20_node + ["--gpus-per-node", "2"]
+              when "vis"
+                base_slurm_args + ["--gpus-per-node", "2", "--gres", "vis"]
               when "densegpu"
-                base_slurm_args += ["--gpus-per-node", "4"]
+                base_slurm_args + p20_node + ["--gpus-per-node", "4"]
+
+              # using partitions here is easier than specifying memory requests
+              when "largemem"
+                partition = bc_num_slots > 1 ? "largemem-parallel" : "largemem-serial"
+                base_slurm_args + p20_node + ["--partition", partition ]
+              when "hugemem"
+                partition = bc_num_slots > 1 ? "hugemem-parallel" : "hugemem-parallel"
+                base_slurm_args + p18_node + ["--partition", partition ]
+
               else
                 base_slurm_args
               end

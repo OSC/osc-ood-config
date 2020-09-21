@@ -30,26 +30,32 @@ attributes:
     widget: select
     label: "Node type"
     help: |
-      - **any** - (*40 cores*) Chooses anyone of the available Pitzer nodes.
-        This reduces the wait time as you have no requirements. Standard Pitzer
-        nodes have 192GB of memory.
-      - **vis** - (*40 cores*) This requests a gpu node as described below,
-        with the addition that it starts an X server running in the background.
-        This allows for Hardware Rendering with the GPU typically needed for
-        3D visualization using VirtualGL.
-      - **gpu** - (*40 cores*) This node includes two NVIDIA Tesla V100 GPUs
-        allowing for CUDA computations. This node has 384GB of memory.
-        There are currently only 32 of these nodes on Pitzer.
-        These nodes don't start an X server, so visualization with hardware
-        rendering is not possible.
-      - **hugemem** - (*80 cores*) This Pitzer node has 3TB of memory as
-        well as 80 cores. There are only 4 of these nodes on Pitzer. A
-        reservation may be required to use this node.
+      - **Standard Compute** <br>
+        These are standard HPC machines. There are 224 with 40 cores and
+        340 with 48. They all have 192 GB of RAM. Chosing any will decrease
+        your wait time.
+      - **GPU Enabled** <br>
+        These are HPC machines with [NVIDIA Tesla V100 GPUs]. They have the same
+        40 core machines have 2 GPUs with 16 GB of RAM and 48 core machines have 2
+        with 32 GB of RAM.  Densegpu types have 4 GPUs with 16 GB of RAM.
+        Visualization nodes are GPU enabled nodes with an X Server in the background
+        for 3D visualization using VirtualGL.
+      - **Large Memory** <br>
+        These are HPC machines with very large amounts of memory. Largmem nodes
+        have 48 cores with 768 GB of RAM. Hugemem nodes have 80 cores with 3 TB of RAM.
+
+      Visit the OSC site for more [detailed information on the Pitzer cluster].
+      [detailed information on the Pitzer cluster]: https://www.osc.edu/resources/technical_support/supercomputers/pitzer
+      [NVIDIA Tesla V100 GPUs]: https://www.nvidia.com/en-us/data-center/v100/
     options:
-      - ["any", ":ppn=40"]
-      - ["vis (1/2 gpus with X server)", ":ppn=40:vis:gpus=1"]
-      - ["vis (2/2 gpus with X server)", ":ppn=40:vis:gpus=2"]
-      - ["gpu (1/2 gpus)", ":ppn=40:gpus=1"]
-      - ["gpu (2/2 gpus)", ":ppn=40:gpus=2"]
-      - ["hugemem", ":ppn=80:hugemem"]
-submit: submit/pbs.yml.erb
+      - [ "any", "any" ]
+      - [ "40 core", "any-40core" ]
+      - [ "48 core", "any-48core" ]
+      - [ "any gpu", "gpu-any"]
+      - [ "40 core with gpu", "gpu-40core" ]
+      - [ "48 core with gpu", "gpu-48core" ]
+      - [ "densegpu", "densegpu" ]
+      - [ "visualization node", "vis"]
+      - [ "largemem", "largemem" ]
+      - [ "hugemem", "hugemem" ]
+submit: submit/slurm.yml.erb

@@ -1,5 +1,0 @@
-name: MPI Hello World
-host: pitzer-exp
-script: mpi-hello.sh
-notes: |
-   A job template for implementing an MPI job on Pitzer Expansion.

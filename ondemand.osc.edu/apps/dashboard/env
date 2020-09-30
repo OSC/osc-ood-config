@@ -26,3 +26,6 @@ OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-use
 # enable balance feature
 OOD_BALANCE_PATH=/users/reporting/oscus/negbal-warning-production.json
 OOD_BALANCE_THRESHOLD=45
+
+# enable XDMoD integration
+OOD_XDMOD_HOST="https://xdmod.osc.edu"

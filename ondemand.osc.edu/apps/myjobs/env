@@ -1,3 +1,6 @@
 OOD_DASHBOARD_TITLE="OSC OnDemand"
 OOD_BRAND_BG_COLOR='#6CACE4'
 OOD_BRAND_LINK_ACTIVE_BG_COLOR='#375C84'
+
+# enable XDMoD integration
+OOD_XDMOD_HOST="https://xdmod.osc.edu"

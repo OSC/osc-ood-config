@@ -2,7 +2,7 @@
 #SBATCH -J ondemand/sys/myjobs/basic_qchem_slurm
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node 40
-#SBATCH	--time=00:30:00
+#SBATCH --time=00:30:00
 #SBATCH --exclusive
 #SBATCH --output=job-output
 

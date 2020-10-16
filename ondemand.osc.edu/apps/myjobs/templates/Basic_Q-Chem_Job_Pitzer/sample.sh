@@ -1,22 +1,25 @@
-#!/bin/csh
-#SBATCH -J ondemand/sys/myjobs/basic_qchem
+#!/bin/bash
+#SBATCH -J ondemand/sys/myjobs/basic_qchem_slurm
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node 40
 #SBATCH --time=00:30:00
 #SBATCH --exclusive
-#SBATCH --nodes=2
+#SBATCH --output=job-output
+
 #
 # This is a sample script for running a basic Q-Chem job.
-# The only thing you need to modify is 'sample' here:
+# The only thing you need to modify is 'sample' here
 #
-setenv JOBNAME sample
+export INPUTFILENAME="sample"
 #
 # replace 'sample' with the actual name of your input file.
 #
-module load intel/18.0.4
-module load mvapich2/2.3
-module load qchem/5.3
+module load intel
+module load mvapich2
+module load qchem
 
-# copy the contents to TMPDIR
-cp $SLURM_SUBMIT_DIR/* $TMPDIR
+# copy input file to $TMPDIR
+cp $INPUTFILENAME.inp $TMPDIR
 cd $TMPDIR
 
 # QChem guide at
@@ -26,12 +29,8 @@ cd $TMPDIR
 #
 # Temporary hack to get multinode jobs running - it is not yet
 # known whether multinode qchem requires a global filesystem.
-cd $SLURM_SUBMIT_DIR
-setenv QCSCRATCH $TMPDIR
-#setenv QCLOCALSCR $TMPDIR
-#
-set NPROC = `cat $SLURM_JOB_NODELIST | wc -l`
-qchem -np ${NPROC} $JOBNAME.inp $JOBNAME.out
-cp -p $JOBNAME.out $SLURM_SUBMIT_DIR
-cat $JOBNAME.out
-ls -al
+# setenv QCLOCALSCR $TMPDIR
+# export QCSCRATCH=$TMPDIR
+
+qchem -np $SLURM_NPROCS $INPUTFILENAME.inp  
+ls -al 

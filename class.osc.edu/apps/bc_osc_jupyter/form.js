@@ -5,7 +5,8 @@ const account_lookup = {
   "BIOCHEM5721":   "PAS1745",
   "PHYSICS6820":   "PAS1759",
   //OSCJUPYTER entry not required
-  "PHYS280_WIT":   "PWIT0412"
+  "PHYS280_WIT":   "PWIT0412",
+  "PHYS4032_OU":   "PHS0342",
 }
 
 var staff = false;

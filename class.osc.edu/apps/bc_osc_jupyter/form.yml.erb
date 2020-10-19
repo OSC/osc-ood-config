@@ -9,14 +9,16 @@
     "BIOCHEM 5721"     => "PAS1745",
     "PHYSICS 6820"     => "PAS1759",
     "OSC JUPYTER"      => "oscall", #not really required, but kept to avoid confusion
-    "PHYSICS 280 WIT"  => "PWIT0412"
+    "PHYSICS 280 WIT"  => "PWIT0412",
+    "PHYSICS 4032 OU"  => "PHS0342",
   }.select { |k,v| groups.include?(v) }
 
   classes = {
     "BIOCHEM 5721"     => "#{base_modules} class/BIOCHEM5721",
     "PHYSICS 6820"     => "#{base_modules} class/PHYSICS6820",
     "OSC Jupyter"      => "#{base_modules} class/OSCJUPYTER",
-    "PHYSICS 280 WIT"  => "#{base_modules} class/PHYS280_WIT"
+    "PHYSICS 280 WIT"  => "#{base_modules} class/PHYS280_WIT",
+    "PHYSICS 4032 OU"  => "#{base_modules} class/PHYS4032_OU",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

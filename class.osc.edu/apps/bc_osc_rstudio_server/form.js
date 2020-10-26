@@ -14,6 +14,7 @@ const account_lookup = {
   "RWORKSHOP_UC":  "PES0836",
   "BANA4090_UC":   "PES0834",
   "CODECLUB":      "PAS1838",
+  "SOCIO5650":     "PAS1844",
 }
 
 var staff = false;

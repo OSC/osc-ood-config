@@ -33,11 +33,11 @@
 
               # using partitions here is easier than specifying memory requests
               when "largemem"
-                partition = bc_num_slots > 1 ? "largemem-parallel" : "largemem-serial"
+                partition = bc_num_slots.to_i > 1 ? "largemem-parallel" : "largemem"
                 base_slurm_args + p20_node + ["--partition", partition ]
               when "hugemem"
-                partition = bc_num_slots > 1 ? "hugemem-parallel" : "hugemem-parallel"
-                base_slurm_args + p18_node + ["--partition", partition ]
+                partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
+                base_slurm_args + [ "--ntasks-per-node", "80", "--partition", partition ]
 
               else
                 base_slurm_args

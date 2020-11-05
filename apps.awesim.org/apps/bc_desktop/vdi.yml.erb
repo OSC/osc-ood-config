@@ -1,8 +1,3 @@
-<%-
-  groups = OodSupport::Process.groups.map(&:name)
-  ruby = groups.include?('ruby')
--%>
-
 ---
 title: "VDI (Owens and Pitzer)"
 description: |
@@ -33,9 +28,6 @@ attributes:
     options:
       - ["owens", "quick"]
       - ["pitzer", "quick_pitzer"]
-      <%- if ruby -%>
-      - ["ruby", "ruby"]
-      <%- end -%>
   desktop:
     widget: select
     label: "Desktop environment"

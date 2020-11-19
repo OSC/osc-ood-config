@@ -10,6 +10,9 @@
     return [ "--ntasks-per-node", "48", "--constraint", "48core" ]
   end
 
+  gpus = cluster == 'pitzer' ? 2 : 1
+  hugemem_cpus = cluster == 'pitzer' ? 80 : 48
+
   slurm_args = case node_type
               # 'any' case handled by scheduler, this is just a quick short circuit
               when "any"
@@ -21,13 +24,13 @@
                 base_slurm_args + p20_node
 
               when "gpu-any"
-                base_slurm_args += ["--gpus-per-node", "2"]
+                base_slurm_args += ["--gpus-per-node", "#{gpus}"]
               when "gpu-40core"
-                base_slurm_args + p18_node + ["--gpus-per-node", "2"]
+                base_slurm_args + p18_node + ["--gpus-per-node", "#{gpus}"]
               when "gpu-48core"
-                base_slurm_args + p20_node + ["--gpus-per-node", "2"]
+                base_slurm_args + p20_node + ["--gpus-per-node", "#{gpus}"]
               when "vis"
-                base_slurm_args + ["--gpus-per-node", "2", "--gres", "vis"]
+                base_slurm_args + ["--gpus-per-node", "#{gpus}", "--gres", "vis"]
               when "densegpu"
                 base_slurm_args + p20_node + ["--gpus-per-node", "4"]
 
@@ -37,7 +40,7 @@
                 base_slurm_args + p20_node + ["--partition", partition ]
               when "hugemem"
                 partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
-                base_slurm_args + [ "--ntasks-per-node", "80", "--partition", partition ]
+                base_slurm_args + [ "--ntasks-per-node", "#{hugemem_cpus}", "--partition", partition ]
 
               else
                 base_slurm_args

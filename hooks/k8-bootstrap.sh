@@ -22,6 +22,20 @@ kind: Namespace
 metadata:
   name: "$USERNAME"
 ---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: $USERNAME
+  name: deny-from-other-namespaces
+spec:
+  podSelector:
+    matchLabels:
+  ingress:
+  - from:
+    - podSelector: {}
+    - ipBlock:
+        cidr: 192.148.247.128/25
+---
 # the pod security policy such that you can only run pods as a single uid/gid pair
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy

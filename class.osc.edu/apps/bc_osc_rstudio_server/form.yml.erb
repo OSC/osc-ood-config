@@ -20,6 +20,7 @@
     "BANA 4090"            => "PES0834",
     "Code Club"            => "PAS1838",
     "SOCIO 5650"           => "PAS1844",
+    "SOCIO 3549"           => "PAS1835",
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
@@ -38,6 +39,7 @@
     "BANA 4090"            => "#{new_modules} class/BANA4090_UC",
     "Code Club"            => "#{new_modules} class/CODECLUB",
     "SOCIO 5650"           => "#{new_modules} class/SOCIO5650",
+    "SOCIO 3549"           => "#{new_modules} class/SOCIO3549",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

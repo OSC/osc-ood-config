@@ -14,18 +14,19 @@ if [ "$PASSWD" !~ "^${USERNAME}:"* ]; then
 fi
 USER_UID=$(echo "$PASSWD" | cut -d':' -f3)
 USER_GID=$(echo "$PASSWD" | cut -d':' -f4)
+NAMESPACE="user-${USERNAME}"
 
 cat > $TMPFILE <<EOF
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: "$USERNAME"
+  name: "$NAMESPACE"
 ---
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  namespace: $USERNAME
+  namespace: $NAMESPACE
   name: deny-from-other-namespaces
 spec:
   podSelector:
@@ -87,7 +88,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: "$USERNAME-psp-role"
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
 rules:
 - apiGroups: [ "extensions" ]
   resources: [ "podsecuritypolicies" ]
@@ -98,7 +99,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
   name: "$USERNAME-ood-initializer"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -107,13 +108,13 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: "default"
-    namespace: "$USERNAME"
+    namespace: "$NAMESPACE"
 ---
 # give the user the ood-user role
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
   name: "$USERNAME-ood-user"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -122,14 +123,14 @@ roleRef:
 subjects:
   - kind: User
     name: "$USERNAME"
-    namespace: "$USERNAME"
+    namespace: "$NAMESPACE"
 ---
 # bind the users' pod security policy to the user
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: "$USERNAME-psp-rolebinding"
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -138,7 +139,7 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: "$USERNAME"
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
 EOF
 
 

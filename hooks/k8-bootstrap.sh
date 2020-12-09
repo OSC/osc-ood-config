@@ -8,24 +8,27 @@ fi
 
 TMPFILE=$(mktemp /tmp/k8-ondemand-bootstrap-${USERNAME}.XXXXXX)
 PASSWD=$(getent passwd $USERNAME)
-if [ "$PASSWD" !~ "^${USERNAME}:"* ]; then
+if ! [[ "$PASSWD" =~ "${USERNAME}:"* ]]; then
   echo "level=error msg=\"Unable to perform lookup of user\" user=$USERNAME"
   exit 1
 fi
 USER_UID=$(echo "$PASSWD" | cut -d':' -f3)
 USER_GID=$(echo "$PASSWD" | cut -d':' -f4)
+NAMESPACE="user-${USERNAME}"
 
 cat > $TMPFILE <<EOF
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: "$USERNAME"
+  name: "$NAMESPACE"
+  labels:
+    app.kubernetes.io/name: open-ondemand
 ---
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  namespace: $USERNAME
+  namespace: $NAMESPACE
   name: deny-from-other-namespaces
 spec:
   podSelector:
@@ -46,6 +49,8 @@ metadata:
     apparmor.security.beta.kubernetes.io/allowedProfileNames: 'runtime/default'
     seccomp.security.alpha.kubernetes.io/defaultProfileName:  'runtime/default'
     apparmor.security.beta.kubernetes.io/defaultProfileName:  'runtime/default'
+  labels:
+    app.kubernetes.io/name: open-ondemand
 spec:
   # Required to prevent escalations to root.
   privileged: false
@@ -87,7 +92,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: "$USERNAME-psp-role"
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
 rules:
 - apiGroups: [ "extensions" ]
   resources: [ "podsecuritypolicies" ]
@@ -98,7 +103,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
   name: "$USERNAME-ood-initializer"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -107,13 +112,13 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: "default"
-    namespace: "$USERNAME"
+    namespace: "$NAMESPACE"
 ---
 # give the user the ood-user role
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
   name: "$USERNAME-ood-user"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -122,14 +127,14 @@ roleRef:
 subjects:
   - kind: User
     name: "$USERNAME"
-    namespace: "$USERNAME"
+    namespace: "$NAMESPACE"
 ---
 # bind the users' pod security policy to the user
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: "$USERNAME-psp-rolebinding"
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -138,7 +143,7 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: "$USERNAME"
-  namespace: "$USERNAME"
+  namespace: "$NAMESPACE"
 EOF
 
 

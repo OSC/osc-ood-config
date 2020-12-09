@@ -22,6 +22,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: "$NAMESPACE"
+  labels:
+    app.kubernetes.io/name: open-ondemand
 ---
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
@@ -47,6 +49,8 @@ metadata:
     apparmor.security.beta.kubernetes.io/allowedProfileNames: 'runtime/default'
     seccomp.security.alpha.kubernetes.io/defaultProfileName:  'runtime/default'
     apparmor.security.beta.kubernetes.io/defaultProfileName:  'runtime/default'
+  labels:
+    app.kubernetes.io/name: open-ondemand
 spec:
   # Required to prevent escalations to root.
   privileged: false

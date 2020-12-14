@@ -1,5 +1,5 @@
 ---
-title: "Owens Slurm Desktop"
+title: "Owens Desktop"
 cluster: "owens"
 description: |
   This app will launch an interactive desktop on one or more compute nodes. It is

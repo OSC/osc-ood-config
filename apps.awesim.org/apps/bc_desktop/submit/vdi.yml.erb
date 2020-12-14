@@ -1,0 +1,9 @@
+<%-
+  args = [ "--partition", "quick", "--nodes", "1", "--ntasks-per-node", "1" ]
+-%>
+---
+script:
+  native:
+    <%- args.each do |arg| -%>
+    - "<%= arg %>"
+    <%- end -%>

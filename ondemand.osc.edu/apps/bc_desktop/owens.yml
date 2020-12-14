@@ -1,5 +1,5 @@
 ---
-title: "Owens Desktop"
+title: "Owens Slurm Desktop"
 cluster: "owens"
 description: |
   This app will launch an interactive desktop on one or more compute nodes. It is
@@ -43,8 +43,8 @@ attributes:
       - **hugemem** - (*48 cores*) This Owens node has 1.5TB of available RAM
         as well as 48 cores. There are 16 of these nodes on Owens.
     options:
-      - ["any", ":ppn=28"]
-      - ["vis", ":ppn=28:gpus=1:vis"]
-      - ["gpu", ":ppn=28:gpus=1"]
-      - ["hugemem", ":ppn=48:hugemem"]
-submit: submit/pbs.yml.erb
+      - [ "any", "any" ]
+      - [ "vis", "vis" ]
+      - [ "gpu", "gpu-any" ]
+      - [ "hugemem", "hugemem" ]
+submit: submit/slurm.yml.erb

@@ -8,5 +8,7 @@ script:
   accounting_id: <%= project %>
   <%- end -%>
   native:
-    resources:
-      nodes: "1:ppn=<%= num_cores %>"
+    - "--nodes"
+    - "1"
+    - "--ntasks-per-node"
+    - "<%= num_cores %>"

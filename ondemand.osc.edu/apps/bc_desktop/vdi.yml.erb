@@ -11,8 +11,10 @@ description: |
 
   [Owens]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/owens/session_contexts/new
   [Pitzer]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/pitzer/session_contexts/new
+cluster:
+  - "owens"
+  - "pitzer"
 form:
-  - cluster
   - bc_vnc_idle
   - desktop
   - bc_account
@@ -23,12 +25,6 @@ form:
   - bc_vnc_resolution
   - bc_email_on_started
 attributes:
-  cluster:
-    widget: select
-    options:
-      - ["owens", "quick"]
-      - ["owens-slurm", "owens-slurm"]
-      - ["pitzer", "quick_pitzer"]
   desktop:
     widget: select
     label: "Desktop environment"
@@ -54,4 +50,4 @@ attributes:
   bc_vnc_idle: 0
   bc_vnc_resolution:
     required: true
-submit: submit/vdi-submit.yml.erb
+submit: submit/vdi.yml.erb

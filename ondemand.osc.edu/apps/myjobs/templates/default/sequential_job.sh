@@ -1,18 +1,25 @@
-#PBS -N ondemand/sys/myjobs/default
-#PBS -l walltime=00:10:00
-#PBS -l nodes=1:ppn=1
-#PBS -j oe
+#!/bin/bash
+#SBATCH -J ondemand/sys/myjobs/basic_sequential
+#SBATCH --time=00:01:00
+#SBATCH --nodes=1
+#SBATCH --exclusive
+
+# The following is an example of a single-processor sequential job that uses $TMPDIR as its working area.
+# This batch script copies the script file and input file from the directory the
+# qsub command was called from into $TMPDIR, runs the code in $TMPDIR,
+# and copies the output file back to the original directory.
+#   https://www.osc.edu/supercomputing/batch-processing-at-osc/job-scripts
 #
 # Move to the directory where the job was submitted
 #
-cd $PBS_O_WORKDIR
-cp myscript.sh $TMPDIR
+cd $SLURM_SUBMIT_DIR
+cp myscript.sh message.in $TMPDIR
 cd $TMPDIR
 #
-# Run script
+# Run sequential job
 #
-sh myscript.sh > my_results
+/usr/bin/time ./myscript.sh
 #
 # Now, copy data (or move) back once the simulation has completed
 #
-cp my_results $PBS_O_WORKDIR
+cp message.out $SLURM_SUBMIT_DIR

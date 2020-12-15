@@ -1,5 +1,0 @@
-name: Simple Parallel Job
-host: owens
-script: parallel_job.sh
-notes: >
-        Here is an example of an MPI job that uses 4 nodes with 28 cores each, running one process per core (112 processes total).

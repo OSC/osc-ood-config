@@ -1,5 +1,5 @@
 name: Basic GROMACS Parallel Job - Owens
-host: owens-slurm
+host: owens
 script: slurm_script.sh
 notes: |
   A Basic GROMACS Parallel Job for the OSC Owens Cluster

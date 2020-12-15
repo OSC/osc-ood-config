@@ -1,6 +1,0 @@
-name: Basic ANSYS Mechanical Job - Owens
-host: owens
-script: basic_ansys.sh
-notes: |
-  A Basic ANSYS Mechanical Job for the OSC Owens Cluster
-  https://www.osc.edu/resources/available_software/software_list/ansys/ansys_mechanical

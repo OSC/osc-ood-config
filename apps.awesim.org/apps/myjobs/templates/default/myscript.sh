@@ -1,4 +1,6 @@
 #!/bin/bash
-qstat -f $PBS_JOBID
-# do something
-echo "I'm echoing to stdout"
+
+cat message.in > message.out
+echo "The following is from myscript.sh" >> message.out
+
+scontrol show job $SLURM_JOBID >> message.out

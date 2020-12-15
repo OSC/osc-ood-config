@@ -1,5 +1,5 @@
 name: Basic BLAST Job - Owens
-host: owens-slurm
+host: owens
 script: blast.sh
 notes: |
   A Basic BLAST Job for the OSC Owens Cluster

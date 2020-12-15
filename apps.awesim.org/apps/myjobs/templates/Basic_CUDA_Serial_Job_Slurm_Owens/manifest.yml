@@ -1,5 +1,5 @@
 name: Basic CUDA Serial Job - Owens
-host: owens-slurm
+host: owens
 script: slurm_script.sh
 notes: |
   A Basic CUDA Serial Job for the OSC Owens Cluster

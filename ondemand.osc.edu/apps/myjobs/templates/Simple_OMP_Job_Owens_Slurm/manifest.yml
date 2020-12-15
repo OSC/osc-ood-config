@@ -1,5 +1,5 @@
 name: Hello OpenMP World in C
-host: owens-slurm
+host: owens
 script: omp-hello.sh
 notes: |
    A job template for implementing an OpenMP job on Owens.

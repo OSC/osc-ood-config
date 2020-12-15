@@ -1,5 +1,5 @@
 name: VNC Job Template
-host: owens-slurm
+host: owens
 script: vnc-job.sh
 notes: |
   A job template for implementing a VNC job on Owens.

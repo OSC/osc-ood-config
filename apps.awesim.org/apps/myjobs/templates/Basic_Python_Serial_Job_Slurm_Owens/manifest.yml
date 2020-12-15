@@ -1,5 +1,5 @@
 name: Basic Python Serial Job - Owens
-host: owens-slurm
+host: owens
 script: slurm_script.sh
 notes: |
   A Basic Python Serial Job for the OSC Owens cluster

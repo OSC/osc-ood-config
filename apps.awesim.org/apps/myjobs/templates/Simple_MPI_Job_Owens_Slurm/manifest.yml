@@ -1,5 +1,5 @@
 name: MPI Hello World
-host: owens-slurm
+host: owens
 script: mpi-hello.sh
 notes: |
    A job template for implementing an MPI job on Owens.

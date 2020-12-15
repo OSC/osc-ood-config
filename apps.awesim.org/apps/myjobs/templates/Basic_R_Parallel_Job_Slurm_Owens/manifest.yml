@@ -1,0 +1,6 @@
+name: Basic R Parallel Job - Owens
+host: owens-slurm
+script: slurm_script.sh
+notes: |
+  A Basic R Parallel Job for the OSC Owens Cluster. It is a comparison of several different methods for performing parallel computation in R.
+  https://www.osc.edu/resources/available_software/software_list/r

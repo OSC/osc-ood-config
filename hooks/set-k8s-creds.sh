@@ -7,7 +7,7 @@ if [ "x${ONDEMAND_USERNAME}" = "x" ]; then
 fi
 
 # This file has environment specific stuff like TOKEN_URL, CLIENT_SECRET,
-# and K8S_USERNAME
+# CLIENT_ID and K8S_USERNAME
 # shellcheck disable=SC1091
 source "/opt/osc/etc/ondemand-k8.env"
 
@@ -15,7 +15,7 @@ source "/opt/osc/etc/ondemand-k8.env"
 sudo -u "$ONDEMAND_USERNAME" kubectl config set-credentials "$K8S_USERNAME" \
    --auth-provider=oidc \
    --auth-provider-arg=idp-issuer-url="$TOKEN_URL" \
-   --auth-provider-arg=client-id="ondemand" \
+   --auth-provider-arg=client-id="$CLIENT_ID" \
    --auth-provider-arg=client-secret="$CLIENT_SECRET" \
    --auth-provider-arg=refresh-token="$OIDC_REFRESH_TOKEN" \
    --auth-provider-arg=id-token="$OIDC_ACCESS_TOKEN"

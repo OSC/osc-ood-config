@@ -1,0 +1,6 @@
+file/read-case-data test.cas
+solve/iterate 100
+file/write-case-data test_result.cas
+file/confirm-overwrite yes
+exit
+yes 

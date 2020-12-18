@@ -1,13 +1,17 @@
 
 <%- 
-  base_slurm_args = ["--nodes", "#{bc_num_slots}", "--exclusive"]
+  base_slurm_args = ["--nodes", "#{bc_num_slots}"]
+
+  def any_node
+    [ "--ntasks-per-node", "#{cores}" ]
+  end
 
   def p18_node
-    return [ "--ntasks-per-node", "40", "--constraint", "40core" ]
+    return [ "--ntasks-per-node", "#{cores}", "--constraint", "40core" ]
   end
 
   def p20_node
-    return [ "--ntasks-per-node", "48", "--constraint", "48core" ]
+    return [ "--ntasks-per-node", "#{cores}", "--constraint", "48core" ]
   end
 
   gpus = cluster == 'pitzer' ? 2 : 1
@@ -16,7 +20,7 @@
   slurm_args = case node_type
               # 'any' case handled by scheduler, this is just a quick short circuit
               when "any"
-                base_slurm_args
+                base_slurm_args + any_node
 
               when "any-40core"
                 base_slurm_args + p18_node
@@ -24,7 +28,7 @@
                 base_slurm_args + p20_node
 
               when "gpu-any"
-                base_slurm_args += ["--gpus-per-node", "#{gpus}"]
+                base_slurm_args + ["--gpus-per-node", "#{gpus}"]
               when "gpu-40core"
                 base_slurm_args + p18_node + ["--gpus-per-node", "#{gpus}"]
               when "gpu-48core"

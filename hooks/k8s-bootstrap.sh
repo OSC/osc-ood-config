@@ -1,22 +1,22 @@
 #!/bin/bash
 
-USERNAME="$1"
-if [ "x${USERNAME}" = "x" ]; then
+ONDEMAND_USERNAME="$1"
+if [ "x${ONDEMAND_USERNAME}" = "x" ]; then
   echo "Must specify username"
   exit 1
 fi
 
-TMPFILE=$(mktemp /tmp/k8-ondemand-bootstrap-${USERNAME}.XXXXXX)
-PASSWD=$(getent passwd $USERNAME)
-if ! [[ "$PASSWD" =~ "${USERNAME}:"* ]]; then
-  echo "level=error msg=\"Unable to perform lookup of user\" user=$USERNAME"
+TMPFILE=$(mktemp "/tmp/k8-ondemand-bootstrap-${ONDEMAND_USERNAME}.XXXXXX")
+PASSWD=$(getent passwd "$ONDEMAND_USERNAME")
+if ! [[ "$PASSWD" =~ "${ONDEMAND_USERNAME}:"* ]]; then
+  echo "level=error msg=\"Unable to perform lookup of user\" user=$ONDEMAND_USERNAME"
   exit 1
 fi
 USER_UID=$(echo "$PASSWD" | cut -d':' -f3)
 USER_GID=$(echo "$PASSWD" | cut -d':' -f4)
-NAMESPACE="user-${USERNAME}"
+NAMESPACE="user-${ONDEMAND_USERNAME}"
 
-cat > $TMPFILE <<EOF
+cat > "$TMPFILE" <<EOF
 ---
 apiVersion: v1
 kind: Namespace
@@ -43,7 +43,7 @@ spec:
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
-  name: "$USERNAME-psp"
+  name: "$ONDEMAND_USERNAME-psp"
   annotations:
     seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'docker/default,runtime/default'
     apparmor.security.beta.kubernetes.io/allowedProfileNames: 'runtime/default'
@@ -91,12 +91,12 @@ spec:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: "$USERNAME-psp-role"
+  name: "$ONDEMAND_USERNAME-psp-role"
   namespace: "$NAMESPACE"
 rules:
 - apiGroups: [ "extensions" ]
   resources: [ "podsecuritypolicies" ]
-  resourceNames: [ "$USERNAME-psp" ]
+  resourceNames: [ "$ONDEMAND_USERNAME-psp" ]
   verbs: [ "use" ]
 ---
 # give the service account the ood-initializer role
@@ -104,7 +104,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   namespace: "$NAMESPACE"
-  name: "$USERNAME-ood-initializer"
+  name: "$ONDEMAND_USERNAME-ood-initializer"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -119,35 +119,35 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   namespace: "$NAMESPACE"
-  name: "$USERNAME-ood-user"
+  name: "$ONDEMAND_USERNAME-ood-user"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: "ood-user"
 subjects:
   - kind: User
-    name: "$USERNAME"
+    name: "$ONDEMAND_USERNAME"
     namespace: "$NAMESPACE"
 ---
 # bind the users' pod security policy to the user
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: "$USERNAME-psp-rolebinding"
+  name: "$ONDEMAND_USERNAME-psp-rolebinding"
   namespace: "$NAMESPACE"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: "$USERNAME-psp-role"
+  name: "$ONDEMAND_USERNAME-psp-role"
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "$USERNAME"
+  name: "$ONDEMAND_USERNAME"
   namespace: "$NAMESPACE"
 EOF
 
 
 export PATH=/usr/local/bin:/bin:$PATH
-kubectl apply -f $TMPFILE
+kubectl apply -f "$TMPFILE"
 
-rm -f $TMPFILE
+rm -f "$TMPFILE"

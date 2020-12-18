@@ -1,0 +1,5 @@
+name: Hello OpenMP World in C
+host: pitzer
+script: omp-hello.sh
+notes: |
+   A job template for implementing an OpenMP job on Pitzer.

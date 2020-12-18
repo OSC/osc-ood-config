@@ -1,0 +1,7 @@
+name: VNC Job Template
+host: pitzer
+script: vnc-job.sh
+notes: |
+  A job template for implementing a VNC job on Pitzer.
+
+  For information on how to connect to this job when it is running: https://www.osc.edu/resources/getting_started/howto/howto_use_vnc_in_a_batch_job#connecting-to-your-vnc-session

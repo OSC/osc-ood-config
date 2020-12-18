@@ -20,11 +20,15 @@ jobs:
         with:
           path: ~/vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('Gemfile.lock') }}
-      - name: setup bundler
+      - name: setup bundler & shellcheck
         run: |
           gem install bundler -v 1.17.3
           bundle config path ~/vendor/bundle
+          apt-get update
+          apt-get install shellcheck
       - name: install gems
         run: bundle install
       - name: test
         run: bundle exec rake test
+      - name: shellcheck
+        run: shellcheck hooks/*

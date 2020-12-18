@@ -24,8 +24,8 @@ jobs:
         run: |
           gem install bundler -v 1.17.3
           bundle config path ~/vendor/bundle
-          apt-get update
-          apt-get install shellcheck
+          sudo apt-get update
+          sudo apt-get install shellcheck
       - name: install gems
         run: bundle install
       - name: test

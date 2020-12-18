@@ -1,6 +1,0 @@
-name: Basic Abaqus Job - Owens
-host: owens
-script: basic_abaqus.sh
-notes: |
-  A Basic Abaqus Job for the OSC Owens Cluster
-  https://www.osc.edu/resources/available_software/software_list/abaqus

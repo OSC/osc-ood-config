@@ -7,7 +7,7 @@ const account_lookup = {
   "STAT5730":      "PAS1642",
   "ANTHROP9982":   "PAS1723",
   "TDAI":          "PAS1732",
-  "OSCWORKSHOP":   "PZS0687",
+  "OSCWORKSHOP":   "PZS1117",
   "OSCRNASEQ":     "PZS1010",
   "PUBHLTH5015":   "PAS1754",
   "BANA7025_UC":   "PES0835",

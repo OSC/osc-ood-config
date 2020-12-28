@@ -7,6 +7,7 @@ const account_lookup = {
   //OSCJUPYTER entry not required
   "PHYS280_WIT":   "PWIT0412",
   "PHYS4032_OU":   "PHS0342",
+  "GRADTDA5622":   "PAS1871",
 }
 
 var staff = false;

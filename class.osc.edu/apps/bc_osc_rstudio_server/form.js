@@ -16,6 +16,7 @@ const account_lookup = {
   "CODECLUB":      "PAS1838",
   "SOCIO5650":     "PAS1844",
   "SOCIO3549":     "PAS1835",
+  "BM7331":        "PAS1877",
 }
 
 var staff = false;

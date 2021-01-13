@@ -1,7 +1,12 @@
 <%-
 
-  groups = OodSupport::Process.groups.map(&:name)
-  staff = groups.include?('oscall')
+  raw_groups = OodSupport::User.new.groups
+
+  groups = raw_groups.sort_by(&:id).tap { |groups|
+    groups.unshift(groups.delete(OodSupport::Process.group))
+  }.map(&:name).grep(/^P./)
+
+  staff = raw_groups.map(&:name).include?('oscall')
 
   new_modules = "project/classes"
   old_modules = "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive project/classes"
@@ -68,6 +73,12 @@ attributes:
     max: 28
     step: 1
   node_type: "any"
+  project:
+    widget: select
+    options:
+    <%- for group in groups -%>
+      - "<%= group %>"
+    <%- end %>
   <%- if  classes.empty? -%>
   version: "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive"
   <%- else -%>

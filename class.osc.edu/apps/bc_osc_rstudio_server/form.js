@@ -118,7 +118,8 @@ function set_staff() {
 set_staff();
 
 set_version_change_hander();
-toggle_visibility_of_form_group('#batch_connect_session_context_project', staff);
+show_project = $('#batch_connect_session_context_version').length == 0 || staff;
+toggle_visibility_of_form_group('#batch_connect_session_context_project', show_project);
 toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
 
 // Fake some events to initialize things

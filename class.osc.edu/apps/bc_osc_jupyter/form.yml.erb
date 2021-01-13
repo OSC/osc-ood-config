@@ -1,7 +1,12 @@
 <%- 
 
-  groups = OodSupport::Process.groups.map(&:name)
-  staff = groups.include?('oscall')
+  raw_groups = OodSupport::User.new.groups
+
+  groups = raw_groups.sort_by(&:id).tap { |groups|
+    groups.unshift(groups.delete(OodSupport::Process.group))
+  }.map(&:name).grep(/^P./)
+
+  staff = raw_groups.map(&:name).include?('oscall')
 
   base_modules = "project/classes"
 

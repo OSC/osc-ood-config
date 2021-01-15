@@ -110,10 +110,23 @@ function set_staff() {
   }
 }
 
+/**
+ * Alert users if they're launching a regular version of this
+ * app with no extra classroom materials,
+ */
+function alert_if_one_version(one_version) {
+  if(one_version) {
+    alert('You are not a part of any classroom project. The Jupyter launched here will not include classroom materials.');
+  }
+}
+
 set_staff();
 
+var one_version = $('#batch_connect_session_context_version').length == 0;
+var show_project =  one_version || staff;
+
+alert_if_one_version(one_version);
 set_version_change_handler();
-show_project = $('#batch_connect_session_context_version').length == 0 || staff;
 toggle_visibility_of_form_group('#batch_connect_session_context_project', show_project);
 toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
 

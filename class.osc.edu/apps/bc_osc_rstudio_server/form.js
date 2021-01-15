@@ -6,7 +6,7 @@ const account_lookup = {
   "STAT3202":      "PAS1644",
   "STAT5730":      "PAS1642",
   "ANTHROP9982":   "PAS1723",
-  "TDAI":          "PAS1732",
+  "TDAI":          "PAS1882",
   "OSCWORKSHOP":   "PZS1117",
   "OSCRNASEQ":     "PZS1010",
   "PUBHLTH5015":   "PAS1754",

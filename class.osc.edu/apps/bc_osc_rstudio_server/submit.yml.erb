@@ -2,9 +2,7 @@
 batch_connect:
   template: "basic"
 script:
-  <%- if project.present? -%>
-  accounting_id: <%= project %>
-  <%- end -%>
+  accounting_id: "<%= project %>"
   native:
     - "--nodes"
     - "1"

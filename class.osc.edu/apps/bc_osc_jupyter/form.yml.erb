@@ -1,7 +1,12 @@
 <%- 
 
-  groups = OodSupport::Process.groups.map(&:name)
-  staff = groups.include?('oscall')
+  raw_groups = OodSupport::User.new.groups
+
+  groups = raw_groups.sort_by(&:id).tap { |groups|
+    groups.unshift(groups.delete(OodSupport::Process.group))
+  }.map(&:name).grep(/^P./)
+
+  staff = raw_groups.map(&:name).include?('oscall')
 
   base_modules = "project/classes"
 
@@ -48,6 +53,12 @@ attributes:
     min: 0
     max: 28
     step: 1
+  project:
+    widget: select
+    options:
+    <%- for group in groups -%>
+      - "<%= group %>"
+    <%- end %>
   <%- if classes.empty? -%>
   version: "app_jupyter/2.1.4"
   <%- else -%>

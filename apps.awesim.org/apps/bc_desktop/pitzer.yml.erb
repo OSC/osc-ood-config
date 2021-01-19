@@ -1,3 +1,8 @@
+<%-
+  groups = OodSupport::User.new.groups.sort_by(&:id).tap { |groups|
+    groups.unshift(groups.delete(OodSupport::Process.group))
+  }.map(&:name).grep(/^P./)
+-%>
 ---
 title: "Pitzer Desktop"
 cluster: "pitzer"
@@ -13,7 +18,7 @@ form:
   # everything is taken from bc_desktop/form.yml except cores is added
   - bc_vnc_idle
   - desktop
-  - bc_account
+  - account
   - bc_num_hours
   - cores
   - bc_num_slots
@@ -36,8 +41,13 @@ attributes:
       [Mate]: https://mate-desktop.org/
       [Pitzer cluster]: https://www.osc.edu/supercomputing/computing/pitzer
   bc_queue: null
-  bc_account:
-    help: "You can leave this blank if **not** in multiple projects."
+  account:
+    label: "Project"
+    widget: select
+    options:
+      <%- groups.each do |group| %>
+      - "<%= group %>"
+      <%- end %>
   cores:
     value: 48
     min: 1

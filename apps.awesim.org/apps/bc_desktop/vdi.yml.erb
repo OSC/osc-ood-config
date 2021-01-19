@@ -1,3 +1,8 @@
+<%-
+  groups = OodSupport::User.new.groups.sort_by(&:id).tap { |groups|
+    groups.unshift(groups.delete(OodSupport::Process.group))
+  }.map(&:name).grep(/^P./)
+-%>
 ---
 title: "VDI (Owens and Pitzer)"
 description: |
@@ -17,7 +22,7 @@ cluster:
 form:
   - bc_vnc_idle
   - desktop
-  - bc_account
+  - account
   - bc_num_hours
   - bc_num_slots
   - node_type
@@ -45,8 +50,13 @@ attributes:
   bc_queue: null
   node_type: ":ppn=1"
   bc_email_on_started: 0
-  bc_account:
-    help: "You can leave this blank if **not** in multiple projects."
+  account:
+    label: "Project"
+    widget: select
+    options:
+      <%- groups.each do |group| %>
+      - "<%= group %>"
+      <%- end %>
   bc_vnc_idle: 0
   bc_vnc_resolution:
     required: true

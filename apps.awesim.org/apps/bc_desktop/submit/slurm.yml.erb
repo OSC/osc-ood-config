@@ -60,6 +60,7 @@ batch_connect:
     export XDG_RUNTIME_DIR="$TMPDIR/xdg_runtime"
 
 script:
+  accounting_id: "<%= account %>"
   native:
     <%- slurm_args.each do |arg| %>
     - "<%= arg %>"

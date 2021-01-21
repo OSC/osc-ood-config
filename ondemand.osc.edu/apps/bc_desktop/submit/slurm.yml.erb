@@ -28,13 +28,13 @@
                 base_slurm_args + p20_node
 
               when "gpu-any"
-                base_slurm_args + ["--gpus-per-node", "#{gpus}"]
+                base_slurm_args + any_node + ["--gpus-per-node", "#{gpus}"]
               when "gpu-40core"
                 base_slurm_args + p18_node + ["--gpus-per-node", "#{gpus}"]
               when "gpu-48core"
                 base_slurm_args + p20_node + ["--gpus-per-node", "#{gpus}"]
               when "vis"
-                base_slurm_args + ["--gpus-per-node", "#{gpus}", "--gres", "vis"]
+                base_slurm_args + any_node + ["--gpus-per-node", "#{gpus}", "--gres", "vis"]
               when "densegpu"
                 base_slurm_args + p20_node + ["--gpus-per-node", "4"]
 

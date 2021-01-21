@@ -19,17 +19,17 @@ function set_version_change_handler() {
   const version_select = $("#batch_connect_session_context_version");
 
   version_select.change(function(event){
-    change_project(event);
+    change_account(event);
     show_cores(event);
   });
 }
 
 /**
- * Change a project form value given a change from in version.
+ * Change the account form value given a change from in version.
  * 
  * @param  {Object} event The change event
  */
-function change_project(event){
+function change_account(event){
   if(staff) {
     return;
   }
@@ -38,15 +38,15 @@ function change_project(event){
     var found = RegExp(cls).test(event.target.value);
 
     if(found){
-      const project = $('#batch_connect_session_context_project')
-      project.val(account_lookup[cls])
+      const account = $('#batch_connect_session_context_account')
+      account.val(account_lookup[cls])
     }
   }
 }
 
 /**
- * Show the cores element if the event changes the project to
- * allowed projects.
+ * Show the cores element if the event changes the classroom to
+ * allowed classrooms.
  *
  * @param  {Object} event The change event
  */
@@ -123,13 +123,13 @@ function alert_if_one_version(one_version) {
 set_staff();
 
 var one_version = $('#batch_connect_session_context_version').length == 0;
-var show_project =  one_version || staff;
+var show_account =  one_version || staff;
 
 alert_if_one_version(one_version);
 set_version_change_handler();
-toggle_visibility_of_form_group('#batch_connect_session_context_project', show_project);
+toggle_visibility_of_form_group('#batch_connect_session_context_account', show_account);
 toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
 
 // Fake some events to initialize things
-change_project({ target: document.querySelector('#batch_connect_session_context_version') });
+change_account({ target: document.querySelector('#batch_connect_session_context_version') });
 show_cores({ target: document.querySelector('#batch_connect_session_context_version') });

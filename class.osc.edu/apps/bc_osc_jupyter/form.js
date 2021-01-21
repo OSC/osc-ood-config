@@ -38,8 +38,8 @@ function change_account(event){
     var found = RegExp(cls).test(event.target.value);
 
     if(found){
-      const account = $('#batch_connect_session_context_account')
-      account.val(account_lookup[cls])
+      const account = $('#batch_connect_session_context_account');
+      account.val(account_lookup[cls]).change();
     }
   }
 }

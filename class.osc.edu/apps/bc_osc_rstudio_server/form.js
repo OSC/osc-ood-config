@@ -50,7 +50,7 @@ function change_account(event){
 
     if(found){
       const account = $('#batch_connect_session_context_account');
-      account.val(account_lookup[cls]);
+      account.val(account_lookup[cls]).change();
     }
   }
 }

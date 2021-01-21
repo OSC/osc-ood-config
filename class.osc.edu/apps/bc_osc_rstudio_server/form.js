@@ -136,5 +136,5 @@ toggle_visibility_of_form_group('#batch_connect_session_context_account', show_a
 toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
 
 // Fake some events to initialize things
-show_account({ target: document.querySelector('#batch_connect_session_context_version') });
+change_account({ target: document.querySelector('#batch_connect_session_context_version') });
 show_cores({ target: document.querySelector('#batch_connect_session_context_version') });

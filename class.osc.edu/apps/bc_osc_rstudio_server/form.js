@@ -19,6 +19,7 @@ const account_lookup = {
   "BM7331":        "PAS1877",
   "EEOB4410":      "PAS1879",
   "GRADTDA5402":   "PAS1873",
+  "R_DEMO":        "PZS1118",
 }
 
 var staff = false;

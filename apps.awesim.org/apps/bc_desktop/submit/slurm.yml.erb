@@ -3,16 +3,22 @@
   base_slurm_args = ["--nodes", "#{bc_num_slots}"]
   base_slurm_args.concat ["--licenses", "#{licenses}"] unless licenses.empty?
 
+  def tasks_per_node
+    # if you request > 1 nodes, it doesn't matter how many cores you request - you get the whole node
+    # but srun still adheres to how many tasks per node you've requested, not what you _have_.
+    bc_num_slots.to_i > 1 ? [] : [ "--ntasks-per-node", "#{cores}" ]
+  end
+
   def any_node
-    [ "--ntasks-per-node", "#{cores}" ]
+    tasks_per_node
   end
 
   def p18_node
-    return [ "--ntasks-per-node", "#{cores}", "--constraint", "40core" ]
+    return tasks_per_node + [ "--constraint", "40core" ]
   end
 
   def p20_node
-    return [ "--ntasks-per-node", "#{cores}", "--constraint", "48core" ]
+    return tasks_per_node + [ "--constraint", "48core" ]
   end
 
   gpus = cluster == 'pitzer' ? 2 : 1
@@ -59,6 +65,9 @@ batch_connect:
 
     # MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u)
     export XDG_RUNTIME_DIR="$TMPDIR/xdg_runtime"
+
+    # reset SLURM_EXPORT_ENV so that things like srun & sbatch work out of the box
+    export SLURM_EXPORT_ENV=ALL
 
 script:
   accounting_id: "<%= account %>"

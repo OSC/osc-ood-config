@@ -1,6 +1,7 @@
 
 <%- 
   base_slurm_args = ["--nodes", "#{bc_num_slots}"]
+  base_slurm_args.concat ["--licenses", "#{licenses}"] unless licenses.empty?
 
   def any_node
     [ "--ntasks-per-node", "#{cores}" ]

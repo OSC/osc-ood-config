@@ -25,6 +25,7 @@ form:
   - account
   - bc_num_hours
   - bc_num_slots
+  - licenses
   - node_type
   - bc_queue
   - bc_vnc_resolution
@@ -48,6 +49,14 @@ attributes:
   bc_num_hours:
     value: 8
   bc_queue: null
+  licenses:
+    help: |
+      Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
+      'stata@osc:1'. More help can be found on our website regarding the changes
+      in the [slurm migration].
+
+      [slurm migration]: https://www.osc.edu/resources/technical_support/supercomputers/owens/environment_changes_in_slurm_migration
+    pattern: '^([\w]+@osc:\d+,{0,1})+$'
   node_type: ":ppn=1"
   bc_email_on_started: 0
   account:

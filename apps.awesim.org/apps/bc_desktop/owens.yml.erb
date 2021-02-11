@@ -22,6 +22,7 @@ form:
   - bc_num_hours
   - cores
   - bc_num_slots
+  - licenses
   - node_type
   - bc_queue
   - bc_vnc_resolution
@@ -53,6 +54,14 @@ attributes:
     min: 1
     max: 28
     step: 1
+  licenses:
+    help: |
+      Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
+      'stata@osc:1'. More help can be found on our website regarding the changes
+      in the [slurm migration].
+
+      [slurm migration]: https://www.osc.edu/resources/technical_support/supercomputers/owens/environment_changes_in_slurm_migration
+    pattern: '^([\w]+@osc:\d+,{0,1})+$'
   node_type:
     widget: select
     label: "Node type"

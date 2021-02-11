@@ -1,5 +1,6 @@
 <%-
   args = [ "--partition", "quick", "--nodes", "1", "--ntasks-per-node", "1" ]
+  args.concat ["--licenses", "#{licenses}"] unless licenses.empty?
 -%>
 ---
 batch_connect:

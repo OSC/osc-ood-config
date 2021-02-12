@@ -11,6 +11,9 @@ batch_connect:
     # MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u)
     export XDG_RUNTIME_DIR="$TMPDIR/xdg_runtime"
 
+    # reset SLURM_EXPORT_ENV so that things like srun & sbatch work out of the box
+    export SLURM_EXPORT_ENV=ALL
+
 script:
   accounting_id: "<%= account %>"
   native:

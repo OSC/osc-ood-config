@@ -17,6 +17,7 @@
     "PHYSICS 280 WIT"  => "PWIT0412",
     "PHYSICS 4032 OU"  => "PHS0346",
     "GRADTDA 5622"     => "PAS1871",
+    "CSE 5194"         => "PAS1911",
   }.select { |k,v| groups.include?(v) }
 
   classes = {
@@ -26,6 +27,7 @@
     "PHYSICS 280 WIT"  => "#{base_modules} class/PHYS280_WIT",
     "PHYSICS 4032 OU"  => "#{base_modules} class/PHYS4032_OU",
     "GRADTDA 5622"     => "#{base_modules} class/GRADTDA5622",
+    "CSE 5194"         => "#{base_modules} class/CSE5194",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

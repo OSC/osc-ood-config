@@ -8,7 +8,7 @@ const account_lookup = {
   "PHYS280_WIT":   "PWIT0412",
   "PHYS4032_OU":   "PHS0346",
   "GRADTDA5622":   "PAS1871",
-  "CSE5194":       "PAS1911",
+  "CSE519401":     "PAS1911",
 }
 
 var staff = false;

@@ -7,13 +7,6 @@ if [ "x${ONDEMAND_USERNAME}" = "x" ]; then
 fi
 
 TMPFILE=$(mktemp "/tmp/k8-ondemand-bootstrap-${ONDEMAND_USERNAME}.XXXXXX")
-PASSWD=$(getent passwd "$ONDEMAND_USERNAME")
-if ! [[ "$PASSWD" =~ "${ONDEMAND_USERNAME}:"* ]]; then
-  echo "level=error msg=\"Unable to perform lookup of user\" user=$ONDEMAND_USERNAME"
-  exit 1
-fi
-USER_UID=$(echo "$PASSWD" | cut -d':' -f3)
-USER_GID=$(echo "$PASSWD" | cut -d':' -f4)
 NAMESPACE="user-${ONDEMAND_USERNAME}"
 
 cat > "$TMPFILE" <<EOF

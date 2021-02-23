@@ -30,6 +30,10 @@
     "CSE 5194.01"      => "#{base_modules} class/CSE519401",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
+  classes_w_lab_default = [
+    'PAS1871',
+  ]
+
 -%>
 ---
 cluster: "owens"
@@ -48,6 +52,7 @@ attributes:
   jupyterlab_switch:
     widget: "check_box"
     label: "Use JupyterLab instead of Jupyter Notebook?"
+    value: "<%= groups.intersection(classes_w_lab_default).empty? ? "0" : "1" %>"
   num_cores:
     widget: "number_field"
     label: "Number of cores"

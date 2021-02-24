@@ -31,6 +31,7 @@
     "GRADTDA 5402"         => "PAS1873",
     "R DEMO"               => "PZS1118",
     "BMI 5730"             => "PAS1669",
+    "EEOB 889619"          => "PAS1918",
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
@@ -55,6 +56,7 @@
     "GRADTDA 5402"         => "#{new_modules} class/GRADTDA5402",
     "R DEMO"               => "#{new_modules} class/R_DEMO",
     "BMI 5730"             => "#{new_modules} class/BMI5730",
+    "EEOB 889619"          => "#{new_modules} class/EEOB889619",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

@@ -18,6 +18,7 @@
     "PHYSICS 4032 OU"  => "PHS0346",
     "GRADTDA 5622"     => "PAS1871",
     "CSE 5194.01"      => "PAS1911",
+    "EEOB 889619"      => "PAS1918",
   }.select { |k,v| groups.include?(v) }
 
   classes = {
@@ -28,6 +29,7 @@
     "PHYSICS 4032 OU"  => "#{base_modules} class/PHYS4032_OU",
     "GRADTDA 5622"     => "#{base_modules} class/GRADTDA5622",
     "CSE 5194.01"      => "#{base_modules} class/CSE519401",
+    "EEOB 889619"      => "#{base_modules} class/EEOB889619_Jupyter",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
   classes_w_lab_default = [

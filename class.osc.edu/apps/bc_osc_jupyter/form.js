@@ -9,6 +9,7 @@ const account_lookup = {
   "PHYS4032_OU":   "PHS0346",
   "GRADTDA5622":   "PAS1871",
   "CSE519401":     "PAS1911",
+  "EEOB889619":    "PAS1918",
 }
 
 var staff = false;

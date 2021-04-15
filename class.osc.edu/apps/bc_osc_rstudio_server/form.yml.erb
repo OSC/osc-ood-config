@@ -32,6 +32,7 @@
     "R DEMO"               => "PZS1118",
     "BMI 5730"             => "PAS1669",
     "EEOB 889619"          => "PAS1918",
+    "BISR RNAseq"          => "PAS1592",
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
@@ -57,6 +58,7 @@
     "R DEMO"               => "#{new_modules} class/R_DEMO",
     "BMI 5730"             => "#{new_modules} class/BMI5730",
     "EEOB 889619"          => "#{new_modules} class/EEOB889619",
+    "BISR RNAseq"          => "#{new_modules} class/BISRRNASEQ",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

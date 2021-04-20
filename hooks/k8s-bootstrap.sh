@@ -8,6 +8,8 @@ fi
 
 TMPFILE=$(mktemp "/tmp/k8-ondemand-bootstrap-${ONDEMAND_USERNAME}.XXXXXX")
 NAMESPACE="user-${ONDEMAND_USERNAME}"
+REGISTRY_AUTH=/opt/osc/etc/docker-registry-auth/docker-registry.osc.edu-robot-ondemand-read.json
+IMAGE_PULL_SECRET=private-docker-registry
 
 cat > "$TMPFILE" <<EOF
 ---
@@ -81,5 +83,7 @@ EOF
 
 export PATH=/usr/local/bin:/bin:$PATH
 kubectl apply -f "$TMPFILE"
-
 rm -f "$TMPFILE"
+
+kubectl create secret generic $IMAGE_PULL_SECRET --from-file=.dockerconfigjson=$REGISTRY_AUTH --type=kubernetes.io/dockerconfigjson -n "$NAMESPACE" -o yaml --dry-run=client | kubectl apply -f-
+kubectl patch serviceaccount default -n "$NAMESPACE" -p "{\"imagePullSecrets\": [{\"name\": \"${IMAGE_PULL_SECRET}\"}]}"

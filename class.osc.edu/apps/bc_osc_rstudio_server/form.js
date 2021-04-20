@@ -22,7 +22,7 @@ const account_lookup = {
   "R_DEMO":        "PZS1118",
   "BMI5730":       "PAS1669",
   "EEOB889619":    "PAS1918",
-  "BISRRNASEQ":    "PAS1592",
+  "BISRRNASEQ":    "PAS1952",
 }
 
 var staff = false;

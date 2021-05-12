@@ -20,6 +20,6 @@ HOOKSDIR="/opt/ood/hooks"
 HOOKENV="/etc/ood/config/hook.env"
 
 if groups "$ONDEMAND_USERNAME" | grep -q "\boscall\b"; then
-  /bin/bash "$HOOKSDIR/k8s-bootstrap-ondemand.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
-  /bin/bash "$HOOKSDIR/set-k8s-creds.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
+  /bin/bash "$HOOKSDIR/k8s-bootstrap/k8s-bootstrap-ondemand.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
+  /bin/bash "$HOOKSDIR/k8s-bootstrap/set-k8s-creds.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
 fi

@@ -16,10 +16,10 @@ if [ "x${ONDEMAND_USERNAME}" = "x" ]; then
   exit 1
 fi
 
-SCRIPT=$(readlink -f "$0")
-BASEDIR=$(dirname "$SCRIPT")
+HOOKSDIR="/opt/ood/hooks"
+HOOKENV="/etc/ood/config/hook.env"
 
 if groups "$ONDEMAND_USERNAME" | grep -q "\boscall\b"; then
-  /bin/bash "$BASEDIR/k8s-bootstrap.sh" "$ONDEMAND_USERNAME"
-  /bin/bash "$BASEDIR/set-k8s-creds.sh" "$ONDEMAND_USERNAME"
+  /bin/bash "$HOOKSDIR/k8s-bootstrap-ondemand.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
+  /bin/bash "$HOOKSDIR/set-k8s-creds.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
 fi

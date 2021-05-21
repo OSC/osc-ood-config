@@ -8,7 +8,7 @@
 
   staff = raw_groups.map(&:name).include?('oscall')
 
-  base_modules = "project/classes"
+  base_modules = "project/classroom"
 
   group_lookup = {
     "BIOCHEM 5721"     => "PAS1745",
@@ -22,14 +22,14 @@
   }.select { |k,v| groups.include?(v) }
 
   classes = {
-    "BIOCHEM 5721"     => "#{base_modules} class/BIOCHEM5721",
-    "PHYSICS 6820"     => "#{base_modules} class/PHYSICS6820",
-    "OSC Jupyter"      => "#{base_modules} class/OSCJUPYTER",
-    "PHYSICS 280 WIT"  => "#{base_modules} class/PHYS280_WIT",
-    "PHYSICS 4032 OU"  => "#{base_modules} class/PHYS4032_OU",
-    "GRADTDA 5622"     => "#{base_modules} class/GRADTDA5622",
-    "CSE 5194.01"      => "#{base_modules} class/CSE519401",
-    "EEOB 889619"      => "#{base_modules} class/EEOB889619_Jupyter",
+    "BIOCHEM 5721"     => "#{base_modules} jupyter/BIOCHEM5721",
+    "PHYSICS 6820"     => "#{base_modules} jupyter/PHYSICS6820",
+    "OSC Jupyter"      => "#{base_modules} jupyter/OSCJUPYTER",
+    "PHYSICS 280 WIT"  => "#{base_modules} jupyter/PHYS280_WIT",
+    "PHYSICS 4032 OU"  => "#{base_modules} jupyter/PHYS4032_OU",
+    "GRADTDA 5622"     => "#{base_modules} jupyter/GRADTDA5622",
+    "CSE 5194.01"      => "#{base_modules} jupyter/CSE519401",
+    "EEOB 889619"      => "#{base_modules} jupyter/EEOB889619",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
   classes_w_lab_default = [

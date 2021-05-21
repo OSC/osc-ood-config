@@ -8,8 +8,8 @@
 
   staff = raw_groups.map(&:name).include?('oscall')
 
-  new_modules = "project/classes"
-  old_modules = "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive project/classes"
+  new_modules = "project/classroom"
+  old_modules = "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.1.380_server texlive project/classroom"
 
   group_lookup = {
     "STAT 2480"            => "PAS1872",
@@ -38,27 +38,27 @@
   # only include options if you're in that project
   # or cheat for staff
   classes = {
-    "STAT 2480"            => "#{new_modules} class/STAT2480",
-    "STAT 3202"            => "#{old_modules} class/STAT3202",
-    "STAT 5730"            => "#{old_modules} class/STAT5730",
-    "ANTHRO 9982"          => "#{new_modules} class/ANTHROP9982",
-    "TDAI Workshop"        => "#{new_modules} class/TDAI",
-    "OSC Workshop"         => "#{new_modules} class/OSCWORKSHOP",
-    "OSC RNA-Seq Workshop" => "#{new_modules} class/OSCRNASEQ",
-    "PUBHLTH 5015"         => "#{new_modules} class/PUBHLTH5015",
-    "BANA 7025"            => "#{new_modules} class/BANA7025_UC",
-    "UC Workshop"          => "#{new_modules} class/RWORKSHOP_UC",
-    "BANA 4090"            => "#{new_modules} class/BANA4090_UC",
-    "Code Club"            => "#{new_modules} class/CODECLUB",
-    "SOCIO 5650"           => "#{new_modules} class/SOCIO5650",
-    "SOCIO 3549"           => "#{new_modules} class/SOCIO3549",
-    "BM 7331"              => "#{new_modules} class/BM7331",
-    "EEOB 4410"            => "#{new_modules} class/EEOB4410",
-    "GRADTDA 5402"         => "#{new_modules} class/GRADTDA5402",
-    "R DEMO"               => "#{new_modules} class/R_DEMO",
-    "BMI 5730"             => "#{new_modules} class/BMI5730",
-    "EEOB 889619"          => "#{new_modules} class/EEOB889619",
-    "BISR RNAseq"          => "#{new_modules} class/BISRRNASEQ",
+    "STAT 2480"            => "#{new_modules} rstudio/STAT2480",
+    "STAT 3202"            => "#{old_modules} rstudio/STAT3202",
+    "STAT 5730"            => "#{old_modules} rstudio/STAT5730",
+    "ANTHRO 9982"          => "#{new_modules} rstudio/ANTHROP9982",
+    "TDAI Workshop"        => "#{new_modules} rstudio/TDAI",
+    "OSC Workshop"         => "#{new_modules} rstudio/OSCWORKSHOP",
+    "OSC RNA-Seq Workshop" => "#{new_modules} rstudio/OSCRNASEQ",
+    "PUBHLTH 5015"         => "#{new_modules} rstudio/PUBHLTH5015",
+    "BANA 7025"            => "#{new_modules} rstudio/BANA7025_UC",
+    "UC Workshop"          => "#{new_modules} rstudio/RWORKSHOP_UC",
+    "BANA 4090"            => "#{new_modules} rstudio/BANA4090_UC",
+    "Code Club"            => "#{new_modules} rstudio/CODECLUB",
+    "SOCIO 5650"           => "#{new_modules} rstudio/SOCIO5650",
+    "SOCIO 3549"           => "#{new_modules} rstudio/SOCIO3549",
+    "BM 7331"              => "#{new_modules} rstudio/BM7331",
+    "EEOB 4410"            => "#{new_modules} rstudio/EEOB4410",
+    "GRADTDA 5402"         => "#{new_modules} rstudio/GRADTDA5402",
+    "R DEMO"               => "#{new_modules} rstudio/R_DEMO",
+    "BMI 5730"             => "#{new_modules} rstudio/BMI5730",
+    "EEOB 889619"          => "#{new_modules} rstudio/EEOB889619",
+    "BISR RNAseq"          => "#{new_modules} rstudio/BISRRNASEQ",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

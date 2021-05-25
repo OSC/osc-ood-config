@@ -33,6 +33,7 @@
     "BMI 5730"             => "PAS1669",
     "EEOB 889619"          => "PAS1918",
     "BISR RNAseq"          => "PAS1952",
+    "GRADTDA 5620"         => "PAS1979",
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
@@ -59,6 +60,7 @@
     "BMI 5730"             => "#{new_modules} rstudio/BMI5730",
     "EEOB 889619"          => "#{new_modules} rstudio/EEOB889619",
     "BISR RNAseq"          => "#{new_modules} rstudio/BISRRNASEQ",
+    "GRADTDA 5620"         => "#{new_modules} rstudio/GRADTDA5620",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

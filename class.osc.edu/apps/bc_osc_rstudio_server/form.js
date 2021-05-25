@@ -23,6 +23,7 @@ const account_lookup = {
   "BMI5730":       "PAS1669",
   "EEOB889619":    "PAS1918",
   "BISRRNASEQ":    "PAS1952",
+  "GRADTDA5620":   "PAS1979",
 }
 
 var staff = false;

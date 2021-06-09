@@ -24,6 +24,7 @@ const account_lookup = {
   "EEOB889619":    "PAS1918",
   "BISRRNASEQ":    "PAS1952",
   "GRADTDA5620":   "PAS1979",
+  "2021CCCBISR":   "PAS1984",
 }
 
 var staff = false;

@@ -34,6 +34,7 @@
     "EEOB 889619"          => "PAS1918",
     "BISR RNAseq"          => "PAS1952",
     "GRADTDA 5620"         => "PAS1979",
+    "2021 CCC BISR - CRISPR Screen Data Analysis Workshop" => "PAS1984"
   }.select { |k,v| groups.include?(v) }
 
   # only include options if you're in that project
@@ -61,6 +62,7 @@
     "EEOB 889619"          => "#{new_modules} rstudio/EEOB889619",
     "BISR RNAseq"          => "#{new_modules} rstudio/BISRRNASEQ",
     "GRADTDA 5620"         => "#{new_modules} rstudio/GRADTDA5620",
+    "2021 CCC BISR - CRISPR Screen Data Analysis Workshop" => "#{new_modules} rstudio/2021CCCBISR"
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
 -%>

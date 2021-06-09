@@ -21,6 +21,7 @@
     "EEOB 889619"      => "PAS1918",
     "GRADTDA 5620"     => "PAS1979",
     "MIME 4980"        => "PJS0333",
+    "2021 CCC BISR - CRISPR Screen Data Analysis Workshop" => "PAS1984",
   }.select { |k,v| groups.include?(v) }
 
   classes = {
@@ -34,6 +35,7 @@
     "EEOB 889619"      => "#{base_modules} jupyter/EEOB889619",
     "GRADTDA 5620"     => "#{base_modules} jupyter/GRADTDA5620",
     "MIME 4980"        => "#{base_modules} jupyter/MIME4980",
+    "2021 CCC BISR - CRISPR Screen Data Analysis Workshop" => "#{base_modules} jupyter/2021CCCBISR",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
   classes_w_lab_default = [

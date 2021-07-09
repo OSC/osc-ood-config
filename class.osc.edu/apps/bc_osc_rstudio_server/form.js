@@ -145,12 +145,23 @@ function set_cluster(event) {
 
     if(k8s) {
       node_type = 'owens';
-      cluster = 'kubernetes';
+      cluster = k8s_cluster();
     }
   });
 
   $('#batch_connect_session_context_cluster').val(cluster).change();
   $('#batch_connect_session_context_node_type').val(node_type).change();
+}
+
+function k8s_cluster() {
+  const hostRex = /\w+(-dev|-test){0,1}.osc.edu/;
+  const match = hostRex.exec(window.location.hostname);
+
+  if(match.length >= 2 && match[1] !== undefined) {
+    return `kubernetes${match[1]}`;
+  } else {
+    return 'kubernetes';
+  }
 }
 
 set_staff();

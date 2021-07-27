@@ -27,9 +27,7 @@ const account_lookup = {
   "2021CCCBISR":   "PAS1984",
 };
 
-const k8s_classrooms = [
-  'OSCRNASEQ',
-];
+const k8s_classrooms = [];
 
 var staff = false;
 

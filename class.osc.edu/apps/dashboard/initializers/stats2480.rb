@@ -15,4 +15,4 @@ def add_paths
 end
 
 fs_outage = `grep node_file_test_failure /var/lib/node_exporter/textfile_collector/autofs-file-test.prom | grep -q ' 1'; echo $?`
-add_paths unless fs_outage.chomp == "0"
+add_paths if fs_outage.chomp == "1" && !File.exist?('/etc/ood/config/gpfs_outage')

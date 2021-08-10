@@ -19,7 +19,5 @@ fi
 HOOKSDIR="/opt/ood/hooks"
 HOOKENV="/etc/ood/config/hook.env"
 
-if groups "$ONDEMAND_USERNAME" | grep -qE "\b(oscall|PZS1010)\b"; then
-  /bin/bash "$HOOKSDIR/k8s-bootstrap/k8s-bootstrap-ondemand.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
-  /bin/bash "$HOOKSDIR/k8s-bootstrap/set-k8s-creds.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
-fi
+/bin/bash "$HOOKSDIR/k8s-bootstrap/k8s-bootstrap-ondemand.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
+/bin/bash "$HOOKSDIR/k8s-bootstrap/set-k8s-creds.sh" "$ONDEMAND_USERNAME" "$HOOKENV"

@@ -2,12 +2,15 @@ MOTD_FORMAT="osc"
 MOTD_PATH="/etc/motd"
 
 OOD_DASHBOARD_LOGO="/public/logo.png"
+OOD_DASHBOARD_HEADER_IMG_LOGO="/public/logo.png"
 OOD_DASHBOARD_SUPPORT_URL="https://www.osc.edu/contact/client_support_request"
 OOD_DASHBOARD_SUPPORT_EMAIL="oschelp@osc.edu"
 
 ENABLE_NATIVE_VNC=1
 DISABLE_SAFARI_BASIC_AUTH_WARNING=1
-OOD_DASHBOARD_TITLE="OSC OnDemand: Stats2480"
+
+OOD_BRAND_BG_COLOR='#6CACE4'
+OOD_BRAND_LINK_ACTIVE_BG_COLOR='#375C84'
 
 OOD_DASHBOARD_DOCS_URL="https://www.osc.edu/ondemand"
 OOD_DASHBOARD_PASSWD_URL="https://my.osc.edu"

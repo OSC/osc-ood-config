@@ -17,6 +17,10 @@ const account_lookup = {
   "2021CCCBISR":   "PAS1984",
 }
 
+const k8s_classrooms = [
+  'GRADTDA5620',
+];
+
 var staff = false;
 
 /**
@@ -28,6 +32,7 @@ function set_version_change_handler() {
   version_select.change(function(event){
     change_account(event);
     show_cores(event);
+    set_cluster(event);
   });
 }
 
@@ -127,6 +132,34 @@ function alert_if_one_version(one_version) {
   }
 }
 
+function set_cluster(event) {
+  var node_type = 'any';
+  var cluster = 'owens';
+
+  k8s_classrooms.forEach(cls => {
+    var k8s = RegExp(cls).test(event.target.value);
+
+    if(k8s) {
+      node_type = 'owens';
+      cluster = k8s_cluster();
+    }
+  });
+
+  $('#batch_connect_session_context_cluster').val(cluster).change();
+  $('#batch_connect_session_context_node_type').val(node_type).change();
+}
+
+function k8s_cluster() {
+  const hostRex = /\w+(-dev|-test){0,1}.osc.edu/;
+  const match = hostRex.exec(window.location.hostname);
+
+  if(match.length >= 2 && match[1] !== undefined) {
+    return `kubernetes${match[1]}`;
+  } else {
+    return 'kubernetes';
+  }
+}
+
 set_staff();
 
 var one_version = $('#batch_connect_session_context_version').length == 0;
@@ -140,3 +173,4 @@ toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
 // Fake some events to initialize things
 change_account({ target: document.querySelector('#batch_connect_session_context_version') });
 show_cores({ target: document.querySelector('#batch_connect_session_context_version') });
+set_cluster({ target: document.querySelector('#batch_connect_session_context_version') });

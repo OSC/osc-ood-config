@@ -29,6 +29,7 @@ const account_lookup = {
 
 const k8s_classrooms = [
   'OSCRNASEQ',
+  'GRADTDA5620',
 ];
 
 var staff = false;

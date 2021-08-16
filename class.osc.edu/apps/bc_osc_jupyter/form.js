@@ -169,6 +169,7 @@ alert_if_one_version(one_version);
 set_version_change_handler();
 toggle_visibility_of_form_group('#batch_connect_session_context_account', show_account);
 toggle_visibility_of_form_group('#batch_connect_session_context_staff', false);
+toggle_visibility_of_form_group('#batch_connect_session_context_node_type', false);
 
 // Fake some events to initialize things
 change_account({ target: document.querySelector('#batch_connect_session_context_version') });

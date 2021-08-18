@@ -8,7 +8,9 @@ const account_lookup = {
   "PHYS280_WIT":   "PWIT0412",
   "PHYS4032_OU":   "PHS0346",
   "PHYS5071_OU":   "PHS0353",
+  "PHYSICS5680_OSU": "PAS2038",
   "MATH2530_OU":   "PHS0352",
+  "MPA5830_OU":    "PHS0354",
   "GRADTDA5622":   "PAS1871",
   "CSE519401":     "PAS1911",
   "EEOB889619":    "PAS1918",
@@ -19,6 +21,8 @@ const account_lookup = {
 
 const k8s_classrooms = [
   'GRADTDA5620',
+  'MPA5830_OU',
+  'PHYSICS5680_OSU',
 ];
 
 var staff = false;

@@ -21,6 +21,8 @@ const account_lookup = {
 
 const k8s_classrooms = [
   'GRADTDA5620',
+  'MPA5830_OU',
+  'PHYSICS5680_OSU',
 ];
 
 var staff = false;

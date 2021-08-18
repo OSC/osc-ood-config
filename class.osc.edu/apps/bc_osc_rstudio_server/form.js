@@ -15,7 +15,7 @@ const account_lookup = {
   "BANA4090_UC":   "PES0834",
   "CODECLUB":      "PAS1838",
   "SOCIO5650":     "PAS1844",
-  "SOCIO3549":     "PAS1835",
+  "SOC3549_OSU":   "PAS2017",
   "BM7331":        "PAS1877",
   "EEOB4410":      "PAS1879",
   "GRADTDA5402":   "PAS1873",
@@ -30,6 +30,7 @@ const account_lookup = {
 const k8s_classrooms = [
   'OSCRNASEQ',
   'GRADTDA5620',
+  'SOC3549_OSU',
 ];
 
 var staff = false;

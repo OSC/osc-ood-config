@@ -135,6 +135,7 @@ function alert_if_one_version(one_version) {
 function set_cluster(event) {
   var node_type = 'any';
   var cluster = 'owens';
+  var num_hours_max = undefined;
 
   k8s_classrooms.forEach(cls => {
     var k8s = RegExp(cls).test(event.target.value);
@@ -142,11 +143,17 @@ function set_cluster(event) {
     if(k8s) {
       node_type = 'owens';
       cluster = k8s_cluster();
+      num_hours_max = 2;
     }
   });
 
   $('#batch_connect_session_context_cluster').val(cluster).change();
   $('#batch_connect_session_context_node_type').val(node_type).change();
+  if(num_hours_max !== undefined) {
+    $('#batch_connect_session_context_bc_num_hours').attr({'max': num_hours_max});
+  } else {
+    $('#batch_connect_session_context_bc_num_hours').removeAttr('max');
+  }
 }
 
 function k8s_cluster() {

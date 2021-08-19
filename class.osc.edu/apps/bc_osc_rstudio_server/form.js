@@ -21,6 +21,7 @@ const account_lookup = {
   "GRADTDA5402":   "PAS1873",
   "R_DEMO":        "PZS1118",
   "BMI5730":       "PAS1669",
+  "BMI8130_OSU":   "PAS2015",
   "EEOB889619":    "PAS1918",
   "BISRRNASEQ":    "PAS1952",
   "GRADTDA5620":   "PAS1979",
@@ -28,9 +29,14 @@ const account_lookup = {
 };
 
 const k8s_classrooms = [
-  'OSCRNASEQ',
-  'GRADTDA5620',
-  'SOC3549_OSU',
+  { 'name': 'OSCRNASEQ' },
+  { 'name': 'GRADTDA5620' },
+  { 'name': 'SOC3549_OSU' },
+  {
+    'name': 'BMI8130_OSU',
+    'cores': 4,
+    'node_type': 'pitzer'
+  }
 ];
 
 var staff = false;
@@ -73,7 +79,7 @@ function show_cores(event){
     return;
   }
 
-  const show = /ANTHROP9982|OSCWORKSHOP|OSCRNASEQ/.test(event.target.value);
+  const show = /ANTHROP9982|OSCWORKSHOP|OSCRNASEQ|BMI8130_OSU/.test(event.target.value);
   toggle_visibility_of_form_group('#batch_connect_session_context_num_cores', show);
 
   // default to 1 core
@@ -142,12 +148,14 @@ function set_cluster(event) {
   var node_type = 'any';
   var cluster = 'owens';
   var num_hours_max = undefined;
+  var cores = $('#batch_connect_session_context_num_cores').val();
 
   k8s_classrooms.forEach(cls => {
-    var k8s = RegExp(cls).test(event.target.value);
+    var k8s = RegExp(cls['name']).test(event.target.value);
 
     if(k8s) {
-      node_type = 'owens';
+      node_type = cls['node_type'] || 'owens';
+      cores = cls['cores'] || cores;
       cluster = k8s_cluster();
       num_hours_max = 2;
     }
@@ -155,6 +163,8 @@ function set_cluster(event) {
 
   $('#batch_connect_session_context_cluster').val(cluster).change();
   $('#batch_connect_session_context_node_type').val(node_type).change();
+  $('#batch_connect_session_context_num_cores').val(cores).change();
+
   if(num_hours_max !== undefined) {
     $('#batch_connect_session_context_bc_num_hours').attr({'max': num_hours_max});
   } else {

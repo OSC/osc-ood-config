@@ -98,7 +98,7 @@ attributes:
     label: "Class Materials"
     options:
     <%- classes.each do |class_name, class_modules| -%>
-      - [ "<%= class_name %>", "<%= class_modules %>", data-option-for-owens: true ]
+      - [ "<%= class_name %>", "<%= class_modules %>" ]
     <%- end -%>
     required: true
   <%- end -%>

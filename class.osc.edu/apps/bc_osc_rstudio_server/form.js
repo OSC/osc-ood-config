@@ -149,7 +149,7 @@ function set_cluster(event) {
   var node_type = 'any';
   var cluster = 'owens';
   var num_hours_max = undefined;
-  var cores = $('#batch_connect_session_context_num_cores').val();
+  var cores = 1;
 
   k8s_classrooms.forEach(cls => {
     var k8s = RegExp(cls['name']).test(event.target.value);

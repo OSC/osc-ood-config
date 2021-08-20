@@ -35,7 +35,8 @@ const k8s_classrooms = [
   {
     'name': 'BMI8130_OSU',
     'cores': 4,
-    'node_type': 'pitzer'
+    'node_type': 'pitzer',
+    'max_walltime': 4
   }
 ];
 
@@ -157,7 +158,7 @@ function set_cluster(event) {
       node_type = cls['node_type'] || 'owens';
       cores = cls['cores'] || cores;
       cluster = k8s_cluster();
-      num_hours_max = 2;
+      num_hours_max = cls['max_walltime'] || 2;
     }
   });
 

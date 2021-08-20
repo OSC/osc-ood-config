@@ -11,6 +11,7 @@
   base_modules = "project/classroom"
 
   group_lookup = {
+    "ASTRONOMY 8824 OSU" => "PAS2055",
     "BIOCHEM 5721"     => "PAS1745",
     "PHYSICS 6820"     => "PAS1759",
     "OSC JUPYTER"      => "oscall", #not really required, but kept to avoid confusion
@@ -29,6 +30,7 @@
   }.select { |k,v| groups.include?(v) }
 
   classes = {
+    "ASTRONOMY 8824 OSU" => "#{base_modules} jupyter/ASTRONOMY8824_OSU",
     "BIOCHEM 5721"     => "#{base_modules} jupyter/BIOCHEM5721",
     "PHYSICS 6820"     => "#{base_modules} jupyter/PHYSICS6820",
     "OSC Jupyter"      => "#{base_modules} jupyter/OSCJUPYTER",

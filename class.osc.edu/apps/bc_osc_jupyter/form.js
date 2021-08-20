@@ -2,6 +2,7 @@
 
 
 const account_lookup = {
+  "ASTRONOMY8824_OSU": "PAS2055",
   "BIOCHEM5721":   "PAS1745",
   "PHYSICS6820":   "PAS1759",
   //OSCJUPYTER entry not required
@@ -20,9 +21,13 @@ const account_lookup = {
 }
 
 const k8s_classrooms = [
-  'GRADTDA5620',
-  'MPA5830_OU',
-  'PHYSICS5680_OSU',
+  { 'name': 'GRADTDA5620' },
+  { 'name': 'MPA5830_OU' },
+  { 'name': 'PHYSICS5680_OSU' },
+  {
+    'name': 'ASTRONOMY8824_OSU',
+    'node_type': 'pitzer'
+  },
 ];
 
 var staff = false;
@@ -140,19 +145,23 @@ function set_cluster(event) {
   var node_type = 'any';
   var cluster = 'owens';
   var num_hours_max = undefined;
+  var cores = 1;
 
   k8s_classrooms.forEach(cls => {
-    var k8s = RegExp(cls).test(event.target.value);
+    var k8s = RegExp(cls['name']).test(event.target.value);
 
     if(k8s) {
-      node_type = 'owens';
+      node_type = cls['node_type'] || 'owens';
+      cores = cls['cores'] || cores;
       cluster = k8s_cluster();
-      num_hours_max = 2;
+      num_hours_max = cls['max_walltime'] || 2;
     }
   });
 
   $('#batch_connect_session_context_cluster').val(cluster).change();
   $('#batch_connect_session_context_node_type').val(node_type).change();
+  $('#batch_connect_session_context_num_cores').val(cores).change();
+
   if(num_hours_max !== undefined) {
     $('#batch_connect_session_context_bc_num_hours').attr({'max': num_hours_max});
   } else {

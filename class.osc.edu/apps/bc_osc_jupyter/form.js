@@ -9,6 +9,7 @@ const account_lookup = {
   "PHYS280_WIT":   "PWIT0412",
   "PHYS4032_OU":   "PHS0346",
   "PHYS5071_OU":   "PHS0353",
+  "PHYS4025_UC":   "PES0840",
   "PHYSICS5680_OSU": "PAS2038",
   "MATH2530_OU":   "PHS0352",
   "MPA5830_OU":    "PHS0354",
@@ -26,6 +27,10 @@ const k8s_classrooms = [
   { 'name': 'PHYSICS5680_OSU' },
   {
     'name': 'ASTRONOMY8824_OSU',
+    'node_type': 'pitzer'
+  },
+  {
+    'name': 'PHYS4025_UC',
     'node_type': 'pitzer'
   },
 ];

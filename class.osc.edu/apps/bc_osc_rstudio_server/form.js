@@ -2,7 +2,7 @@
 
 
 const account_lookup = {
-  "STAT2480":      "PAS1872",
+  "STAT2480":      "PAS1758",
   "STAT3202":      "PAS1644",
   "STAT5730":      "PAS1642",
   "ANTHROP9982":   "PAS1723",
@@ -33,6 +33,7 @@ const k8s_classrooms = [
   { 'name': 'GRADTDA5620' },
   { 'name': 'SOC3549_OSU' },
   { 'name': 'BMI5730' },
+  { 'name': 'STAT2480' },
   {
     'name': 'BMI8130_OSU',
     'cores': 4,

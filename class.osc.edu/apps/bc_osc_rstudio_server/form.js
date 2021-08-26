@@ -33,7 +33,6 @@ const k8s_classrooms = [
   { 'name': 'GRADTDA5620' },
   { 'name': 'SOC3549_OSU' },
   { 'name': 'BMI5730' },
-  { 'name': 'STAT2480' },
   {
     'name': 'BMI8130_OSU',
     'cores': 4,

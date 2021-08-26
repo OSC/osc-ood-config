@@ -15,6 +15,7 @@ const account_lookup = {
   "MPA5830_OU":    "PHS0354",
   "GRADTDA5622":   "PAS1871",
   "CSE519401":     "PAS1911",
+  "CSCI6950_YSU":  "PLS0150",
   "EEOB889619":    "PAS1918",
   "GRADTDA5620":   "PAS1979",
   "MIME4980":      "PJS0333",
@@ -32,6 +33,11 @@ const k8s_classrooms = [
   {
     'name': 'PHYS4025_UC',
     'node_type': 'pitzer'
+  },
+  {
+    'name': 'CSCI6950_YSU',
+    'node_type': 'pitzer',
+    'cores': 2,
   },
 ];
 

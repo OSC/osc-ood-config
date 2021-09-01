@@ -39,6 +39,10 @@ const k8s_classrooms = [
     'node_type': 'pitzer',
     'cores': 2,
   },
+  {
+    'name': 'MIME4980',
+    'node_type': 'pitzer'
+  },
 ];
 
 var staff = false;

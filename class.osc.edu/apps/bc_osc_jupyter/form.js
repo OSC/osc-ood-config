@@ -4,6 +4,7 @@
 const account_lookup = {
   "ASTRONOMY8824_OSU": "PAS2055",
   "BIOCHEM5721":   "PAS1745",
+  "BMI5780_OSU":   "PAS2048",
   "PHYSICS6820":   "PAS1759",
   //OSCJUPYTER entry not required
   "PHYS280_WIT":   "PWIT0412",
@@ -41,6 +42,10 @@ const k8s_classrooms = [
   },
   {
     'name': 'MIME4980',
+    'node_type': 'pitzer'
+  },
+  {
+    'name': 'BMI5780_OSU',
     'node_type': 'pitzer'
   },
 ];

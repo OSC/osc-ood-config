@@ -26,7 +26,10 @@ const account_lookup = {
 const k8s_classrooms = [
   { 'name': 'GRADTDA5620' },
   { 'name': 'MPA5830_OU' },
-  { 'name': 'PHYSICS5680_OSU' },
+  {
+    'name': 'PHYSICS5680_OSU',
+    'cores': 4,
+  },
   {
     'name': 'ASTRONOMY8824_OSU',
     'node_type': 'pitzer'

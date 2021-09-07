@@ -26,7 +26,10 @@ const account_lookup = {
 const k8s_classrooms = [
   { 'name': 'GRADTDA5620' },
   { 'name': 'MPA5830_OU' },
-  { 'name': 'PHYSICS5680_OSU' },
+  {
+    'name': 'PHYSICS5680_OSU',
+    'cores': 4,
+  },
   {
     'name': 'ASTRONOMY8824_OSU',
     'node_type': 'pitzer'
@@ -96,7 +99,7 @@ function show_cores(event){
     return;
   }
 
-  const show = /PHYSICS6820/.test(event.target.value);
+  const show = /PHYSICS6820|PHYSICS5680_OSU/.test(event.target.value);
   toggle_visibility_of_form_group('#batch_connect_session_context_num_cores', show);
 
   // default to 1 core

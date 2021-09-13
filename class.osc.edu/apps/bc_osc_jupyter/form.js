@@ -17,6 +17,7 @@ const account_lookup = {
   "GRADTDA5622":   "PAS1871",
   "CSE519401":     "PAS1911",
   "CSCI6950_YSU":  "PLS0150",
+  "CS5152_6052_UC": "PES0801",
   "EEOB889619":    "PAS1918",
   "GRADTDA5620":   "PAS1979",
   "MIME4980":      "PJS0333",
@@ -54,6 +55,10 @@ const k8s_classrooms = [
   },
   {
     'name': 'TDAI_OSU',
+    'node_type': 'pitzer'
+  },
+  {
+    'name': 'CS5152_6052_UC',
     'node_type': 'pitzer'
   },
 ];

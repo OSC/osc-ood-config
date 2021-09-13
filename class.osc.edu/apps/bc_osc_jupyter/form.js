@@ -21,6 +21,7 @@ const account_lookup = {
   "GRADTDA5620":   "PAS1979",
   "MIME4980":      "PJS0333",
   "2021CCCBISR":   "PAS1984",
+  "TDAI_OSU":      "PAS2070",
 }
 
 const k8s_classrooms = [
@@ -49,6 +50,10 @@ const k8s_classrooms = [
   },
   {
     'name': 'BMI5780_OSU',
+    'node_type': 'pitzer'
+  },
+  {
+    'name': 'TDAI_OSU',
     'node_type': 'pitzer'
   },
 ];

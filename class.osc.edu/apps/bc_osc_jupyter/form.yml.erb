@@ -30,6 +30,7 @@
     "GRADTDA 5620"     => "PAS1979",
     "MIME 4980"        => "PJS0333",
     "2021 CCC BISR - CRISPR Screen Data Analysis Workshop" => "PAS1984",
+    "TDAI OSU"         => "PAS2070",
   }.select { |k,v| groups.include?(v) }
 
   classes = {
@@ -52,6 +53,7 @@
     "GRADTDA 5620"     => "#{base_modules} jupyter/GRADTDA5620",
     "MIME 4980"        => "#{base_modules} jupyter/MIME4980",
     "2021 CCC BISR - CRISPR Screen Data Analysis Workshop" => "#{base_modules} jupyter/2021CCCBISR",
+    "TDAI OSU"         => "#{base_modules} jupyter/TDAI_OSU",
   }.select { |k,v| group_lookup.has_key?(k) || staff }
 
   classes_w_lab_default = [

@@ -1,5 +1,5 @@
 # hide all menu options
-NavConfig.categories = []
+NavConfig.categories = ['Files']
 NavConfig.categories_whitelist=true
 
 # enable dev mode for all configured app developers

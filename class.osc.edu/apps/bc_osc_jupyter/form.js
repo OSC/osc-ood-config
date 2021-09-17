@@ -55,7 +55,8 @@ const k8s_classrooms = [
   },
   {
     'name': 'TDAI_OSU',
-    'node_type': 'pitzer'
+    'node_type': 'pitzer',
+    'max_walltime': 5 
   },
   {
     'name': 'CS5152_6052_UC',

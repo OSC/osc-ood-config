@@ -29,7 +29,10 @@ const account_lookup = {
 };
 
 const k8s_classrooms = [
-  { 'name': 'OSCRNASEQ' },
+  {
+    'name': 'OSCRNASEQ',
+    'max_walltime': 5
+  },
   { 'name': 'GRADTDA5620' },
   { 'name': 'SOC3549_OSU' },
   { 'name': 'BMI5730' },

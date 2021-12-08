@@ -10,7 +10,7 @@ class ClassTest < Minitest::Test
   end
 
   def test_that_it_configures_apps
-    %w[dashboard shell bc_osc_jupyter bc_osc_rstudio_server].each do |app|
+    %w[dashboard shell].each do |app|
       assert @apps.join(app).directory?, "No configuration found for #{app}"
     end
   end

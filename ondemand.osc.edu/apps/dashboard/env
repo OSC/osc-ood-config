@@ -29,3 +29,6 @@ OOD_BALANCE_THRESHOLD=45
 
 # enable app sharing
 OOD_APP_SHARING=1
+
+# enable dynamic batch connect javascript
+OOD_BC_DYNAMIC_JS=1

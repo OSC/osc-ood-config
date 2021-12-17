@@ -23,3 +23,6 @@ OOD_APP_SHARING=1
 OOD_DEV_SSH_HOST="apps-test.awesim.org"
 
 OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json:/users/reporting/storage/quota/gpfs.project_quota.json:/users/reporting/storage/quota/gpfs.scratch_quota.json:/users/reporting/storage/quota/gpfs.ess_quota.json
+
+# enable dynamic batch connect javascript
+OOD_BC_DYNAMIC_JS=1

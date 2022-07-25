@@ -21,3 +21,7 @@ HOOKENV="/etc/ood/config/hook.env"
 
 /bin/bash "$HOOKSDIR/k8s-bootstrap/k8s-bootstrap-ondemand.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
 /bin/bash "$HOOKSDIR/k8s-bootstrap/set-k8s-creds.sh" "$ONDEMAND_USERNAME" "$HOOKENV"
+
+unset OIDC_ID_TOKEN
+unset OIDC_ACCESS_TOKEN
+unset OIDC_REFRESH_TOKEN

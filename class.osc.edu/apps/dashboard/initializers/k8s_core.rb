@@ -1,3 +1,6 @@
+require 'ood_core/job/adapters/kubernetes'
+require 'ood_core/job/adapters/kubernetes/helper'
+
 # monkey patch until https://github.com/OSC/ood_core/pull/778 is released
 class OodCore::Job::Adapters::Kubernetes::Helper
   def secret_info_from_json(json_data)

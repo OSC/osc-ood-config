@@ -69,6 +69,14 @@ attributes:
     help: |
       Need docs
     options:
-      - [ "any", "any" ]
-      - [ "gpu", "gpu-any" ]
+      - [ 
+          "cpu", "any",
+          data-min-num-cores: 1,
+          data-max-num-cores: 84,
+        ]
+      - [ 
+          "gpu", "gpu-any",
+          data-min-num-cores: 1,
+          data-max-num-cores: 88,
+        ]
 submit: submit/slurm.yml.erb

@@ -8,15 +8,24 @@ batch_connect:
     # Export the module function if it exists
     [[ $(type -t module) == "function"  ]] && export -f module
 
-    # MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u)
-    export XDG_RUNTIME_DIR="$TMPDIR/xdg_runtime"
+    # MATE doesn't like /var/run/$(id -u) and ascend-login doesn't have $TMPDIR
+    export XDG_RUNTIME_DIR="<%= cluster == 'ascend-login' ? '/tmp' : '$TMPDIR' %>/xdg_runtime"
 
     # reset SLURM_EXPORT_ENV so that things like srun & sbatch work out of the box
     export SLURM_EXPORT_ENV=ALL
 
 script:
   accounting_id: "<%= account %>"
+  job_environment:
+    XDG_RUNTIME_DIR: "/tmp/xdg_runtime"
+    SINGULARITY_ENVXDG_RUNTIME_DIR: "/tmp/xdg_runtime"
+    APPTAINER_ENVXDG_RUNTIME_DIR: "/tmp/xdg_runtime"
   native:
+    <%- if cluster == 'ascend-login' -%>
+    singularity_container: "/apps/project/ondemand/singularity/mate-rhel8/mate-rhel8.sif"
+    singularity_bindpath: "/run,/apps"
+    <%- else -%>
     <%- args.each do |arg| -%>
     - "<%= arg %>"
+    <%- end -%>
     <%- end -%>

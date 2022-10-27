@@ -4,7 +4,7 @@
   }.map(&:name).grep(/^P./)
 -%>
 ---
-title: "VDI (Owens and Pitzer)"
+title: "Lightweight Desktop"
 description: |
   This app will launch an interactive desktop with one core which could be shared. It
   is a small environment for lightweight tasks (similar to a login node) such as accessing
@@ -12,13 +12,15 @@ description: |
   You should be provisioned a desktop nearly immediately.
 
   If you need dedicated resources for compute or memory intensive workloads use a
-  Desktop app like [Owens] or [Pitzer] where you will have full access to them.
+  Desktop app like [Owens], [Pitzer] or [Ascend] where you will have full access to them.
 
   [Owens]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/owens/session_contexts/new
   [Pitzer]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/pitzer/session_contexts/new
+  [Ascend]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/ascend/session_contexts/new
 cluster:
   - "owens"
   - "pitzer"
+  - "ascend-login"
 form:
   - bc_vnc_idle
   - desktop

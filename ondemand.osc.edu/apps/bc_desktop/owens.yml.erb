@@ -12,7 +12,7 @@ description: |
   you will have full access to all the resources on that compute node(s).
   
   If you do not need all these resources, use the 
-  [Owens VDI](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi-owens/session_contexts/new)
+  [Lightweight Desktop](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi/session_contexts/new)
   app instead which is much more lightweight for general-purpose use cases.
 form:
   # everything is taken from bc_desktop/form.yml except cores is added
@@ -50,6 +50,7 @@ attributes:
       - "<%= group %>"
       <%- end %>
   cores:
+    widget: number_field
     value: 28
     min: 1
     max: 28

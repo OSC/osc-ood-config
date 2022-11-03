@@ -21,7 +21,16 @@
     return tasks_per_node + [ "--constraint", "48core" ]
   end
 
-  gpus = cluster == 'pitzer' ? 2 : 1
+  def gpu_count
+    if !gpus.nil? && !gpus.empty?
+      gpus
+    elsif cluster == 'pitzer'
+      2
+    else
+      1
+    end
+  end
+
   hugemem_cpus = cluster == 'pitzer' ? 80 : 48
 
   slurm_args = case node_type
@@ -35,13 +44,13 @@
                 base_slurm_args + p20_node
 
               when "gpu-any"
-                base_slurm_args + any_node + ["--gpus-per-node", "#{gpus}"]
+                base_slurm_args + any_node + ["--gpus-per-node", "#{gpu_count}"]
               when "gpu-40core"
-                base_slurm_args + p18_node + ["--gpus-per-node", "#{gpus}"]
+                base_slurm_args + p18_node + ["--gpus-per-node", "#{gpu_count}"]
               when "gpu-48core"
-                base_slurm_args + p20_node + ["--gpus-per-node", "#{gpus}"]
+                base_slurm_args + p20_node + ["--gpus-per-node", "#{gpu_count}"]
               when "vis"
-                base_slurm_args + any_node + ["--gpus-per-node", "#{gpus}", "--gres", "vis"]
+                base_slurm_args + any_node + ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"]
               when "densegpu"
                 base_slurm_args + p20_node + ["--gpus-per-node", "4"]
 

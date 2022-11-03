@@ -11,7 +11,7 @@ do
 esac
 done
 
-if [ "x${ONDEMAND_USERNAME}" = "x" ]; then
+if [ "${ONDEMAND_USERNAME}" = "" ]; then
   echo "Must specify username"
   exit 1
 fi

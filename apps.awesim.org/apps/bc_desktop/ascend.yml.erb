@@ -19,11 +19,12 @@ form:
   - bc_vnc_idle
   - desktop
   - account
-  - bc_num_hours
+  - node_type
   - cores
+  - gpus
+  - bc_num_hours
   - bc_num_slots
   - licenses
-  - node_type
   - bc_queue
   - bc_vnc_resolution
   - bc_email_on_started
@@ -55,6 +56,11 @@ attributes:
     min: 1
     max: 88
     step: 1
+  gpus:
+    widget: number_field
+    value: 0
+    min: 0
+    max: 4
   licenses:
     help: |
       Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
@@ -72,10 +78,15 @@ attributes:
       - [ 
           "cpu", "any",
           data-min-num-cores: 1,
+          data-min-gpus: 0,
+          data-max-gpus: 0,
           data-max-num-cores: 84,
+          data-hide-gpus: true,
         ]
       - [ 
           "gpu", "gpu-any",
+          data-min-gpus: 1,
+          data-max-gpus: 4,
           data-min-num-cores: 1,
           data-max-num-cores: 88,
         ]

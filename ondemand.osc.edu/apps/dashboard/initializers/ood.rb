@@ -4,16 +4,9 @@ def add_paths
     # add project space directories
     projects = User.new.groups.map(&:name).grep(/^P./)
     
-    # Removing /fs/project from list per asana https://app.asana.com/0/1135148780858012/1203345685227840/f
-    # paths.concat projects.map { |p| Pathname.new("/fs/project/#{p}")  }
-
     # add scratch space directories
     paths << Pathname.new("/fs/scratch/#{User.new.name}")
     paths.concat projects.map { |p| Pathname.new("/fs/scratch/#{p}")  }
-
-    # add ess scratch and project directories
-    # Removing /fs/ess/scratch from list per asana https://app.asana.com/0/1135148780858012/1203345685227840/f
-    # paths.concat projects.map { |p| Pathname.new("/fs/ess/scratch/#{p}")  }
 
     paths.concat projects.map { |p| Pathname.new("/fs/ess/#{p}")  }
   end

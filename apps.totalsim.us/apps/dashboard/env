@@ -17,3 +17,5 @@ OOD_DASHBOARD_HEADER_IMG_LOGO="/public/logo.png"
 OOD_DASHBOARD_PASSWD_URL="https://my.osc.edu"
 
 OOD_APP_SHARING=1
+
+OOD_FACL_DOMAIN='osc.edu'

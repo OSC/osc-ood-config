@@ -26,3 +26,5 @@ OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-use
 
 # enable dynamic batch connect javascript
 OOD_BC_DYNAMIC_JS=1
+
+OOD_FACL_DOMAIN='osc.edu'

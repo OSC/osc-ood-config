@@ -82,8 +82,24 @@ attributes:
       - **hugemem** - (*48 cores*) This Owens node has 1.5TB of available RAM
         as well as 48 cores. There are 16 of these nodes on Owens.
     options:
-      - [ "any", "any" ]
-      - [ "vis", "vis" ]
-      - [ "gpu", "gpu-any" ]
-      - [ "hugemem", "hugemem" ]
+      - [
+          "any", "any",
+          data-min-cores: 1,
+          data-max-cores: 28,
+        ]
+      - [
+          "vis", "vis",
+          data-min-cores: 1,
+          data-max-cores: 28,
+        ]
+      - [
+          "gpu", "gpu-any",
+          data-min-cores: 1,
+          data-max-cores: 28,
+        ]
+      - [
+          "hugemem", "hugemem",
+          data-min-cores: 4,
+          data-max-cores: 48,
+        ]
 submit: submit/slurm.yml.erb

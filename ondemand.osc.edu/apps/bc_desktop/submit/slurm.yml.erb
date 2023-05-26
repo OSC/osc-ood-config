@@ -87,7 +87,7 @@ batch_connect:
     # your bindpath will differ
     export APPTAINER_BINDPATH="/run,/apps,/tmp"
 
-    apptainer run <%= image %> /bin/bash container.sh
+    apptainer run --nv <%= image %> /bin/bash container.sh
   <%- end -%>
 script:
   accounting_id: "<%= account %>"

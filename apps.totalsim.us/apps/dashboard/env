@@ -19,3 +19,5 @@ OOD_DASHBOARD_PASSWD_URL="https://my.osc.edu"
 OOD_APP_SHARING=1
 
 OOD_FACL_DOMAIN='osc.edu'
+
+OOD_MODULE_FILE_DIR="/users/reporting/lmod"

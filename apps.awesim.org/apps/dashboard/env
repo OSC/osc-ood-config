@@ -28,3 +28,5 @@ OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-use
 OOD_BC_DYNAMIC_JS=1
 
 OOD_FACL_DOMAIN='osc.edu'
+
+OOD_MODULE_FILE_DIR="/users/reporting/lmod"

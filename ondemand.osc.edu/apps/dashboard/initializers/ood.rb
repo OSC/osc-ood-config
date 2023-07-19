@@ -27,4 +27,4 @@ when /test/
 else
   idp = 'https://idp.osc.edu'
 end
-ENV['OOD_DASHBOARD_HELP_CUSTOM_URL'] = "#{idp}/realms/osc/account/identity"
+ENV['OOD_DASHBOARD_HELP_CUSTOM_URL'] = "#{idp}/realms/osc/account/#/security/linked-accounts"

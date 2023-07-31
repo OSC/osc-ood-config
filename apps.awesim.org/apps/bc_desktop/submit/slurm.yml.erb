@@ -75,18 +75,6 @@ batch_connect:
 
     # reset SLURM_EXPORT_ENV so that things like srun & sbatch work out of the box
     export SLURM_EXPORT_ENV=ALL
-  <%- if cluster == 'ascend' && desktop == 'mate' -%>
-  script_wrapper: |
-    cat << "CTRSCRIPT" > container.sh
-    module load turbovnc/2.2.7 novnc/1.3.0
-    %s  
-    CTRSCRIPT
-
-    # your bindpath will differ
-    export APPTAINER_BINDPATH="/run,/apps,/tmp"
-
-    apptainer run --nv <%= image %> /bin/bash container.sh
-  <%- end -%>
 script:
   accounting_id: "<%= account %>"
   native:

@@ -73,7 +73,16 @@ attributes:
     widget: select
     label: "Node type"
     help: |
-      Need docs
+      - **any** - (*88 cores*) Chooses anyone of the available Ascend nodes.
+        This reduces the wait time as you have no requirements.
+      - **vis** - (*88 cores*) This node includes an NVIDIA Tesla A100 GPU with
+        an X server running in the background. This allows for Hardware
+        Rendering with the GPU typically needed for 3D visualization using
+        VirtualGL. There are currently only 10 of these nodes on Owens.
+      - **gpu** -  (*88 cores*) This node includes an NVIDIA Tesla A100 GPU
+        allowing for CUDA computations. There are currently only 96 of these
+        nodes on Ascend. These nodes don't start an X server, so visualization
+        with hardware rendering is not possible.
     options:
       - [ 
           "cpu", "any",
@@ -89,5 +98,12 @@ attributes:
           data-max-gpus: 4,
           data-min-num-cores: 1,
           data-max-num-cores: 88,
+        ]
+      - [
+          "vis", "vis",
+          data-min-gpus: 0,
+          data-max-gpus: 3,
+          data-min-num-cores: 1,
+          data-max-num-cores: 84,
         ]
 submit: submit/slurm.yml.erb

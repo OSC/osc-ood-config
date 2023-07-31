@@ -24,8 +24,6 @@
   def gpu_count
     if !gpus.nil? && !gpus.empty?
       gpus
-    elsif cluster == 'pitzer'
-      2
     else
       1
     end

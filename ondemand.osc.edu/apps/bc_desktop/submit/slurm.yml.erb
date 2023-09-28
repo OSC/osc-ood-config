@@ -22,7 +22,7 @@
   end
 
   def gpu_count
-    if !gpus.nil? && !gpus.empty?
+    if !gpus.nil? && !gpus.empty? && gpus.to_i.positive?
       gpus
     else
       1

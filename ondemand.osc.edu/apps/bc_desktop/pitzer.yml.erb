@@ -56,7 +56,10 @@ attributes:
     min: 1
     max: 48
     step: 1
-  gpus: ""
+  gpus:
+    widget: number_field
+    min: 0
+    max: 4
   licenses:
     help: |
       Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
@@ -91,50 +94,60 @@ attributes:
           "any", "any",
           data-min-cores: 1,
           data-max-cores: 80,
+          data-set-gpus: 0,
         ]
       - [
           "40 core", "any-40core",
           data-min-cores: 1,
           data-max-cores: 40,
+          data-set-gpus: 0,
         ]
       - [
           "48 core", "any-48core",
           data-min-cores: 1,
           data-max-cores: 48,
+          data-set-gpus: 0,
         ]
       - [
           "any gpu", "gpu-any",
           data-min-cores: 1,
           data-max-cores: 48,
+          data-set-gpus: 1,
         ]
       - [
           "40 core with gpu", "gpu-40core",
           data-min-cores: 1,
           data-max-cores: 40,
+          data-set-gpus: 1,
         ]
       - [
           "48 core with gpu", "gpu-48core",
           data-min-cores: 1,
           data-max-cores: 48,
+          data-set-gpus: 1,
         ]
       - [
           "densegpu", "densegpu",
           data-min-cores: 1,
           data-max-cores: 48,
+          data-set-gpus: 4,
         ]
       - [
           "visualization node", "vis",
           data-min-cores: 1,
           data-max-cores: 48,
+          data-set-gpus: 1,
         ]
       - [
           "largemem", "largemem",
           data-min-cores: 24,
           data-max-cores: 48,
+          data-set-gpus: 0,
         ]
       - [
           "hugemem", "hugemem",
           data-min-cores: 20,
           data-max-cores: 80,
+          data-set-gpus: 0,
         ]
 submit: submit/slurm.yml.erb

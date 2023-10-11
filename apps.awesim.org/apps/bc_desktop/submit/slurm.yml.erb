@@ -4,9 +4,7 @@
   base_slurm_args.concat ["--licenses", "#{licenses}"] unless licenses.empty?
 
   def tasks_per_node
-    # if you request > 1 nodes, it doesn't matter how many cores you request - you get the whole node
-    # but srun still adheres to how many tasks per node you've requested, not what you _have_.
-    bc_num_slots.to_i > 1 ? [] : [ "--ntasks-per-node", "#{cores}" ]
+    [ "--ntasks-per-node", "#{cores}" ]
   end
 
   def any_node

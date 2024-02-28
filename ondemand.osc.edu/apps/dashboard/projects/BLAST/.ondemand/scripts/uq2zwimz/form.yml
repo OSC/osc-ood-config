@@ -1,0 +1,53 @@
+---
+title: Simple BLAST job
+created_at: 1707923522
+form:
+- auto_accounts
+- auto_scripts
+- auto_batch_clusters
+attributes:
+  auto_accounts:
+    options:
+    - - PZS1118
+      - PZS1118
+      - data-option-for-cluster-cardinal: false
+    - - PZS0715
+      - PZS0715
+      - data-option-for-cluster-cardinal: false
+    - - PZS0714
+      - PZS0714
+      - {}
+    - - PZS1117
+      - PZS1117
+      - data-option-for-cluster-ascend: false
+        data-option-for-cluster-cardinal: false
+    - - PAS1604
+      - PAS1604
+      - data-option-for-cluster-ascend: false
+        data-option-for-cluster-cardinal: false
+    value: PZS0714
+    label: Account
+    help: ''
+    required: false
+  auto_scripts:
+    options:
+    - - blast.sh
+      - "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/lzdlglik/blast.sh"
+    directory: "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/lzdlglik"
+    value: "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/lzdlglik/blast.sh"
+    label: Script
+    help: ''
+    required: false
+  auto_batch_clusters:
+    options:
+    - ascend
+    - cardinal
+    - owens
+    - pitzer
+    value: owens
+    exclude_options:
+    - ascend
+    fixed: true
+    label: Cluster
+    help: ''
+    required: false

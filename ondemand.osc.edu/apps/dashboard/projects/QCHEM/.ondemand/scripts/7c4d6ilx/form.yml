@@ -1,0 +1,55 @@
+---
+title: Simple QChem job
+created_at: 1709137595
+form:
+- auto_accounts
+- auto_scripts
+- auto_batch_clusters
+attributes:
+  auto_accounts:
+    options:
+    - - PZS1118
+      - PZS1118
+      - data-option-for-cluster-cardinal: false
+    - - PZS0715
+      - PZS0715
+      - data-option-for-cluster-cardinal: false
+    - - PZS0714
+      - PZS0714
+      - {}
+    - - PZS1117
+      - PZS1117
+      - data-option-for-cluster-ascend: false
+        data-option-for-cluster-cardinal: false
+    - - PAS1604
+      - PAS1604
+      - data-option-for-cluster-ascend: false
+        data-option-for-cluster-cardinal: false
+    value: PZS0714
+    label: Account
+    help: ''
+    required: false
+  auto_scripts:
+    options:
+    - - qchem.sh
+      - "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/hahsuaru/qchem.sh"
+    directory: "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/hahsuaru"
+    value: "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/hahsuaru/qchem.sh"
+    label: Script
+    help: ''
+    required: false
+  auto_batch_clusters:
+    options:
+    - ascend
+    - cardinal
+    - owens
+    - pitzer
+    value: owens
+    exclude_options:
+    - pitzer
+    - cardinal
+    - ascend
+    fixed: true
+    label: Cluster
+    help: ''
+    required: false

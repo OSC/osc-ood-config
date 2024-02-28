@@ -25,16 +25,16 @@ attributes:
       - PAS1604
       - data-option-for-cluster-ascend: false
         data-option-for-cluster-cardinal: false
-    value: PZS0715
+    value: PZS0714
     label: Account
     help: ''
     required: false
   auto_scripts:
     options:
     - - qchem.sh
-      - "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/rndy3vti/qchem.sh"
-    directory: "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/rndy3vti"
-    value: "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/rndy3vti/qchem.sh"
+      - "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/hahsuaru/qchem.sh"
+    directory: "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/hahsuaru"
+    value: "/users/PZS0714/johrstrom/ondemand/data/sys/dashboard/projects/hahsuaru/qchem.sh"
     label: Script
     help: ''
     required: false

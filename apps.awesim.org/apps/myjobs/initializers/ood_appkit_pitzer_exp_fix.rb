@@ -4,4 +4,3 @@ Rails.application.configure do |config|
     Workflow.where(batch_host: 'owens-slurm').update_all(batch_host: 'owens')
   end if Configuration.production_database_path.file?
 end
-

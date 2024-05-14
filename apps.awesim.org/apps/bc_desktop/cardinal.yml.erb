@@ -1,0 +1,149 @@
+<%-
+  groups = OodSupport::User.new.groups.sort_by(&:id).tap { |groups|
+    groups.unshift(groups.delete(OodSupport::Process.group))
+  }.map(&:name).grep(/^P./)
+-%>
+---
+title: "Cardinal Desktop"
+cluster: "cardinal"
+description: |
+  This app will launch an interactive desktop on one or more compute nodes. It is
+  a large environment for when you need a lot of compute and/or memory resources because 
+  you will have full access to all the resources on that compute node(s).
+  
+  If you do not need all these resources, use the 
+  [Lightweight Desktop](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi/session_contexts/new)
+  app instead which is much more lightweight for general-purpose use cases.
+form:
+  # everything is taken from bc_desktop/form.yml except cores is added
+  - bc_vnc_idle
+  - desktop
+  - account
+  - bc_num_hours
+  - gpus
+  - cores
+  - bc_num_slots
+  - licenses
+  - node_type
+  - bc_queue
+  - bc_vnc_resolution
+  - bc_email_on_started
+attributes:
+  desktop:
+    widget: select
+    label: "Desktop environment"
+    options:
+      - ["Xfce", "xfce"]
+      - ["Mate", "mate"]
+      - ["Gnome", "gnome"]
+    help: |
+      This will launch either the [Xfce] or [Mate] desktop environment on the
+      [Cardinal cluster].
+
+      [Xfce]: https://xfce.org/
+      [Mate]: https://mate-desktop.org/
+      [Cardinal cluster]: https://www.osc.edu/supercomputing/computing/Cardinal
+  bc_queue: null
+  account:
+    label: "Project"
+    widget: select
+    options:
+      <%- groups.each do |group| %>
+      - "<%= group %>"
+      <%- end %>
+  cores:
+    widget: number_field
+    value: 48
+    min: 1
+    max: 48
+    step: 1
+  gpus:
+    widget: number_field
+    min: 0
+    max: 4
+  licenses:
+    value: ""
+    widget: hidden_field
+  node_type:
+    widget: select
+    label: "Node type"
+    help: |
+      - **Standard Compute** <br>
+        These are standard HPC machines. There are 224 with 40 cores and
+        340 with 48. They all have 192 GB of RAM. Chosing any will decrease
+        your wait time.
+      - **GPU Enabled** <br>
+        These are HPC machines with [NVIDIA Tesla V100 GPUs]. They have the same
+        40 core machines have 2 GPUs with 16 GB of RAM and 48 core machines have 2
+        with 32 GB of RAM.  Densegpu types have 4 GPUs with 16 GB of RAM.
+        Visualization nodes are GPU enabled nodes with an X Server in the background
+        for 3D visualization using VirtualGL.
+      - **Large Memory** <br>
+        These are HPC machines with very large amounts of memory. Largmem nodes
+        have 48 cores with 768 GB of RAM. Hugemem nodes have 80 cores with 3 TB of RAM.
+
+      Visit the OSC site for more [detailed information on the Pitzer cluster].
+      [detailed information on the Pitzer cluster]: https://www.osc.edu/resources/technical_support/supercomputers/pitzer
+      [NVIDIA Tesla V100 GPUs]: https://www.nvidia.com/en-us/data-center/v100/
+    options:
+      - [
+          "any", "any",
+          data-min-cores: 1,
+          data-max-cores: 80,
+          data-set-gpus: 0,
+        ]
+      - [
+          "40 core", "any-40core",
+          data-min-cores: 1,
+          data-max-cores: 40,
+          data-set-gpus: 0,
+        ]
+      - [
+          "48 core", "any-48core",
+          data-min-cores: 1,
+          data-max-cores: 48,
+          data-set-gpus: 0,
+        ]
+      - [
+          "any gpu", "gpu-any",
+          data-min-cores: 1,
+          data-max-cores: 48,
+          data-set-gpus: 1,
+        ]
+      - [
+          "40 core with gpu", "gpu-40core",
+          data-min-cores: 1,
+          data-max-cores: 40,
+          data-set-gpus: 1,
+        ]
+      - [
+          "48 core with gpu", "gpu-48core",
+          data-min-cores: 1,
+          data-max-cores: 48,
+          data-set-gpus: 1,
+        ]
+      - [
+          "densegpu", "densegpu",
+          data-min-cores: 1,
+          data-max-cores: 48,
+          data-set-gpus: 4,
+        ]
+      - [
+          "visualization node", "vis",
+          data-min-cores: 1,
+          data-max-cores: 48,
+          data-set-gpus: 1,
+        ]
+      - [
+          "largemem", "largemem",
+          data-min-cores: 24,
+          data-max-cores: 48,
+          data-set-gpus: 0,
+        ]
+      - [
+          "hugemem", "hugemem",
+          data-min-cores: 20,
+          data-max-cores: 80,
+          data-set-gpus: 0,
+        ]
+submit: submit/slurm.yml.erb

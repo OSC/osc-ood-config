@@ -1,83 +1,83 @@
 
 <%- 
-base_slurm_args = ["--nodes", "#{bc_num_slots}"]
-base_slurm_args.concat ["--licenses", "#{licenses}"] unless licenses.empty?
+  base_slurm_args = ["--nodes", "#{bc_num_slots}"]
+  base_slurm_args.concat ["--licenses", "#{licenses}"] unless licenses.empty?
 
-def tasks_per_node
-  [ "--ntasks-per-node", "#{cores}" ]
-end
-
-def any_node
-  tasks_per_node
-end
-
-def p18_node
-  return tasks_per_node + [ "--constraint", "40core" ]
-end
-
-def p20_node
-  return tasks_per_node + [ "--constraint", "48core" ]
-end
-
-def plus_gpus(arr, gpu_arr)
-  gpu_count.to_i > 0 ? arr + gpu_arr : arr
-end
-
-def gpu_count
-  if !gpus.nil? && !gpus.empty? && gpus.to_i >= 0
-    gpus
-  else
-    1
+  def tasks_per_node
+    [ "--ntasks-per-node", "#{cores}" ]
   end
-end
 
-slurm_args = case node_type
-            # 'any' case handled by scheduler, this is just a quick short circuit
-            when "any"
-              plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}"])
-            when "any-40core"
-              base_slurm_args + p18_node
-            when "any-48core"
-              base_slurm_args + p20_node
+  def any_node
+    tasks_per_node
+  end
 
-            when "gpu-any"
-              plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}"])
-            when "gpu-40core"
-              plus_gpus(base_slug_arms + p18_node, ["--gpus-per-node", "#{gpu_count}"])
-            when "gpu-48core"
-              plus_gpus(base_slug_arms + p20_node, ["--gpus-per-node", "#{gpu_count}"])
-            when "vis"
-              plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"])
-            when "densegpu"
-              plus_gpus(base_slug_arms + p20_node, ["--gpus-per-node", "4"])
+  def p18_node
+    return tasks_per_node + [ "--constraint", "40core" ]
+  end
+
+  def p20_node
+    return tasks_per_node + [ "--constraint", "48core" ]
+  end
+
+  def plus_gpus(arr, gpu_arr)
+    gpu_count.to_i > 0 ? arr + gpu_arr : arr
+  end
+
+  def gpu_count
+    if !gpus.nil? && !gpus.empty? && gpus.to_i >= 0
+      gpus
+    else
+      1
+    end
+  end
+
+  slurm_args = case node_type
+              # 'any' case handled by scheduler, this is just a quick short circuit
+              when "any"
+                plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}"])
+              when "any-40core"
+                base_slurm_args + p18_node
+              when "any-48core"
+                base_slurm_args + p20_node
+
+              when "gpu-any"
+                plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}"])
+              when "gpu-40core"
+                plus_gpus(base_slug_arms + p18_node, ["--gpus-per-node", "#{gpu_count}"])
+              when "gpu-48core"
+                plus_gpus(base_slug_arms + p20_node, ["--gpus-per-node", "#{gpu_count}"])
+              when "vis"
+                plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"])
+              when "densegpu"
+                plus_gpus(base_slug_arms + p20_node, ["--gpus-per-node", "4"])
               
-            # using partitions here is easier than specifying memory requests
-            when "largemem"
-              partition = bc_num_slots.to_i > 1 ? "largemem-parallel" : "largemem"
-              base_slurm_args + tasks_per_node + ["--partition", partition ]
-            when "hugemem"
-              partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
-              base_slurm_args + tasks_per_node + ["--partition", partition ]
-            else
-              base_slurm_args
-            end
+              # using partitions here is easier than specifying memory requests
+              when "largemem"
+                partition = bc_num_slots.to_i > 1 ? "largemem-parallel" : "largemem"
+                base_slurm_args + tasks_per_node + ["--partition", partition ]
+              when "hugemem"
+                partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
+                base_slurm_args + tasks_per_node + ["--partition", partition ]
+              else
+                base_slurm_args
+              end
 
-image = '/apps/project/ondemand/singularity/mate-rhel8/mate-rhel8.sif'
+  image = '/apps/project/ondemand/singularity/mate-rhel8/mate-rhel8.sif'
 -%>
 ---
 batch_connect:
-before_script: |
-  # Export the module function if it exists
-  [[ $(type -t module) == "function"  ]] && export -f module
+  before_script: |
+    # Export the module function if it exists
+    [[ $(type -t module) == "function"  ]] && export -f module
 
-  # MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u)
-  export XDG_RUNTIME_DIR="$TMPDIR/xdg_runtime"
+    # MATE acts strange in pitzer-exp and doesn't like /var/run/$(id -u)
+    export XDG_RUNTIME_DIR="$TMPDIR/xdg_runtime"
 
-  # reset SLURM_EXPORT_ENV so that things like srun & sbatch work out of the box
-  export SLURM_EXPORT_ENV=ALL
+    # reset SLURM_EXPORT_ENV so that things like srun & sbatch work out of the box
+    export SLURM_EXPORT_ENV=ALL
 script:
-accounting_id: "<%= account %>"
-native:
-  <%- slurm_args.each do |arg| %>
-  - "<%= arg %>"
-  <%- end %>
+  accounting_id: "<%= account %>"
+  native:
+    <%- slurm_args.each do |arg| %>
+      - "<%= arg %>"
+    <%- end %>

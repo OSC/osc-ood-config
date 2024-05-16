@@ -30,7 +30,7 @@
   slurm_args = case node_type
               # 'any' case handled by scheduler, this is just a quick short circuit
               when "any"
-                base_slurm_args + any_node
+                base_slurm_args + any_node + ["--gpus-per-node", "#{gpu_count}"]
 
               when "any-40core"
                 base_slurm_args + p18_node

@@ -50,7 +50,7 @@
                 plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"])
               when "densegpu"
                 plus_gpus(base_slug_arms + p20_node, ["--gpus-per-node", "4"])
-              
+
               # using partitions here is easier than specifying memory requests
               when "largemem"
                 partition = bc_num_slots.to_i > 1 ? "largemem-parallel" : "largemem"

@@ -34,22 +34,22 @@
   slurm_args = case node_type
               # 'any' case handled by scheduler, this is just a quick short circuit
               when "any"
-                plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}"])
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}"])
               when "any-40core"
                 base_slurm_args + p18_node
               when "any-48core"
                 base_slurm_args + p20_node
 
               when "gpu-any"
-                plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}"])
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}"])
               when "gpu-40core"
-                plus_gpus(base_slug_arms + p18_node, ["--gpus-per-node", "#{gpu_count}"])
+                plus_gpus(base_slurm_args + p18_node, ["--gpus-per-node", "#{gpu_count}"])
               when "gpu-48core"
-                plus_gpus(base_slug_arms + p20_node, ["--gpus-per-node", "#{gpu_count}"])
+                plus_gpus(base_slurm_args + p20_node, ["--gpus-per-node", "#{gpu_count}"])
               when "vis"
-                plus_gpus(base_slug_arms + any_node, ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"])
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"])
               when "densegpu"
-                plus_gpus(base_slug_arms + p20_node, ["--gpus-per-node", "4"])
+                plus_gpus(base_slurm_args + p20_node, ["--gpus-per-node", "4"])
 
               # using partitions here is easier than specifying memory requests
               when "largemem"

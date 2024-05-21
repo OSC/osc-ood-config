@@ -32,35 +32,35 @@
   end
 
   slurm_args = case node_type
-                # 'any' case handled by scheduler, this is just a quick short circuit
-                when "any"
-                  plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}"])
-                when "any-40core"
-                  base_slurm_args + p18_node
-                when "any-48core"
-                  base_slurm_args + p20_node
+              # 'any' case handled by scheduler, this is just a quick short circuit
+              when "any"
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}"])
+              when "any-40core"
+                base_slurm_args + p18_node
+              when "any-48core"
+                base_slurm_args + p20_node
 
-                when "gpu-any"
-                  plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}"])
-                when "gpu-40core"
-                  plus_gpus(base_slurm_args + p18_node, ["--gpus-per-node", "#{gpu_count}"])
-                when "gpu-48core"
-                  plus_gpus(base_slurm_args + p20_node, ["--gpus-per-node", "#{gpu_count}"])
-                when "vis"
-                  plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"])
-                when "densegpu"
-                  plus_gpus(base_slurm_args + p20_node, ["--gpus-per-node", "4"])
+              when "gpu-any"
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}"])
+              when "gpu-40core"
+                plus_gpus(base_slurm_args + p18_node, ["--gpus-per-node", "#{gpu_count}"])
+              when "gpu-48core"
+                plus_gpus(base_slurm_args + p20_node, ["--gpus-per-node", "#{gpu_count}"])
+              when "vis"
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"])
+              when "densegpu"
+                plus_gpus(base_slurm_args + p20_node, ["--gpus-per-node", "4"])
 
-                # using partitions here is easier than specifying memory requests
-                when "largemem"
-                  partition = bc_num_slots.to_i > 1 ? "largemem-parallel" : "largemem"
-                  base_slurm_args + tasks_per_node + ["--partition", partition ]
-                when "hugemem"
-                  partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
-                  base_slurm_args + tasks_per_node + ["--partition", partition ]
-                else
-                  base_slurm_args
-                end
+              # using partitions here is easier than specifying memory requests
+              when "largemem"
+                partition = bc_num_slots.to_i > 1 ? "largemem-parallel" : "largemem"
+                base_slurm_args + tasks_per_node + ["--partition", partition ]
+              when "hugemem"
+                partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
+                base_slurm_args + tasks_per_node + ["--partition", partition ]
+              else
+                base_slurm_args
+              end
 
   image = '/apps/project/ondemand/singularity/mate-rhel8/mate-rhel8.sif'
 -%>

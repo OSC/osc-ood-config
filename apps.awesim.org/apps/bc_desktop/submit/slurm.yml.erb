@@ -19,8 +19,12 @@
     return tasks_per_node + [ "--constraint", "48core" ]
   end
 
+  def plus_gpus(arr, gpu_arr)
+    gpu_count.to_i > 0 ? arr + gpu_arr : arr
+  end
+
   def gpu_count
-    if !gpus.nil? && !gpus.empty? && gpus.to_i.positive?
+    if !gpus.nil? && !gpus.empty? && gpus.to_i >= 0
       gpus
     else
       1
@@ -30,23 +34,22 @@
   slurm_args = case node_type
               # 'any' case handled by scheduler, this is just a quick short circuit
               when "any"
-                base_slurm_args + any_node
-
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}"])
               when "any-40core"
                 base_slurm_args + p18_node
               when "any-48core"
                 base_slurm_args + p20_node
 
               when "gpu-any"
-                base_slurm_args + any_node + ["--gpus-per-node", "#{gpu_count}"]
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}"])
               when "gpu-40core"
-                base_slurm_args + p18_node + ["--gpus-per-node", "#{gpu_count}"]
+                plus_gpus(base_slurm_args + p18_node, ["--gpus-per-node", "#{gpu_count}"])
               when "gpu-48core"
-                base_slurm_args + p20_node + ["--gpus-per-node", "#{gpu_count}"]
+                plus_gpus(base_slurm_args + p20_node, ["--gpus-per-node", "#{gpu_count}"])
               when "vis"
-                base_slurm_args + any_node + ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"]
+                plus_gpus(base_slurm_args + any_node, ["--gpus-per-node", "#{gpu_count}", "--gres", "vis"])
               when "densegpu"
-                base_slurm_args + p20_node + ["--gpus-per-node", "4"]
+                plus_gpus(base_slurm_args + p20_node, ["--gpus-per-node", "4"])
 
               # using partitions here is easier than specifying memory requests
               when "largemem"
@@ -55,7 +58,6 @@
               when "hugemem"
                 partition = bc_num_slots.to_i > 1 ? "hugemem-parallel" : "hugemem"
                 base_slurm_args + tasks_per_node + ["--partition", partition ]
-
               else
                 base_slurm_args
               end
@@ -77,5 +79,5 @@ script:
   accounting_id: "<%= account %>"
   native:
     <%- slurm_args.each do |arg| %>
-    - "<%= arg %>"
+      - "<%= arg %>"
     <%- end %>

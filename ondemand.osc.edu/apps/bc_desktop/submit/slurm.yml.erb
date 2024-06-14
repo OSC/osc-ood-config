@@ -24,11 +24,7 @@
   end
 
   def gpu_count
-    if !gpus.nil? && !gpus.empty? && gpus.to_i >= 0
-      gpus
-    else
-      1
-    end
+    gpus.to_s.to_i
   end
 
   slurm_args = case node_type

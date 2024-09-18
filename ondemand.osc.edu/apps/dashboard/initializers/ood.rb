@@ -16,18 +16,19 @@ Rails.application.config.after_initialize do
   fs_outage = `grep node_file_test_failure /var/lib/node_exporter/textfile_collector/autofs-file-test.prom | grep -q ' 1'; echo $?`
   add_paths if fs_outage.chomp == "1" && !File.exist?('/etc/ood/config/gpfs_outage')
 
-  NavConfig.categories_whitelist=true
+  require 'socket'
+  hostname = Socket.gethostname
+  case hostname
+  when /dev/
+    idp = 'https://idp-dev.osc.edu'
+  when /test/
+    idp = 'https://idp-test.osc.edu'
+    NavConfig.categories_whitelist=true # TODO: need to remove when upgrading to 4.0
+  else
+    idp = 'https://idp.osc.edu'
+    NavConfig.categories_whitelist=true # TODO: need to remove when upgrading to 4.0
+  end
+
+  ENV['OOD_DASHBOARD_HELP_CUSTOM_URL'] = "#{idp}/realms/osc/account/#/security/linked-accounts"
 end
 
-require 'socket'
-hostname = Socket.gethostname
-case hostname
-when /dev/
-  idp = 'https://idp-dev.osc.edu'
-when /test/
-  idp = 'https://idp-test.osc.edu'
-else
-  idp = 'https://idp.osc.edu'
-end
-
-ENV['OOD_DASHBOARD_HELP_CUSTOM_URL'] = "#{idp}/realms/osc/account/#/security/linked-accounts"

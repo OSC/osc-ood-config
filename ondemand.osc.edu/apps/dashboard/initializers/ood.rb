@@ -15,8 +15,6 @@ end
 fs_outage = `grep node_file_test_failure /var/lib/node_exporter/textfile_collector/autofs-file-test.prom | grep -q ' 1'; echo $?`
 add_paths if fs_outage.chomp == "1" && !File.exist?('/etc/ood/config/gpfs_outage')
 
-NavConfig.categories_whitelist=true
-
 require 'socket'
 hostname = Socket.gethostname
 case hostname
@@ -27,4 +25,9 @@ when /test/
 else
   idp = 'https://idp.osc.edu'
 end
+
 ENV['OOD_DASHBOARD_HELP_CUSTOM_URL'] = "#{idp}/realms/osc/account/#/security/linked-accounts"
+
+Rails.application.config.after_initialize do
+  NavConfig.categories_whitelist=true
+end

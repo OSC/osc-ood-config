@@ -31,6 +31,7 @@ attributes:
       - "owens"
       - "pitzer"
       - ["ascend", "ascend-login" ]
+      - ["cardinal", "cardinal-login" ]
   desktop:
     widget: select
     label: "Desktop environment"

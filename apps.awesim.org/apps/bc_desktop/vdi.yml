@@ -1,8 +1,3 @@
-<%-
-  groups = OodSupport::User.new.groups.sort_by(&:id).tap { |groups|
-    groups.unshift(groups.delete(OodSupport::Process.group))
-  }.map(&:name).grep(/^P./)
--%>
 ---
 title: "Lightweight Desktop"
 description: |
@@ -21,7 +16,7 @@ form:
   - cluster
   - bc_vnc_idle
   - desktop
-  - account
+  - auto_accounts
   - bc_num_hours
   - bc_num_slots
   - licenses
@@ -65,13 +60,6 @@ attributes:
     pattern: '^([\w]+@osc:\d+,{0,1})+$'
   node_type: ":ppn=1"
   bc_email_on_started: 0
-  account:
-    label: "Project"
-    widget: select
-    options:
-      <%- groups.each do |group| %>
-      - "<%= group %>"
-      <%- end %>
   bc_vnc_idle: 0
   bc_vnc_resolution:
     required: true

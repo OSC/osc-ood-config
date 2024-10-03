@@ -15,13 +15,12 @@ batch_connect:
     export SLURM_EXPORT_ENV=ALL
 
 script:
-  accounting_id: "<%= account %>"
   job_environment:
     XDG_RUNTIME_DIR: "/tmp/xdg_runtime"
     SINGULARITY_ENVXDG_RUNTIME_DIR: "/tmp/xdg_runtime"
     APPTAINER_ENVXDG_RUNTIME_DIR: "/tmp/xdg_runtime"
   native:
-    <%- if cluster == 'ascend-login' -%>
+    <%- if ['ascend-login', 'cardinal-login'].include?(cluster) -%>
     singularity_container: "/apps/project/ondemand/singularity/mate-rhel8/mate-rhel8.sif"
     singularity_bindpath: "/run,/apps"
     <%- else -%>

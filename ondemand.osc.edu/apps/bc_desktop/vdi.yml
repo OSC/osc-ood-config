@@ -31,13 +31,18 @@ attributes:
       - "owens"
       - "pitzer"
       - ["ascend", "ascend-login" ]
+      - ["cardinal", "cardinal-login" ]
   desktop:
     widget: select
     label: "Desktop environment"
     options:
       - ["Xfce", "xfce"]
       - ["Mate", "mate"]
-      - ["Gnome", "gnome", data-option-for-cluster-ascend-login: false ]
+      - [ 
+          "Gnome", "gnome", 
+          data-option-for-cluster-ascend-login: false,
+          data-option-for-cluster-cardinal-login: false,
+        ]
     help: |
       This will launch either the [Xfce] or [Mate] desktop environment on the
       [Owens] or [Pitzer] clusters.

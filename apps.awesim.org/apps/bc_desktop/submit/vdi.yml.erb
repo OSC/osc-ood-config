@@ -1,6 +1,11 @@
 <%-
   args = [ "--partition", "quick", "--nodes", "1", "--ntasks-per-node", "1" ]
   args.concat ["--licenses", "#{licenses}"] unless licenses.empty?
+
+  container_lookup = {
+    'ascend-login' => '/apps/project/ondemand/singularity/mate-rhel8/mate-rhel8.sif',
+    'cardinal-login' => '/apps/project/ondemand/lightdesktop_base/rhel9/rhel9.sif'
+  }
 -%>
 ---
 batch_connect:
@@ -9,11 +14,10 @@ batch_connect:
     [[ $(type -t module) == "function"  ]] && export -f module
 
     # MATE doesn't like /var/run/$(id -u) and ascend-login doesn't have $TMPDIR
-    export XDG_RUNTIME_DIR="<%= cluster == 'ascend-login' ? '/tmp' : '$TMPDIR' %>/xdg_runtime"
+    export XDG_RUNTIME_DIR="<%= ['ascend-login', 'cardinal-login'].include?(cluster) ? '/tmp' : '$TMPDIR' %>/xdg_runtime"
 
     # reset SLURM_EXPORT_ENV so that things like srun & sbatch work out of the box
     export SLURM_EXPORT_ENV=ALL
-
 script:
   job_environment:
     XDG_RUNTIME_DIR: "/tmp/xdg_runtime"
@@ -21,7 +25,7 @@ script:
     APPTAINER_ENVXDG_RUNTIME_DIR: "/tmp/xdg_runtime"
   native:
     <%- if ['ascend-login', 'cardinal-login'].include?(cluster) -%>
-    singularity_container: "/apps/project/ondemand/singularity/mate-rhel8/mate-rhel8.sif"
+    singularity_container: "<%= container_lookup[cluster] %>"
     singularity_bindpath: "/run,/apps"
     <%- else -%>
     <%- args.each do |arg| -%>

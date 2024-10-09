@@ -2,5 +2,5 @@ DEFAULT_SSHHOST=owens.osc.edu
 OOD_DEFAULT_SSHHOST=owens.osc.edu
 OOD_SSHHOST_ALLOWLIST="a[0-1][0-9][0-9][0-9].ten.osc.edu:o[0-1][0-9][0-9][0-9].ten.osc.edu:p[0-1][0-9][0-9][0-9].ten.osc.edu:c[0-1][0-9][0-9][0-9].ten.osc.edu"
 
-OOD_SHELL_INACTIVE_TIMEOUT_MS="true"
+OOD_SHELL_PING_PONG="true"
 OOD_SHELL_MAX_DURATION_MS=7200000

@@ -15,7 +15,7 @@ batch_connect:
 
     # MATE doesn't like /var/run/$(id -u) and ascend-login doesn't have $TMPDIR
     export XDG_RUNTIME_DIR=$(mktemp -d)
-    export APPTAINER_ENVXDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
+    export APPTAINERENV_XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
 
     # reset SLURM_EXPORT_ENV so that things like srun & sbatch work out of the box
     export SLURM_EXPORT_ENV=ALL

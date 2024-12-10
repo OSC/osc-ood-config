@@ -23,7 +23,6 @@ script:
   native:
     <%- if ['ascend-login', 'cardinal-login'].include?(cluster) -%>
     singularity_container: "<%= container_lookup[cluster] %>"
-    singularity_bindpath: "/run,/apps"
     <%- else -%>
     <%- args.each do |arg| -%>
     - "<%= arg %>"

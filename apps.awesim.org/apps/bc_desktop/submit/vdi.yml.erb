@@ -4,7 +4,6 @@
 
   container_lookup = {
     'ascend-login' => '/apps/project/ondemand/singularity/mate-rhel8/mate-rhel8.sif',
-    'cardinal-login' => '/apps/project/ondemand/lightdesktop_base/rhel9/rhel9.sif'
   }
 -%>
 ---
@@ -21,7 +20,7 @@ batch_connect:
     export SLURM_EXPORT_ENV=ALL
 script:
   native:
-    <%- if ['ascend-login', 'cardinal-login'].include?(cluster) -%>
+    <%- if ['ascend-login'].include?(cluster) -%>
     singularity_container: "<%= container_lookup[cluster] %>"
     <%- else -%>
     <%- args.each do |arg| -%>

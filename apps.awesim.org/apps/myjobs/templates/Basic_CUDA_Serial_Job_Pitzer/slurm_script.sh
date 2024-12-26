@@ -2,7 +2,6 @@
 #SBATCH -J ondemand/sys/myjobs/basic_cuda_serial
 #SBATCH --time=00:10:00
 #SBATCH --nodes=1
-#SBATCH --exclusive
 #SBATCH --gpus=1
 
 

@@ -1,5 +1,4 @@
 #!/bin/bash
-#SBATCH --exclusive
 #SBATCH --nodes=1
 #SBATCH --time=00:59:00
 #SBATCH -J ondemand/sys/myjobs/vnc_job

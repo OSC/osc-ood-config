@@ -2,7 +2,6 @@
 #SBATCH -J ondemand/sys/myjobs/basic_namd_parallel
 #SBATCH --nodes=2
 #SBATCH --time=00:12:00
-#SBATCH --exclusive
 
 #   A Basic NAMD Parallel Job for the OSC Pitzer Cluster
 #   https://www.osc.edu/resources/available_software/software_list/namd

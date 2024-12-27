@@ -2,7 +2,6 @@
 #SBATCH -J ondemand/sys/myjobs/basic_gaussian
 #SBATCH --time=0:30:00
 #SBATCH --nodes=1
-#SBATCH --exclusive
 
 # A Basic Gaussian Job for the OSC Owens Cluster
 #   https://www.osc.edu/resources/available_software/software_list/gaussian

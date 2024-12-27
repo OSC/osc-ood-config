@@ -2,7 +2,6 @@
 #SBATCH -J ondemand/sys/myjobs/basic_gaussian
 #SBATCH --time=00:30:00
 #SBATCH --nodes=1
-#SBATCH --exclusive
 
 # A Basic Gaussian Job for the OSC Pitzer Cluster
 #   https://www.osc.edu/resources/available_software/software_list/gaussian

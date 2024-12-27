@@ -4,7 +4,6 @@
 #SBATCH --output=omp-hello.out
 #SBATCH -t 00:01:00
 #SBATCH --nodes=1
-#SBATCH --exclusive
 
 # Load the OpenMPI module
 module load intel/19.0.5

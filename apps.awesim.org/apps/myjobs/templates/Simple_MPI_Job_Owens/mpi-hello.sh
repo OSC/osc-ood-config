@@ -4,7 +4,6 @@
 #SBATCH -t 00:10:00
 #SBATCH --output=mpi-hello.out
 #SBATCH --nodes=4
-#SBATCH --exclusive
 
 #
 # Load MPI module

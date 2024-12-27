@@ -2,7 +2,6 @@
 #SBATCH -J ondemand/sys/myjobs/basic_matlab
 #SBATCH --time=00:10:00
 #SBATCH --nodes=1
-#SBATCH --exclusive
 
 
 #  A Basic MATLAB Job for the OSC Pitzer Cluster

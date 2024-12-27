@@ -1,6 +1,5 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --exclusive
 #SBATCH --time=00:45:00
 #SBATCH -J ondemand/sys/myjobs/basic_blast
 

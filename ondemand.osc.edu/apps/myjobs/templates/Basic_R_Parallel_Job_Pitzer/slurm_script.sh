@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
-#SBATCH --exclusive
 #SBATCH -J ondemand/sys/myjobs/basic_r_parallel
 
 #  A Basic R Parallel Job for the OSC Pitzer Cluster

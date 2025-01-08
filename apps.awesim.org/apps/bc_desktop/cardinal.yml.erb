@@ -82,7 +82,9 @@ attributes:
       - **Visualization Nodes** <br>
         Visualization nodes are GPU enabled nodes with an X Server in the background
         for 3D visualization using VirtualGL.
-
+      - **Huge Memory Nodes** <br>
+        Huge Memory nodes have 2 TB of memory for memory intensive workloads.
+        There are 16 of these machines on Cardinal.
       Visit the OSC site for more [detailed information on the Cardinal cluster].
       [detailed information on the Cardinal cluster]: https://www.osc.edu/resources/technical_support/supercomputers/cardinal
       [NVIDIA Tesla H100 GPUs]: https://www.nvidia.com/en-us/data-center/h100/
@@ -104,5 +106,11 @@ attributes:
         data-min-cores: 1,
         data-max-cores: 96,
         data-set-gpus: 1,
-      ]
+        ]
+      - [
+        "hugemem node", "hugemem",
+        data-min-cores: 43,
+        data-max-cores: 96,
+        data-set-gpus: 1,
+        ]
 submit: submit/slurm.yml.erb

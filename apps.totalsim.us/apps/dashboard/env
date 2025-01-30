@@ -22,3 +22,5 @@ OOD_FACL_DOMAIN='osc.edu'
 
 OOD_MODULE_FILE_DIR="/users/reporting/lmod"
 OOD_UPCASE_ACCOUNTS=1
+
+OOD_BC_SIMPLE_AUTO_ACCOUNTS='true'

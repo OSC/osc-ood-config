@@ -7,9 +7,8 @@ description: |
   You should be provisioned a desktop nearly immediately.
 
   If you need dedicated resources for compute or memory intensive workloads use a
-  Desktop app like [Owens], [Pitzer] or [Ascend] where you will have full access to them.
+  Desktop app like [Pitzer] or [Ascend] where you will have full access to them.
 
-  [Owens]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/owens/session_contexts/new
   [Pitzer]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/pitzer/session_contexts/new
   [Ascend]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/ascend/session_contexts/new
 form:
@@ -28,7 +27,6 @@ attributes:
   cluster:
     widget: select
     options:
-      - "owens"
       - "pitzer"
       - ["ascend", "ascend-login" ]
       - "cardinal"

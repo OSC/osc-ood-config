@@ -1,6 +1,0 @@
-name: Basic Octave Job - Owens
-host: owens
-script: slurm_script.sh
-notes: |
-  A Basic Octave Job for the OSC Owens Cluster
-  https://www.osc.edu/resources/available_software/software_list/octave

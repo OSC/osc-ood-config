@@ -35,7 +35,6 @@ attributes:
     options:
       - ["Xfce", "xfce"]
       - ["Mate", "mate"]
-      - ["Gnome", "gnome"]
     help: |
       This will launch either the [Xfce] or [Mate] desktop environment on the
       [Cardinal cluster].
@@ -62,29 +61,33 @@ attributes:
     min: 0
     max: 4
   licenses:
-    value: ""
-    widget: hidden_field
+    help: |
+      Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
+      'stata@osc:1'. More help can be found on our website regarding the changes
+      in the [slurm migration].
+
+      [slurm migration]: https://www.osc.edu/resources/technical_support/supercomputers/owens/environment_changes_in_slurm_migration
+    pattern: '^([\w]+@osc:\d+,{0,1})+$'
   node_type:
     widget: select
     label: "Node type"
     help: |
       - **Standard Compute** <br>
-        These are standard HPC machines. There are 224 with 40 cores and
-        340 with 48. They all have 192 GB of RAM. Chosing any will decrease
+        These are standard HPC machines. There are 326 of these machines with
+        96 cores. They all have 512 GB of RAM. Chosing any will decrease
         your wait time.
       - **GPU Enabled** <br>
-        These are HPC machines with [NVIDIA Tesla V100 GPUs]. They have the same
-        40 core machines have 2 GPUs with 16 GB of RAM and 48 core machines have 2
-        with 32 GB of RAM.  Densegpu types have 4 GPUs with 16 GB of RAM.
+        These are HPC machines with [NVIDIA Tesla H100 GPUs]. They have 96
+        cores and  1 TB of RAM. 
+      - **Visualization Nodes** <br>
         Visualization nodes are GPU enabled nodes with an X Server in the background
         for 3D visualization using VirtualGL.
-      - **Large Memory** <br>
-        These are HPC machines with very large amounts of memory. Largmem nodes
-        have 48 cores with 768 GB of RAM. Hugemem nodes have 80 cores with 3 TB of RAM.
-
-      Visit the OSC site for more [detailed information on the Pitzer cluster].
-      [detailed information on the Pitzer cluster]: https://www.osc.edu/resources/technical_support/supercomputers/pitzer
-      [NVIDIA Tesla V100 GPUs]: https://www.nvidia.com/en-us/data-center/v100/
+      - **Huge Memory Nodes** <br>
+        Huge Memory nodes have 2 TB of memory for memory intensive workloads.
+        There are 16 of these machines on Cardinal.
+      Visit the OSC site for more [detailed information on the Cardinal cluster].
+      [detailed information on the Cardinal cluster]: https://www.osc.edu/resources/technical_support/supercomputers/cardinal
+      [NVIDIA Tesla H100 GPUs]: https://www.nvidia.com/en-us/data-center/h100/
     options:
       - [
           "any", "any",
@@ -103,5 +106,11 @@ attributes:
         data-min-cores: 1,
         data-max-cores: 96,
         data-set-gpus: 1,
-      ]
+        ]
+      - [
+        "hugemem node", "hugemem",
+        data-min-cores: 43,
+        data-max-cores: 96,
+        data-set-gpus: 1,
+        ]
 submit: submit/slurm.yml.erb

@@ -1,3 +1,9 @@
-DEFAULT_SSHHOST=owens.osc.edu
-OOD_DEFAULT_SSHHOST=owens.osc.edu
-OOD_SSHHOST_ALLOWLIST="a[0-1][0-9][0-9][0-9].ten.osc.edu:o[0-1][0-9][0-9][0-9].ten.osc.edu:p[0-1][0-9][0-9][0-9].ten.osc.edu:apps-test.awesim.org"
+DEFAULT_SSHHOST=pitzer.osc.edu
+OOD_DEFAULT_SSHHOST=pitzer.osc.edu
+OOD_SSHHOST_ALLOWLIST="a[0-1][0-9][0-9][0-9].ten.osc.edu:p[0-1][0-9][0-9][0-9].ten.osc.edu:c[0-1][0-9][0-9][0-9].ten.osc.edu"
+
+OOD_SHELL_PING_PONG="true"
+
+# inactive timeout just slightly higher to avoid collision or multiple attempts to close
+OOD_SHELL_MAX_DURATION_MS=28800000
+OOD_SHELL_INACTIVE_TIMEOUT_MS=28860000

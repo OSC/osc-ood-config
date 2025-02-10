@@ -23,10 +23,8 @@ Rails.application.config.after_initialize do
     idp = 'https://idp-dev.osc.edu'
   when /test/
     idp = 'https://idp-test.osc.edu'
-    NavConfig.categories_whitelist=true # TODO: need to remove when upgrading to 4.0
   else
     idp = 'https://idp.osc.edu'
-    NavConfig.categories_whitelist=true # TODO: need to remove when upgrading to 4.0
   end
 
   ENV['OOD_DASHBOARD_HELP_CUSTOM_URL'] = "#{idp}/realms/osc/account/#/security/linked-accounts"

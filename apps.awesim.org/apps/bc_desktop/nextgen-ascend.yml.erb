@@ -4,8 +4,8 @@
   }.map(&:name).grep(/^P./)
 -%>
 ---
-title: "Cardinal Desktop"
-cluster: "cardinal"
+title: "Ascend NextGen Desktop"
+cluster: "ascend-nextgen"
 description: |
   This app will launch an interactive desktop on one or more compute nodes. It is
   a large environment for when you need a lot of compute and/or memory resources because 
@@ -19,12 +19,12 @@ form:
   - bc_vnc_idle
   - desktop
   - account
-  - bc_num_hours
-  - gpus
+  - node_type
   - cores
+  - gpus
+  - bc_num_hours
   - bc_num_slots
   - licenses
-  - node_type
   - bc_queue
   - bc_vnc_resolution
   - bc_email_on_started
@@ -35,13 +35,14 @@ attributes:
     options:
       - ["Xfce", "xfce"]
       - ["Mate", "mate"]
+      - ["Gnome", "gnome"]
     help: |
       This will launch either the [Xfce] or [Mate] desktop environment on the
-      [Cardinal cluster].
+      [Ascend cluster].
 
       [Xfce]: https://xfce.org/
       [Mate]: https://mate-desktop.org/
-      [Cardinal cluster]: https://www.osc.edu/supercomputing/computing/Cardinal
+      [Ascend cluster]: https://www.osc.edu/resources/technical_support/supercomputers/ascend
   bc_queue: null
   account:
     label: "Project"
@@ -52,14 +53,15 @@ attributes:
       <%- end %>
   cores:
     widget: number_field
-    value: 48
+    value: 1
     min: 1
-    max: 48
+    max: 118
     step: 1
   gpus:
     widget: number_field
+    value: 0
     min: 0
-    max: 4
+    max: 2
   licenses:
     help: |
       Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
@@ -72,45 +74,37 @@ attributes:
     widget: select
     label: "Node type"
     help: |
-      - **Standard Compute** <br>
-        These are standard HPC machines. There are 326 of these machines with
-        96 cores. They all have 512 GB of RAM. Chosing any will decrease
-        your wait time.
-      - **GPU Enabled** <br>
-        These are HPC machines with [NVIDIA Tesla H100 GPUs]. They have 96
-        cores and  1 TB of RAM. 
-      - **Visualization Nodes** <br>
-        Visualization nodes are GPU enabled nodes with an X Server in the background
-        for 3D visualization using VirtualGL.
-      - **Huge Memory Nodes** <br>
-        Huge Memory nodes have 2 TB of memory for memory intensive workloads.
-        There are 16 of these machines on Cardinal.
-      Visit the OSC site for more [detailed information on the Cardinal cluster].
-      [detailed information on the Cardinal cluster]: https://www.osc.edu/resources/technical_support/supercomputers/cardinal
-      [NVIDIA Tesla H100 GPUs]: https://www.nvidia.com/en-us/data-center/h100/
+      - **any** - (*88 cores*) Chooses anyone of the available Ascend nodes.
+        This reduces the wait time as you have no requirements.
+      - **vis** - (*88 cores*) This node includes an NVIDIA Tesla A100 GPU with
+        an X server running in the background. This allows for Hardware
+        Rendering with the GPU typically needed for 3D visualization using
+        VirtualGL. There are currently only 10 of these nodes on Owens.
+      - **gpu** -  (*88 cores*) This node includes an NVIDIA Tesla A100 GPU
+        allowing for CUDA computations. There are currently only 96 of these
+        nodes on Ascend. These nodes don't start an X server, so visualization
+        with hardware rendering is not possible.
     options:
-      - [
-          "any", "any",
-          data-min-cores: 1,
-          data-max-cores: 96,
-          data-set-gpus: 0,
+      - [ 
+          "cpu", "any",
+          data-min-num-cores: 1,
+          data-min-gpus: 0,
+          data-max-gpus: 0,
+          data-max-num-cores: 118,
+          data-hide-gpus: true,
+        ]
+      - [ 
+          "gpu", "gpu-any",
+          data-min-gpus: 1,
+          data-max-gpus: 4,
+          data-min-num-cores: 1,
+          data-max-num-cores: 118,
         ]
       - [
-          "any gpu", "gpu-any",
-          data-min-cores: 1,
-          data-max-cores: 96,
-          data-set-gpus: 1,
-        ]
-      - [
-        "visualization node", "vis",
-        data-min-cores: 1,
-        data-max-cores: 96,
-        data-set-gpus: 1,
-        ]
-      - [
-        "hugemem node", "hugemem",
-        data-min-cores: 43,
-        data-max-cores: 96,
-        data-set-gpus: 1,
+          "vis", "vis",
+          data-min-gpus: 1,
+          data-max-gpus: 4,
+          data-min-num-cores: 1,
+          data-max-num-cores: 118,
         ]
 submit: submit/slurm.yml.erb

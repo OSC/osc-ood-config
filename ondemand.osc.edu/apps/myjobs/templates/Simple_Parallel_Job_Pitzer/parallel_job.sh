@@ -6,7 +6,6 @@
 #SBATCH --output=myscript.out
 #SBATCH --partition=parallel
 #SBATCH --nodes=4
-#SBATCH --exclusive
 
 #
 # Load MPI module

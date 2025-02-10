@@ -1,6 +1,5 @@
 #!/bin/bash
 #SBATCH -J ondemand/sys/myjobs/basic_python_serial
-#SBATCH --exclusive
 #SBATCH --time=0:10:00
 #SBATCH --nodes=1
 scontrol show job $SLURM_JOBID

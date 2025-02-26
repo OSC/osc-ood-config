@@ -29,6 +29,7 @@ attributes:
     options:
       - "pitzer"
       - ["ascend", "ascend-login" ]
+      - "ascend-nextgen"
       - "cardinal"
   desktop:
     widget: select
@@ -39,6 +40,7 @@ attributes:
       - [ 
           "Gnome", "gnome", 
           data-option-for-cluster-ascend-login: false,
+          data-option-for-cluster-ascend-nextgen: false,
           data-option-for-cluster-cardinal: false,
         ]
     help: |

@@ -28,6 +28,7 @@ attributes:
     widget: select
     options:
       - "pitzer"
+      - ["pitzer rhel9", "pitzer-rhel9-login" ]
       - "ascend"
       - "cardinal"
   desktop:

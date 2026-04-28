@@ -1,0 +1,13 @@
+# File managed by Puppet - DO NOT EDIT
+---
+globus_endpoints:
+- path: "<%= CurrentUser.home %>"
+  endpoint: '06758ab7-9cb0-4f90-b79f-098b41e90dcd'
+  endpoint_path: "/"
+- path: "/fs/ess"
+  endpoint: 11d7d168-a2a3-4f4b-9823-1901506948d4
+  endpoint_path: "/"
+- path: "/fs/scratch"
+  endpoint: 6c10def8-6b5a-4264-8e30-a384a78ad528
+  endpoint_path: "/"
+

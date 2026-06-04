@@ -32,10 +32,15 @@ class OndemandDTest < Minitest::Test
 
     assert missing.empty?, "Missing ondemand.d files:\n  #{missing.join("\n  ")}"
 
+    # totalsim's navigation is allowed to be different.
+    totalsim_nav = Pathname.new('apps.totalsim.us/ondemand.d/nav_bar.yml')
+
     # Compare file contents
     all_files.combination(2) do |a_files, b_files|
       a_files.zip(b_files) do |a, b|
-        assert FileUtils.cmp(a, b), "ondemand.d files differ:\n  #{a}\n  #{b}"
+        unless a == totalsim_nav || b == totalsim_nav
+          assert FileUtils.cmp(a, b), "ondemand.d files differ:\n  #{a}\n  #{b}"
+        end
       end
     end
   end

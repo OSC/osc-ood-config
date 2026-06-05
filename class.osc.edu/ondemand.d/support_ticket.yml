@@ -1,0 +1,26 @@
+support_ticket:
+  email:
+    to: oschelp@osc.edu
+  attributes:
+    email:
+      widget: email_field
+      required: true
+    description:
+      widget: text_area
+      value: |
+        Expected behavior:
+
+        Actual behavior:
+
+        Steps to reproduce:
+    cc:
+      widget: email_field
+  form:
+  - username
+  - email
+  - cc
+  - subject
+  - session_description
+  - description
+  - session_id
+

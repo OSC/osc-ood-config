@@ -14,7 +14,7 @@ OOD_BRAND_LINK_ACTIVE_BG_COLOR='#0a1012'
 OOD_DASHBOARD_DOCS_URL="https://www.osc.edu/ondemand"
 OOD_DASHBOARD_PASSWD_URL="https://my.osc.edu"
 
-OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json:/users/reporting/storage/quota/gpfs.project_quota.json:/users/reporting/storage/quota/gpfs.scratch_quota.json:/users/reporting/storage/quota/gpfs.ess_quota.json
+OOD_QUOTA_PATH=/users/reporting/storage/quota/netapp.netapp-home.ten.osc.edu-users_quota.json:/users/reporting/storage/quota/gpfs.scratch_quota.json:/users/reporting/storage/quota/gpfs.ess_quota.json
 
 OOD_BC_DYNAMIC_JS=1
 

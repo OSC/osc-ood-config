@@ -28,7 +28,6 @@ attributes:
     widget: select
     options:
       - "pitzer"
-      - ["pitzer rhel9", "pitzer-rhel9-login" ]
       - "ascend"
       - "cardinal"
   desktop:
@@ -39,7 +38,7 @@ attributes:
       - ["Mate", "mate"]
       - [ 
           "Gnome", "gnome", 
-          data-option-for-cluster-ascend-login: false,
+          data-option-for-cluster-ascend: false,
           data-option-for-cluster-cardinal: false,
         ]
     help: |

@@ -18,6 +18,8 @@ global_bc_form_items:
       - data-max-global-num-cores-for-cluster-cardinal: 96
       - data-max-global-num-cores-for-cluster-ascend: 118
       - data-max-global-num-cores-for-cluster-pitzer: 48
+      - data-hide-global-enable-vis: true
+      - data-set-global-enable-vis: 0
       - data-hide-global-gpu-type: true
       - data-hide-global-gpus: true
       - data-set-global-gpus: 0
@@ -43,6 +45,8 @@ global_bc_form_items:
       - data-max-global-num-cores-for-cluster-cardinal: 96
       - data-max-global-num-cores-for-cluster-ascend: 120
       - data-max-global-num-cores-for-cluster-pitzer: 48
+      - data-hide-global-enable-vis: false
+      - data-set-global-enable-vis: 0
       - data-hide-global-gpu-type: false
       - data-hide-global-gpus: false
       - data-set-global-gpus: 1
@@ -189,6 +193,10 @@ global_bc_form_items:
     label: "GPUs per node"
     widget: number_field
     display: true
+  global_enable_vis:
+    label: "Enable visualization"
+    widget: check_box
+    value: "0"
   global_enable_mem:
     label: "Set memory"
     widget: check_box

@@ -211,3 +211,9 @@ global_bc_form_items:
     label: "Use debug queue"
     widget: check_box
     value: "0"
+  global_licenses:
+    label: "Licenses"
+    help: |
+      Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
+      'stata@osc:1'.
+    pattern: '^([\w]+@osc:\d+,{0,1})+$'

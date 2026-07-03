@@ -38,3 +38,6 @@ OOD_MODULE_FILE_DIR="/users/reporting/lmod"
 OOD_UPCASE_ACCOUNTS=1
 
 OOD_BC_SIMPLE_AUTO_ACCOUNTS='true'
+
+# enable shared project discovery
+OOD_SHARED_PROJECT_PATH=/fs/ess/

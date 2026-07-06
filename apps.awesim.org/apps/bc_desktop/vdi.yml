@@ -7,29 +7,27 @@ description: |
   You should be provisioned a desktop nearly immediately.
 
   If you need dedicated resources for compute or memory intensive workloads use a
-  Desktop app like [Pitzer] or [Ascend] where you will have full access to them.
+  Desktop app like [Pitzer], [Ascend] or [Cardinal] where you will have full access to them.
 
   [Pitzer]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/pitzer/session_contexts/new
   [Ascend]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/ascend/session_contexts/new
+  [Cardinal]: /pun/sys/dashboard/batch_connect/sys/bc_desktop/cardinal/session_contexts/new
 form:
   - cluster
   - bc_vnc_idle
   - desktop
   - auto_accounts
   - bc_num_hours
-  - bc_num_slots
-  - licenses
-  - node_type
-  - bc_queue
+  - global_licenses
   - bc_vnc_resolution
   - bc_email_on_started
 attributes:
   cluster:
     widget: select
     options:
-      - "pitzer"
-      - "ascend"
-      - "cardinal"
+      - ["Pitzer", "pitzer"]
+      - ["Ascend", "ascend"]
+      - ["Cardinal", "cardinal"]
   desktop:
     widget: select
     label: "Desktop environment"
@@ -43,25 +41,13 @@ attributes:
         ]
     help: |
       This will launch either the [Xfce] or [Mate] desktop environment on the
-      [Owens] or [Pitzer] clusters.
+      [Pitzer], [Ascend] or [Cardinal] clusters.
 
       [Xfce]: https://xfce.org/
       [Mate]: https://mate-desktop.org/
-      [Owens]: https://www.osc.edu/resources/technical_support/supercomputers/owens
       [Pitzer]: https://www.osc.edu/resources/technical_support/supercomputers/pitzer
-  bc_num_slots: 1
-  bc_num_hours:
-    value: 8
-  bc_queue: null
-  licenses:
-    help: |
-      Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
-      'stata@osc:1'. More help can be found on our website regarding the changes
-      in the [slurm migration].
-
-      [slurm migration]: https://www.osc.edu/resources/technical_support/supercomputers/owens/environment_changes_in_slurm_migration
-    pattern: '^([\w]+@osc:\d+,{0,1})+$'
-  node_type: ":ppn=1"
+      [Ascend]: https://www.osc.edu/resources/technical_support/supercomputers/ascend
+      [Cardinal]: https://www.osc.edu/resources/technical_support/supercomputers/cardinal
   bc_email_on_started: 0
   bc_vnc_idle: 0
   bc_vnc_resolution:

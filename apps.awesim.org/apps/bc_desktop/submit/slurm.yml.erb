@@ -33,3 +33,7 @@ script:
   - "--gres"
   - "vis"
   <%- end %>
+  <%- if !global_licenses.empty? %>
+  - "--licenses"
+  - "<%= global_licenses %>"
+  <%- end %>

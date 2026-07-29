@@ -76,7 +76,6 @@ global_bc_form_items:
       - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 96
-      - data-min-global-gpus: 1
       - data-max-global-gpus: 4
       - data-set-global-mem: 4
       - data-min-global-mem: 4
@@ -92,7 +91,6 @@ global_bc_form_items:
       - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 120
-      - data-min-global-gpus: 1
       - data-max-global-gpus: 4
       - data-set-global-mem: 4
       - data-min-global-mem: 4
@@ -108,7 +106,6 @@ global_bc_form_items:
       - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 120
-      - data-min-global-gpus: 1
       - data-max-global-gpus: 3
       - data-set-global-mem: 4
       - data-min-global-mem: 4
@@ -124,7 +121,6 @@ global_bc_form_items:
       - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 88
-      - data-min-global-gpus: 1
       - data-max-global-gpus: 4
       - data-set-global-mem: 4
       - data-min-global-mem: 4
@@ -140,7 +136,6 @@ global_bc_form_items:
       - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
-      - data-min-global-gpus: 1
       - data-max-global-gpus: 2
       - data-set-global-mem: 4
       - data-min-global-mem: 4
@@ -156,7 +151,6 @@ global_bc_form_items:
       - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 40
-      - data-min-global-gpus: 1
       - data-max-global-gpus: 2
       - data-set-global-mem: 4
       - data-min-global-mem: 4
@@ -172,7 +166,6 @@ global_bc_form_items:
       - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
-      - data-min-global-gpus: 1
       - data-max-global-gpus: 2
       - data-set-global-mem: 4
       - data-min-global-mem: 4
@@ -188,7 +181,6 @@ global_bc_form_items:
       - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
-      - data-min-global-gpus: 3
       - data-max-global-gpus: 4
       - data-set-global-mem: 4
       - data-min-global-mem: 4

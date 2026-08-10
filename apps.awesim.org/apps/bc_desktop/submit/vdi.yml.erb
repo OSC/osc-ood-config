@@ -1,6 +1,4 @@
 <%-
-  args = [ "--partition", "quick", "--nodes", "1", "--ntasks-per-node", "1" ]
-  args.concat ["--licenses", "#{licenses}"] unless licenses.empty?
 -%>
 ---
 batch_connect:
@@ -16,6 +14,13 @@ batch_connect:
     export SLURM_EXPORT_ENV=ALL
 script:
   native:
-    <%- args.each do |arg| -%>
-    - "<%= arg %>"
-    <%- end -%>
+  - "--nodes"
+  - "1"
+  - "--ntasks-per-node"
+  - "1"
+  - "--partition"
+  - "quick"
+  <%- if !global_licenses.empty? %>
+  - "--licenses"
+  - "<%= global_licenses %>"
+  <%- end %>

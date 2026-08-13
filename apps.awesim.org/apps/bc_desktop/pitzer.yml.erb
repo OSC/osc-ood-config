@@ -8,7 +8,7 @@ description: |
   
   If you do not need all these resources, use the 
   [Lightweight Desktop](/pun/sys/dashboard/batch_connect/sys/bc_desktop/vdi/session_contexts/new)
-  app instead which is much more lightweight for general-purpose use cases.
+  app instead, which is much more efficient for general-purpose use cases.
 form:
   - bc_vnc_idle
   - desktop
@@ -35,10 +35,11 @@ attributes:
       - ["Mate", "mate"]
       - ["Gnome", "gnome"]
     help: |
-      This will launch either the [Xfce] or [Mate] desktop environment on the
+      This will launch either the [Xfce], [Mate] or [Gnome] desktop environment on the
       [Pitzer] cluster.
 
       [Xfce]: https://xfce.org/
       [Mate]: https://mate-desktop.org/
+      [Gnome]: https://www.gnome.org/
       [Pitzer]: https://www.osc.edu/resources/technical_support/supercomputers/pitzer
 submit: submit/slurm.yml.erb

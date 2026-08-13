@@ -38,3 +38,6 @@ OOD_MODULE_FILE_DIR="/users/reporting/lmod"
 OOD_UPCASE_ACCOUNTS=1
 
 OOD_BC_SIMPLE_AUTO_ACCOUNTS='true'
+
+# hide app version
+OOD_HIDE_APP_VERSION=1

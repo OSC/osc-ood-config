@@ -281,4 +281,3 @@ global_bc_form_items:
       - data-max-global-mem-for-cluster-cardinal: 864   # gpu
       - data-max-global-mem-for-cluster-ascend: 921     # quad
       - data-max-global-mem-for-cluster-pitzer: 363     # gpu, gpu-exp
-  global_gpu_type:

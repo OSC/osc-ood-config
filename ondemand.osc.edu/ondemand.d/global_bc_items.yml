@@ -5,15 +5,14 @@ global_bc_form_items:
     options:
     - - "CPU"
       - cpu-batch
+      - data-set-global-default-values: "cpu-batch"
       - data-hide-auto-modules-cuda: true
       - data-set-auto-modules-cuda: ''
       - data-set-global-enable-debug: 0
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
       - data-max-bc-num-nodes-for-cluster-ascend: 16
       - data-max-bc-num-nodes-for-cluster-pitzer: 36
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores-for-cluster-cardinal: 96
       - data-max-global-num-cores-for-cluster-ascend: 118
@@ -22,25 +21,23 @@ global_bc_form_items:
       - data-set-global-enable-vis: 0
       - data-hide-global-gpu-type: true
       - data-hide-global-gpus: true
-      - data-set-global-gpus: 0
       - data-min-global-gpus: 0
+      - data-max-global-gpus: 0
       - data-set-global-enable-mem: 0
       - data-hide-global-mem: true
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem-for-cluster-cardinal: 1860   # hugemem
       - data-max-global-mem-for-cluster-ascend: 921      # quad
       - data-max-global-mem-for-cluster-pitzer: 2988     # hugemem
     - - "GPU"
       - gpu-batch
+      - data-set-global-default-values: "gpu-batch"
       - data-hide-auto-modules-cuda: false
       - data-set-global-enable-debug: 0
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
       - data-max-bc-num-nodes-for-cluster-ascend: 16
       - data-max-bc-num-nodes-for-cluster-pitzer: 6
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores-for-cluster-cardinal: 96
       - data-max-global-num-cores-for-cluster-ascend: 120
@@ -49,14 +46,12 @@ global_bc_form_items:
       - data-set-global-enable-vis: 0
       - data-hide-global-gpu-type: false
       - data-hide-global-gpus: false
-      - data-set-global-gpus: 1
       - data-min-global-gpus: 1
       - data-max-global-gpus-for-cluster-cardinal: 4
       - data-max-global-gpus-for-cluster-ascend: 4
       - data-max-global-gpus-for-cluster-pitzer: 2
       - data-set-global-enable-mem: 0
       - data-hide-global-mem: true
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem-for-cluster-cardinal: 864   # gpu
       - data-max-global-mem-for-cluster-ascend: 921     # quad
@@ -70,14 +65,11 @@ global_bc_form_items:
       - data-option-for-cluster-cardinal: true
       - data-option-for-cluster-ascend: false
       - data-option-for-cluster-pitzer: false
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes: 12
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 96
       - data-max-global-gpus: 4
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 864
     - - "Any GPU"
@@ -85,14 +77,11 @@ global_bc_form_items:
       - data-option-for-cluster-cardinal: false
       - data-option-for-cluster-ascend: true
       - data-option-for-cluster-pitzer: false
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes: 16
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 120
       - data-max-global-gpus: 4
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 921
     - - "A100 40GB"
@@ -100,14 +89,11 @@ global_bc_form_items:
       - data-option-for-cluster-cardinal: false
       - data-option-for-cluster-ascend: true
       - data-option-for-cluster-pitzer: false
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes: 16
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 120
       - data-max-global-gpus: 3
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 472
     - - "A100 80GB"
@@ -115,14 +101,11 @@ global_bc_form_items:
       - data-option-for-cluster-cardinal: false
       - data-option-for-cluster-ascend: true
       - data-option-for-cluster-pitzer: false
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes: 4
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 88
       - data-max-global-gpus: 4
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 921
     - - "Any GPU"
@@ -130,14 +113,11 @@ global_bc_form_items:
       - data-option-for-cluster-cardinal: false
       - data-option-for-cluster-ascend: false
       - data-option-for-cluster-pitzer: true
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes: 6
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
       - data-max-global-gpus: 2
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 363
     - - "V100 16GB"
@@ -145,14 +125,11 @@ global_bc_form_items:
       - data-option-for-cluster-cardinal: false
       - data-option-for-cluster-ascend: false
       - data-option-for-cluster-pitzer: true
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes: 4
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 40
       - data-max-global-gpus: 2
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 363
     - - "V100 32GB"
@@ -160,14 +137,11 @@ global_bc_form_items:
       - data-option-for-cluster-cardinal: false
       - data-option-for-cluster-ascend: false
       - data-option-for-cluster-pitzer: true
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes: 6
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
       - data-max-global-gpus: 2
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 363
     - - "V100s 32GB (NVLink)"
@@ -175,24 +149,23 @@ global_bc_form_items:
       - data-option-for-cluster-cardinal: false
       - data-option-for-cluster-ascend: false
       - data-option-for-cluster-pitzer: true
-      - data-set-bc-num-nodes: 1
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes: 1
-      - data-set-global-num-cores: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
       - data-max-global-gpus: 4
-      - data-set-global-mem: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 744
   global_num_cores:
     label: "Number of cores per node"
     widget: number_field
     display: true
+    value: "1"
   global_gpus:
     label: "GPUs per node"
     widget: number_field
     display: true
+    value: "1"
   global_enable_vis:
     label: "Enable visualization"
     widget: check_box
@@ -200,6 +173,7 @@ global_bc_form_items:
   global_enable_mem:
     label: "Set memory"
     widget: check_box
+    value: "0"
     html_options:
       data:
         hide-global-mem-when-checked: false
@@ -207,6 +181,7 @@ global_bc_form_items:
     label: "Memory in GB"
     widget: number_field
     hide_by_default: true
+    value: "4"
   global_enable_debug:
     label: "Use debug queue"
     widget: check_box
@@ -217,3 +192,42 @@ global_bc_form_items:
       Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
       'stata@osc:1'.
     pattern: '^([\w]+@osc:\d+,{0,1})+$'
+  global_default_values:
+    label: "Default values"
+    hide_by_default: true
+    widget: select
+    options:
+    - - "CPU"
+      - cpu-batch
+      - data-min-bc-num-nodes: 1
+      - data-max-bc-num-nodes-for-cluster-cardinal: 12
+      - data-max-bc-num-nodes-for-cluster-ascend: 16
+      - data-max-bc-num-nodes-for-cluster-pitzer: 36
+      - data-min-global-num-cores: 1
+      - data-max-global-num-cores-for-cluster-cardinal: 96
+      - data-max-global-num-cores-for-cluster-ascend: 118
+      - data-max-global-num-cores-for-cluster-pitzer: 48
+      - data-min-global-gpus: 0
+      - data-max-global-gpus: 0
+      - data-min-global-mem: 4
+      - data-max-global-mem-for-cluster-cardinal: 1860   # hugemem
+      - data-max-global-mem-for-cluster-ascend: 921      # quad
+      - data-max-global-mem-for-cluster-pitzer: 2988     # hugemem
+    - - "GPU"
+      - gpu-batch
+      - data-min-bc-num-nodes: 1
+      - data-max-bc-num-nodes-for-cluster-cardinal: 12
+      - data-max-bc-num-nodes-for-cluster-ascend: 16
+      - data-max-bc-num-nodes-for-cluster-pitzer: 6
+      - data-min-global-num-cores: 1
+      - data-max-global-num-cores-for-cluster-cardinal: 96
+      - data-max-global-num-cores-for-cluster-ascend: 120
+      - data-max-global-num-cores-for-cluster-pitzer: 48
+      - data-min-global-gpus: 1
+      - data-max-global-gpus-for-cluster-cardinal: 4
+      - data-max-global-gpus-for-cluster-ascend: 4
+      - data-max-global-gpus-for-cluster-pitzer: 2
+      - data-min-global-mem: 4
+      - data-max-global-mem-for-cluster-cardinal: 864   # gpu
+      - data-max-global-mem-for-cluster-ascend: 921     # quad
+      - data-max-global-mem-for-cluster-pitzer: 363     # gpu, gpu-exp

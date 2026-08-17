@@ -8,7 +8,11 @@ global_bc_form_items:
       - data-set-global-default-values: "cpu-batch"
       - data-hide-auto-modules-cuda: true
       - data-set-auto-modules-cuda: ''
-      - data-set-global-enable-debug: 0
+      - data-hide-global-enable-vis: true
+      - data-set-global-enable-vis: 0
+      - data-hide-global-gpu-type: true
+      - data-hide-global-gpus: true
+      - data-hide-global-mem: true
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
       - data-max-bc-num-nodes-for-cluster-ascend: 16
@@ -17,14 +21,8 @@ global_bc_form_items:
       - data-max-global-num-cores-for-cluster-cardinal: 96
       - data-max-global-num-cores-for-cluster-ascend: 118
       - data-max-global-num-cores-for-cluster-pitzer: 48
-      - data-hide-global-enable-vis: true
-      - data-set-global-enable-vis: 0
-      - data-hide-global-gpu-type: true
-      - data-hide-global-gpus: true
       - data-min-global-gpus: 0
       - data-max-global-gpus: 0
-      - data-set-global-enable-mem: 0
-      - data-hide-global-mem: true
       - data-min-global-mem: 4
       - data-max-global-mem-for-cluster-cardinal: 1860   # hugemem
       - data-max-global-mem-for-cluster-ascend: 921      # quad
@@ -33,7 +31,10 @@ global_bc_form_items:
       - gpu-batch
       - data-set-global-default-values: "gpu-batch"
       - data-hide-auto-modules-cuda: false
-      - data-set-global-enable-debug: 0
+      - data-hide-global-enable-vis: false
+      - data-hide-global-gpu-type: false
+      - data-hide-global-gpus: false
+      - data-hide-global-mem: true
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
       - data-max-bc-num-nodes-for-cluster-ascend: 16
@@ -42,16 +43,10 @@ global_bc_form_items:
       - data-max-global-num-cores-for-cluster-cardinal: 96
       - data-max-global-num-cores-for-cluster-ascend: 120
       - data-max-global-num-cores-for-cluster-pitzer: 48
-      - data-hide-global-enable-vis: false
-      - data-set-global-enable-vis: 0
-      - data-hide-global-gpu-type: false
-      - data-hide-global-gpus: false
       - data-min-global-gpus: 1
       - data-max-global-gpus-for-cluster-cardinal: 4
       - data-max-global-gpus-for-cluster-ascend: 4
       - data-max-global-gpus-for-cluster-pitzer: 2
-      - data-set-global-enable-mem: 0
-      - data-hide-global-mem: true
       - data-min-global-mem: 4
       - data-max-global-mem-for-cluster-cardinal: 864   # gpu
       - data-max-global-mem-for-cluster-ascend: 921     # quad
@@ -153,6 +148,7 @@ global_bc_form_items:
       - data-max-bc-num-nodes: 1
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
+      - data-min-global-gpus: 3
       - data-max-global-gpus: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 744
@@ -191,6 +187,7 @@ global_bc_form_items:
     help: |
       Licenses are comma separeated in the format '\<name\>@osc:\<# of licenses\>' like
       'stata@osc:1'.
+    values: ''
     pattern: '^([\w]+@osc:\d+,{0,1})+$'
   global_default_values:
     label: "Default values"

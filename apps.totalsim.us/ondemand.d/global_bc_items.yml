@@ -12,7 +12,7 @@ global_bc_form_items:
       - data-set-global-enable-vis: 0
       - data-hide-global-gpu-type: true
       - data-hide-global-gpus: true
-      - data-hide-global-mem: true
+      - data-set-global-gpus: 0
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
       - data-max-bc-num-nodes-for-cluster-ascend: 16
@@ -21,8 +21,6 @@ global_bc_form_items:
       - data-max-global-num-cores-for-cluster-cardinal: 96
       - data-max-global-num-cores-for-cluster-ascend: 118
       - data-max-global-num-cores-for-cluster-pitzer: 48
-      - data-min-global-gpus: 0
-      - data-max-global-gpus: 0
       - data-min-global-mem: 4
       - data-max-global-mem-for-cluster-cardinal: 1860   # hugemem
       - data-max-global-mem-for-cluster-ascend: 921      # quad
@@ -34,7 +32,6 @@ global_bc_form_items:
       - data-hide-global-enable-vis: false
       - data-hide-global-gpu-type: false
       - data-hide-global-gpus: false
-      - data-hide-global-mem: true
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
       - data-max-bc-num-nodes-for-cluster-ascend: 16
@@ -173,7 +170,6 @@ global_bc_form_items:
     html_options:
       data:
         hide-global-mem-when-checked: false
-        hide-global-mem-when-un-checked: true
   global_mem:
     label: "Memory in GB"
     widget: number_field
@@ -205,8 +201,6 @@ global_bc_form_items:
       - data-max-global-num-cores-for-cluster-cardinal: 96
       - data-max-global-num-cores-for-cluster-ascend: 118
       - data-max-global-num-cores-for-cluster-pitzer: 48
-      - data-min-global-gpus: 0
-      - data-max-global-gpus: 0
       - data-min-global-mem: 4
       - data-max-global-mem-for-cluster-cardinal: 1860   # hugemem
       - data-max-global-mem-for-cluster-ascend: 921      # quad

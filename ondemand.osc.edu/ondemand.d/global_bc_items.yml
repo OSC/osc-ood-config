@@ -173,6 +173,7 @@ global_bc_form_items:
     html_options:
       data:
         hide-global-mem-when-checked: false
+        hide-global-mem-when-un-checked: true
   global_mem:
     label: "Memory in GB"
     widget: number_field

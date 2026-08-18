@@ -26,7 +26,9 @@ global_bc_form_items:
       - data-max-global-mem-for-cluster-cardinal: 1860   # hugemem
       - data-max-global-mem-for-cluster-ascend: 464      # batch/nextgen, no GPU
       - data-max-global-mem-for-cluster-pitzer: 2988     # hugemem
-      - data-help-global-mem: ''
+      - data-help-global-mem-for-cluster-cardinal: ''
+      - data-help-global-mem-for-cluster-ascend: ''
+      - data-help-global-mem-for-cluster-pitzer: ''
     - - "GPU"
       - gpu-batch
       - data-set-global-default-values: "gpu-batch"

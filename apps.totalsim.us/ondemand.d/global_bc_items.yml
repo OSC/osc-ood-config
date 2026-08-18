@@ -26,9 +26,7 @@ global_bc_form_items:
       - data-max-global-mem-for-cluster-cardinal: 1860   # hugemem
       - data-max-global-mem-for-cluster-ascend: 464      # batch/nextgen, no GPU
       - data-max-global-mem-for-cluster-pitzer: 2988     # hugemem
-      - data-help-global-mem-for-cluster-cardinal: ''
-      - data-help-global-mem-for-cluster-ascend: ''
-      - data-help-global-mem-for-cluster-pitzer: ''
+      - data-help-global-mem: ''
     - - "GPU"
       - gpu-batch
       - data-set-global-default-values: "gpu-batch"
@@ -52,12 +50,7 @@ global_bc_form_items:
       - data-max-global-mem-for-cluster-cardinal: 864   # gpu
       - data-max-global-mem-for-cluster-ascend: 921     # quad/batch, 4 GPUs
       - data-max-global-mem-for-cluster-pitzer: 363     # gpu, gpu-exp
-      - data-help-global-mem-for-cluster-cardinal: ''
-      - data-help-global-mem-for-cluster-pitzer: ''
-      - data-help-global-mem-for-cluster-ascend: |
-          The maximum memory allowance varies based on the number of GPUs. For details, refer to the [Batch Limit Rules].
-
-          [Batch Limit Rules]: https://www.osc.edu/resources/technical_support/supercomputers/ascend/batch_limit_rules
+      - data-help-global-mem: "The maximum memory allowance may depend on the number of GPUs. For details, refer to the cluster's batch limit rules page."
   global_gpu_type:
     label: "GPU types"
     widget: select

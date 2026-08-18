@@ -17,10 +17,13 @@ script:
   gpus_per_node: <%= global_gpus %>
   <%- end %>
   native:
+  # set nodes
   - "--nodes"
   - "<%= bc_num_nodes.to_i %>"
+  # set cpus per node
   - "--ntasks-per-node"
   - "<%= global_num_cores.to_i %>"
+  # set partition
   - "--partition"
   <%- if global_enable_debug.to_i == 1 -%>
   - "debug"
@@ -29,10 +32,17 @@ script:
   <%- else %>
   - "batch"
   <%- end %>
+  # set memory
+  <%- if global_enable_mem.to_i == 1  -%>
+  - "--mem"
+  - "<%= global_mem.to_i%>G"
+  <%- end %>
+  # set visualization
   <%- if global_enable_vis.to_i == 1 -%>
   - "--gres"
   - "vis"
   <%- end %>
+  # set license
   <%- if !global_licenses.empty? %>
   - "--licenses"
   - "<%= global_licenses %>"

@@ -64,6 +64,7 @@ global_bc_form_items:
       - data-max-bc-num-nodes: 12
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 96
+      - data-min-global-gpus: 1
       - data-max-global-gpus: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 864
@@ -76,6 +77,7 @@ global_bc_form_items:
       - data-max-bc-num-nodes: 16
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 120
+      - data-min-global-gpus: 1
       - data-max-global-gpus: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 921
@@ -88,6 +90,7 @@ global_bc_form_items:
       - data-max-bc-num-nodes: 16
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 120
+      - data-min-global-gpus: 1
       - data-max-global-gpus: 3
       - data-min-global-mem: 4
       - data-max-global-mem: 471
@@ -100,6 +103,7 @@ global_bc_form_items:
       - data-max-bc-num-nodes: 4
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 88
+      - data-min-global-gpus: 1
       - data-max-global-gpus: 4
       - data-min-global-mem: 4
       - data-max-global-mem: 921
@@ -112,6 +116,7 @@ global_bc_form_items:
       - data-max-bc-num-nodes: 6
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
+      - data-min-global-gpus: 1
       - data-max-global-gpus: 2
       - data-min-global-mem: 4
       - data-max-global-mem: 363
@@ -124,6 +129,7 @@ global_bc_form_items:
       - data-max-bc-num-nodes: 4
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 40
+      - data-min-global-gpus: 1
       - data-max-global-gpus: 2
       - data-min-global-mem: 4
       - data-max-global-mem: 363
@@ -136,6 +142,7 @@ global_bc_form_items:
       - data-max-bc-num-nodes: 6
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 48
+      - data-min-global-gpus: 1
       - data-max-global-gpus: 2
       - data-min-global-mem: 4
       - data-max-global-mem: 363

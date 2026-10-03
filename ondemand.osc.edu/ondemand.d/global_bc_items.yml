@@ -14,7 +14,7 @@ global_bc_form_items:
       - data-hide-global-gpus: true
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
-      - data-max-bc-num-nodes-for-cluster-ascend: 16
+      - data-max-bc-num-nodes-for-cluster-ascend: 48
       - data-max-bc-num-nodes-for-cluster-pitzer: 36
       - data-min-global-num-cores: 1
       - data-max-global-num-cores-for-cluster-cardinal: 96
@@ -36,7 +36,7 @@ global_bc_form_items:
       - data-hide-global-gpus: false
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
-      - data-max-bc-num-nodes-for-cluster-ascend: 16
+      - data-max-bc-num-nodes-for-cluster-ascend: 48
       - data-max-bc-num-nodes-for-cluster-pitzer: 6
       - data-min-global-num-cores: 1
       - data-max-global-num-cores-for-cluster-cardinal: 96
@@ -74,7 +74,7 @@ global_bc_form_items:
       - data-option-for-cluster-ascend: true
       - data-option-for-cluster-pitzer: false
       - data-min-bc-num-nodes: 1
-      - data-max-bc-num-nodes: 16
+      - data-max-bc-num-nodes: 48
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 120
       - data-min-global-gpus: 1
@@ -87,7 +87,7 @@ global_bc_form_items:
       - data-option-for-cluster-ascend: true
       - data-option-for-cluster-pitzer: false
       - data-min-bc-num-nodes: 1
-      - data-max-bc-num-nodes: 16
+      - data-max-bc-num-nodes: 48
       - data-min-global-num-cores: 1
       - data-max-global-num-cores: 120
       - data-min-global-gpus: 1
@@ -204,7 +204,7 @@ global_bc_form_items:
       - cpu-batch
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
-      - data-max-bc-num-nodes-for-cluster-ascend: 16
+      - data-max-bc-num-nodes-for-cluster-ascend: 48
       - data-max-bc-num-nodes-for-cluster-pitzer: 36
       - data-min-global-num-cores: 1
       - data-max-global-num-cores-for-cluster-cardinal: 96
@@ -220,7 +220,7 @@ global_bc_form_items:
       - gpu-batch
       - data-min-bc-num-nodes: 1
       - data-max-bc-num-nodes-for-cluster-cardinal: 12
-      - data-max-bc-num-nodes-for-cluster-ascend: 16
+      - data-max-bc-num-nodes-for-cluster-ascend: 48
       - data-max-bc-num-nodes-for-cluster-pitzer: 6
       - data-min-global-num-cores: 1
       - data-max-global-num-cores-for-cluster-cardinal: 96
